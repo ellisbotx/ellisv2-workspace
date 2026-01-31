@@ -2,38 +2,33 @@
 
 Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
 
-## What Goes Here
+---
 
-Things like:
+## 1Password
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+- **Account:** ellisbotx@gmail.com
+- **URL:** https://my.1password.com/
+- **Vault:** Private
+- **CLI:** op v2.32.0
+- **Integration:** Desktop app (must be unlocked to use CLI)
 
-## Examples
+**Usage:** Run `op` commands in tmux session for auth persistence.
 
-```markdown
-### Cameras
+---
 
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
+## GitHub
 
-### SSH
+- **Account:** ellisbotx
+- **Auth:** gh CLI (keyring)
+- **Workspace repo:** https://github.com/ellisbotx/ellisv2-workspace.git
 
-- home-server → 192.168.1.100, user: admin
+---
 
-### TTS
+## Pending Setup
 
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+- Seller Central API credentials (×3 accounts)
+- Sellerboard API credentials
+- Google Sheets API access
 
 ---
 
