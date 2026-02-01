@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trifecta Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff, #a371f7, #f778ba);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .period {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        .period span {
+            color: #58a6ff;
+            font-weight: 600;
+        }
+        
+        /* Top Metrics */
+        .top-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .metric-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 28px;
+        }
+        
+        .metric-card.highlight {
+            border-color: #388bfd;
+            box-shadow: 0 0 20px rgba(56, 139, 253, 0.1);
+        }
+        
+        .metric-label {
+            font-size: 14px;
+            color: #8b949e;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .metric-value {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value.profit {
+            color: #3fb950;
+        }
+        
+        .metric-change {
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .metric-change.down {
+            color: #f85149;
+        }
+        
+        .metric-change.up {
+            color: #3fb950;
+        }
+        
+        /* Brand Cards */
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #8b949e;
+        }
+        
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .brand-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .brand-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #30363d;
+        }
+        
+        .brand-name.black-owned { color: #f0883e; }
+        .brand-name.cardplug { color: #a371f7; }
+        .brand-name.kinfolk { color: #58a6ff; }
+        
+        .brand-stats {
+            display: grid;
+            gap: 16px;
+        }
+        
+        .brand-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand-stat-label {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        
+        .brand-stat-value {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .brand-stat-value.profit {
+            color: #3fb950;
+        }
+        
+        /* Alerts Section */
+        .alerts {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        
+        .alert-list {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .alert-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: #0d1117;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .alert-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .alert-dot.red { background: #f85149; }
+        .alert-dot.yellow { background: #d29922; }
+        .alert-dot.green { background: #3fb950; }
+        
+        .updated {
+            text-align: center;
+            margin-top: 40px;
+            color: #484f58;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">◆ Trifecta</div>
+        <div class="period">Last <span>30 Days</span> • January 2026</div>
+    </div>
+    
+    <div class="top-metrics">
+        <div class="metric-card highlight">
+            <div class="metric-label">Total Sales</div>
+            <div class="metric-value">$52,602</div>
+            <div class="metric-change down">
+                <span>↓</span> 73.8% vs prior 30 days
+            </div>
+        </div>
+        
+        <div class="metric-card">
+            <div class="metric-label">Total Profit</div>
+            <div class="metric-value profit">$14,933</div>
+            <div class="metric-change down">
+                <span>↓</span> 82.3% vs prior 30 days
+            </div>
+        </div>
+        
+        <div class="metric-card">
+            <div class="metric-label">Profit Margin</div>
+            <div class="metric-value">28.4%</div>
+            <div class="metric-change down">
+                <span>↓</span> from 41.2%
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-title">By Brand</div>
+    <div class="brand-grid">
+        <div class="brand-card">
+            <div class="brand-name black-owned">Black Owned</div>
+            <div class="brand-stats">
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Sales</span>
+                    <span class="brand-stat-value">$17,863</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Profit</span>
+                    <span class="brand-stat-value profit">$3,587</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Units</span>
+                    <span class="brand-stat-value">732</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Margin</span>
+                    <span class="brand-stat-value">20.1%</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="brand-card">
+            <div class="brand-name cardplug">Card Plug</div>
+            <div class="brand-stats">
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Sales</span>
+                    <span class="brand-stat-value">$19,636</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Profit</span>
+                    <span class="brand-stat-value profit">$7,902</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Units</span>
+                    <span class="brand-stat-value">996</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Margin</span>
+                    <span class="brand-stat-value">40.2%</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="brand-card">
+            <div class="brand-name kinfolk">Kinfolk</div>
+            <div class="brand-stats">
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Sales</span>
+                    <span class="brand-stat-value">$15,103</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Profit</span>
+                    <span class="brand-stat-value profit">$3,444</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Units</span>
+                    <span class="brand-stat-value">728</span>
+                </div>
+                <div class="brand-stat">
+                    <span class="brand-stat-label">Margin</span>
+                    <span class="brand-stat-value">22.8%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section-title">Alerts</div>
+    <div class="alerts">
+        <div class="alert-list">
+            <div class="alert-item">
+                <div class="alert-dot red"></div>
+                <span><strong>Low Stock:</strong> Soul Trivia (CardPlug) — 70 units remaining</span>
+            </div>
+            <div class="alert-item">
+                <div class="alert-dot red"></div>
+                <span><strong>Low Stock:</strong> Kinfolk Mic Drop — 92 units remaining</span>
+            </div>
+            <div class="alert-item">
+                <div class="alert-dot yellow"></div>
+                <span><strong>High Refunds:</strong> 392 returns this month (16% rate)</span>
+            </div>
+            <div class="alert-item">
+                <div class="alert-dot green"></div>
+                <span><strong>Top Performer:</strong> Card Plug maintaining 40%+ margin despite slowdown</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="updated">
+        Data last updated: January 31, 2026 at 6:30 PM CT • Pulled from Sellerboard
+    </div>
+</body>
+</html>

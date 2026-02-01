@@ -66,4 +66,8 @@
 
 ## Lessons & Notes
 
-*(Add permanent learnings here as we go)*
+**Communication Setup (Jan 31, 2026):**
+- Single main Telegram DM for all conversation
+- Spawn sub-agents for heavy/long-running work (reports, analysis, research)
+- Keep main chat responsive — don't block on complex tasks
+- Sub-agents report back when done
