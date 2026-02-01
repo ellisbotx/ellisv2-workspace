@@ -157,6 +157,273 @@
             color: #3fb950;
         }
         
+        /* ASIN Monitor Section - Redesigned */
+        .asin-monitor {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 40px;
+        }
+        
+        .asin-monitor-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 32px;
+        }
+        
+        .asin-health {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+        
+        .health-ring {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .health-ring svg {
+            transform: rotate(-90deg);
+            width: 100px;
+            height: 100px;
+        }
+        
+        .health-ring-bg {
+            fill: none;
+            stroke: #21262d;
+            stroke-width: 8;
+        }
+        
+        .health-ring-progress {
+            fill: none;
+            stroke: #3fb950;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+        
+        .health-ring-progress.warning {
+            stroke: #d29922;
+        }
+        
+        .health-ring-progress.danger {
+            stroke: #f85149;
+        }
+        
+        .health-ring-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .health-percent {
+            font-size: 24px;
+            font-weight: 700;
+            color: #3fb950;
+        }
+        
+        .health-percent.warning { color: #d29922; }
+        .health-percent.danger { color: #f85149; }
+        
+        .health-label {
+            font-size: 11px;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .asin-health-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #3fb950;
+        }
+        
+        .asin-health-info h3.warning { color: #d29922; }
+        .asin-health-info h3.danger { color: #f85149; }
+        
+        .asin-health-info p {
+            color: #8b949e;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        
+        .last-checked {
+            font-size: 12px;
+            color: #484f58;
+        }
+        
+        .last-checked span {
+            color: #8b949e;
+        }
+        
+        .brand-pills {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .brand-pill {
+            background: #21262d;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .brand-pill-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        
+        .brand-pill-dot.black-owned { background: #f0883e; }
+        .brand-pill-dot.cardplug { background: #a371f7; }
+        .brand-pill-dot.kinfolk { background: #58a6ff; }
+        
+        .brand-pill-count {
+            color: #8b949e;
+        }
+        
+        .brand-pill-count span {
+            color: #e6edf3;
+            font-weight: 600;
+        }
+        
+        .brand-pill-count span.alert {
+            color: #f85149;
+        }
+        
+        /* Suppression List - Redesigned */
+        .suppression-section {
+            border-top: 1px solid #30363d;
+            padding-top: 24px;
+        }
+        
+        .suppression-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .suppression-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8b949e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .suppression-count-badge {
+            background: #f85149;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+        
+        .suppression-count-badge.clear {
+            background: #238636;
+        }
+        
+        .suppression-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        
+        .suppression-card {
+            background: linear-gradient(135deg, rgba(248, 81, 73, 0.1) 0%, rgba(248, 81, 73, 0.05) 100%);
+            border: 1px solid rgba(248, 81, 73, 0.3);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .suppression-card-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(248, 81, 73, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .suppression-card-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .suppression-card-brand {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .suppression-card-brand.black-owned { color: #f0883e; }
+        .suppression-card-brand.cardplug { color: #a371f7; }
+        .suppression-card-brand.kinfolk { color: #58a6ff; }
+        
+        .suppression-card-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .suppression-card-asin {
+            font-size: 12px;
+            color: #8b949e;
+            font-family: 'SF Mono', Monaco, monospace;
+        }
+        
+        .suppression-card-days {
+            background: rgba(248, 81, 73, 0.2);
+            color: #f85149;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+        
+        .all-clear-message {
+            text-align: center;
+            padding: 24px;
+            background: rgba(35, 134, 54, 0.1);
+            border: 1px solid rgba(35, 134, 54, 0.2);
+            border-radius: 10px;
+        }
+        
+        .all-clear-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .all-clear-text {
+            color: #3fb950;
+            font-weight: 500;
+        }
+        
         /* Alerts Section */
         .alerts {
             background: #161b22;
@@ -299,6 +566,55 @@
         </div>
     </div>
     
+    <div class="section-title">ASIN Suppression Monitor</div>
+    <div class="asin-monitor">
+        <div class="asin-monitor-header">
+            <div class="asin-health">
+                <div class="health-ring">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="health-ring-bg" cx="50" cy="50" r="40"/>
+                        <circle class="health-ring-progress" cx="50" cy="50" r="40"/>
+                    </svg>
+                    <div class="health-ring-text">
+                        <div class="health-percent">100%</div>
+                        <div class="health-label">Healthy</div>
+                    </div>
+                </div>
+                <div class="asin-health-info">
+                    <h3>All Clear</h3>
+                    <p>186 of 186 ASINs visible in Amazon search</p>
+                    <div class="last-checked">Last checked: <span>Jan 31, 2026 at 8:08 PM</span></div>
+                </div>
+            </div>
+            <div class="brand-pills">
+                <div class="brand-pill">
+                    <div class="brand-pill-dot black-owned"></div>
+                    <div class="brand-pill-count"><span>48</span> Black Owned</div>
+                </div>
+                <div class="brand-pill">
+                    <div class="brand-pill-dot cardplug"></div>
+                    <div class="brand-pill-count"><span>92</span> Card Plug</div>
+                </div>
+                <div class="brand-pill">
+                    <div class="brand-pill-dot kinfolk"></div>
+                    <div class="brand-pill-count"><span>46</span> Kinfolk</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="suppression-section">
+            <div class="suppression-section-header">
+                <div class="suppression-section-title">Suppressed ASINs</div>
+                <div class="suppression-count-badge clear">0 Issues</div>
+            </div>
+            
+            <div class="all-clear-message">
+                <div class="all-clear-icon">✓</div>
+                <div class="all-clear-text">All products showing in Amazon search — no action needed</div>
+            </div>
+        </div>
+    </div>
+    
     <div class="section-title">Alerts</div>
     <div class="alerts">
         <div class="alert-list">
@@ -322,7 +638,7 @@
     </div>
     
     <div class="updated">
-        Data last updated: January 31, 2026 at 6:30 PM CT • Pulled from Sellerboard
+        Data last updated: January 31, 2026 at 8:02 PM CT • ASIN check: Daily at 1 AM
     </div>
 </body>
 </html>

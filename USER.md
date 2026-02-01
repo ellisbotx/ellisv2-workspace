@@ -6,6 +6,12 @@
 - **Timezone:** *(TBD — need to confirm)*
 - **Notes:** Founder/operator of a card game company portfolio
 
+## Communication Preferences
+
+- **Proactive notifications:** 7 AM - 9 PM CST only (alerts, reports, reminders)
+- **Responding to you:** Anytime — if you message me, I reply
+- No unsolicited messages outside business hours unless truly urgent
+
 ## Context
 
 **Business Overview:**
