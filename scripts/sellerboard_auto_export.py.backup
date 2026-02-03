@@ -1,0 +1,962 @@
+#!/usr/bin/env python3
+"""Automated Sellerboard export downloader using browser automation.
+
+This script:
+1. Logs into Sellerboard using 1Password credentials
+2. Switches between 3 brands (Black Owned, Card Plug, Kinfolk)
+3. Downloads "Dashboard by product" CSV exports for last 90 days
+4. Processes the exports into sku_velocity.json
+
+Usage:
+  python3 sellerboard_auto_export.py [--dry-run] [--no-process]
+
+Options:
+  --dry-run: Run without downloading (test navigation only)
+  --no-process: Download CSVs but don't process into JSON
+  --headless: Run browser in headless mode (default: headed for debugging)
+"""
+
+import argparse
+import json
+import logging
+import subprocess
+import sys
+import time
+from datetime import datetime, timedelta
+from pathlib import Path
+
+# Try to import playwright, provide helpful error if missing
+try:
+    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
+except ImportError:
+    print("ERROR: Playwright not installed. Install with:")
+    print("  pip install playwright")
+    print("  playwright install chromium")
+    sys.exit(1)
+
+# Import the processing function from existing script
+sys.path.insert(0, str(Path(__file__).parent))
+from sellerboard_export import update_velocity_data
+
+# Configuration
+DATA_DIR = Path("/Users/ellisbot/.openclaw/workspace/data/sellerboard")
+LOG_FILE = DATA_DIR / "auto_export.log"
+SCREENSHOT_DIR = DATA_DIR / "screenshots"
+
+# Ensure directories exist
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
+
+# Brands to export (UI name -> filename prefix)
+BRANDS = {
+    "Summary Dashboard": "blackowned",  # srgrier45 (Black Owned)
+    "CardPlug": "cardplug",
+    "Kinfolk": "kinfolk",
+}
+
+# URLs
+LOGIN_URL = "https://app.sellerboard.com/login"
+REPORTS_URL = "https://app.sellerboard.com/en/export"
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    handlers=[
+        logging.FileHandler(LOG_FILE),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+
+def get_credentials():
+    """Fetch Sellerboard credentials from 1Password."""
+    try:
+        result = subprocess.run(
+            ["op", "item", "get", "sellerboard", "--fields", "label=username,label=password", "--format", "json"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        creds = json.loads(result.stdout)
+        username = next(c["value"] for c in creds if c["label"] == "username")
+        password = next(c["value"] for c in creds if c["label"] == "password")
+        return username, password
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Failed to get credentials from 1Password: {e}")
+        logger.error(f"Make sure you're authenticated: op signin")
+        raise
+    except Exception as e:
+        logger.error(f"Error parsing credentials: {e}")
+        raise
+
+
+def take_screenshot(page, name: str):
+    """Take a screenshot for debugging."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filepath = SCREENSHOT_DIR / f"{timestamp}_{name}.png"
+    page.screenshot(path=str(filepath))
+    logger.info(f"Screenshot saved: {filepath}")
+    return filepath
+
+
+def close_popups(page, aggressive=False):
+    """Close any modal popups or overlays."""
+    popup_closed = False
+    
+    # First: Remove modal backdrops via JavaScript (most reliable)
+    try:
+        removed = page.evaluate('''
+            () => {
+                const backdrops = document.querySelectorAll('.modal-backdrop, [class*="modal-backdrop"], [class*="overlay"]');
+                backdrops.forEach(el => el.remove());
+                const modals = document.querySelectorAll('.modal, [class*="modal"]');
+                modals.forEach(el => {
+                    if (el.style.display !== 'none') {
+                        el.style.display = 'none';
+                    }
+                });
+                return backdrops.length + modals.length;
+            }
+        ''')
+        if removed > 0:
+            logger.info(f"Removed {removed} modal elements via JavaScript")
+            popup_closed = True
+            time.sleep(1)
+    except Exception as e:
+        logger.debug(f"JavaScript modal removal failed: {e}")
+    
+    # Second: Try clicking close buttons
+    popup_selectors = [
+        'button:has-text("×")',
+        'button[aria-label="Close"]',
+        'button.close',
+        '.close',
+        '[class*="modal"] button:has-text("Close")',
+        '[class*="popup"] button:has-text("Close")',
+        'button:has-text("Got it")',
+        'button:has-text("OK")',
+        'button:has-text("Dismiss")',
+        'button:has-text("Skip")',
+        'button:has-text("No thanks")',
+    ]
+    
+    for selector in popup_selectors:
+        try:
+            elements = page.locator(selector).all()
+            for element in elements:
+                if element.is_visible(timeout=1000):
+                    element.click()
+                    popup_closed = True
+                    logger.info(f"Closed popup with selector: {selector}")
+                    time.sleep(1)
+                    break
+            if popup_closed and not aggressive:
+                break
+        except:
+            continue
+    
+    # Third: ESC key to dismiss modals
+    if aggressive or popup_closed:
+        try:
+            page.keyboard.press("Escape")
+            time.sleep(0.5)
+            logger.info("Pressed ESC to dismiss modals")
+        except:
+            pass
+    
+    return popup_closed
+
+
+def login(page, username: str, password: str, max_retries: int = 3):
+    """Login to Sellerboard with retry logic."""
+    for attempt in range(max_retries):
+        try:
+            logger.info(f"Navigating to app (will redirect to login) (attempt {attempt + 1}/{max_retries})...")
+            # Navigate to reports page - it will redirect to login if not authenticated
+            page.goto(REPORTS_URL, wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_load_state("networkidle", timeout=15000)
+            
+            # Wait for login form (should appear after redirect)
+            logger.info("Waiting for login form...")
+            page.wait_for_selector('input[type="email"], input[name="email"], input#email, input[type="text"]', timeout=15000)
+            
+            take_screenshot(page, "01_login_page")
+            
+            # Fill in credentials
+            logger.info(f"Entering credentials for {username}...")
+            # Find email input - try multiple strategies
+            email_selectors = [
+                'input[placeholder*="mail" i]',
+                'input[type="text"]:first-of-type',
+                'input[name*="mail" i]',
+                'input[id*="mail" i]'
+            ]
+            
+            email_filled = False
+            for selector in email_selectors:
+                try:
+                    email_input = page.locator(selector).first
+                    if email_input.is_visible(timeout=2000):
+                        email_input.fill(username)
+                        email_filled = True
+                        logger.info(f"Filled email with selector: {selector}")
+                        break
+                except:
+                    continue
+            
+            if not email_filled:
+                raise Exception("Could not find email input field")
+            
+            # Find password input
+            password_input = page.locator('input[type="password"]').first
+            password_input.fill(password)
+            logger.info("Filled password")
+            
+            take_screenshot(page, "02_credentials_filled")
+            
+            # Click login button
+            logger.info("Clicking login button...")
+            login_buttons = [
+                'button:has-text("Continue")',
+                'button[type="submit"]',
+                'button:has-text("Log in")',
+                'button:has-text("Sign in")'
+            ]
+            
+            button_clicked = False
+            for selector in login_buttons:
+                try:
+                    button = page.locator(selector).first
+                    if button.is_visible(timeout=2000):
+                        button.click()
+                        button_clicked = True
+                        logger.info(f"Clicked button with selector: {selector}")
+                        break
+                except:
+                    continue
+            
+            if not button_clicked:
+                raise Exception("Could not find login button")
+            
+            # Wait for navigation to complete
+            logger.info("Waiting for login to complete...")
+            page.wait_for_load_state("networkidle", timeout=30000)
+            
+            # Check if we're logged in (look for account/dashboard elements)
+            page.wait_for_selector('a[href*="dashboard"], button:has-text("Account"), [class*="user"], [class*="account"]', timeout=15000)
+            
+            take_screenshot(page, "03_logged_in")
+            logger.info("✓ Login successful!")
+            return True
+            
+        except PlaywrightTimeout as e:
+            logger.warning(f"Login attempt {attempt + 1} timed out: {e}")
+            take_screenshot(page, f"error_login_attempt_{attempt + 1}")
+            if attempt < max_retries - 1:
+                time.sleep(2)
+                continue
+            else:
+                raise
+        except Exception as e:
+            logger.error(f"Login failed: {e}")
+            take_screenshot(page, "error_login_failed")
+            raise
+    
+    return False
+
+
+def switch_brand(page, brand_name: str, max_retries: int = 3):
+    """Switch to a specific brand using the dropdown."""
+    for attempt in range(max_retries):
+        try:
+            logger.info(f"Switching to brand: {brand_name} (attempt {attempt + 1}/{max_retries})...")
+            
+            # Look for brand switcher dropdown (usually in top-right)
+            # Common selectors: dropdown, select, or button that opens a menu
+            brand_selectors = [
+                'select[name*="brand"], select[name*="account"], select[name*="store"]',
+                'button:has-text("' + brand_name + '")',
+                '[class*="brand"], [class*="account"], [class*="store"]'
+            ]
+            
+            # Try to find and click the dropdown
+            dropdown_clicked = False
+            for selector in brand_selectors:
+                try:
+                    element = page.locator(selector).first
+                    if element.is_visible(timeout=2000):
+                        element.click()
+                        dropdown_clicked = True
+                        logger.info(f"Clicked dropdown with selector: {selector}")
+                        break
+                except:
+                    continue
+            
+            if not dropdown_clicked:
+                # Try finding by text content
+                logger.info("Trying to find brand switcher by text...")
+                page.locator(f'text={brand_name}').first.click(timeout=5000)
+            
+            time.sleep(2)  # Wait for brand switch to complete
+            page.wait_for_load_state("networkidle", timeout=15000)
+            
+            take_screenshot(page, f"04_brand_switched_{brand_name.lower().replace(' ', '_')}")
+            logger.info(f"✓ Switched to {brand_name}")
+            return True
+            
+        except Exception as e:
+            logger.warning(f"Brand switch attempt {attempt + 1} failed: {e}")
+            take_screenshot(page, f"error_brand_switch_{attempt + 1}")
+            if attempt < max_retries - 1:
+                time.sleep(2)
+                continue
+            else:
+                logger.error(f"Failed to switch to {brand_name} after {max_retries} attempts")
+                return False
+    
+    return False
+
+
+def wait_for_angular(page, timeout_ms=5000):
+    """Wait for AngularJS to finish digest cycle."""
+    try:
+        page.wait_for_function(
+            """() => {
+                if (typeof angular === 'undefined') return true;
+                try {
+                    const rootElement = document.querySelector('[ng-app]') || document;
+                    const injector = angular.element(rootElement).injector();
+                    if (!injector) return true;
+                    const $browser = injector.get('$browser');
+                    return $browser.deferredFns.length === 0;
+                } catch (e) {
+                    return true;
+                }
+            }""",
+            timeout=timeout_ms
+        )
+        logger.debug("Angular digest cycle complete")
+    except Exception as e:
+        logger.warning(f"Angular check timed out: {e}")
+
+
+def verify_button_enabled(page, timeout_ms=10000):
+    """Wait for download button to be enabled."""
+    try:
+        page.wait_for_function(
+            """() => {
+                const btn = document.querySelector('button[type="submit"]');
+                return btn && !btn.disabled && !btn.hasAttribute('disabled');
+            }""",
+            timeout=timeout_ms
+        )
+        logger.debug("Download button is enabled")
+        return True
+    except Exception as e:
+        logger.error(f"Download button not enabled: {e}")
+        return False
+
+
+def export_dashboard_by_product(page, brand_filename: str, dry_run: bool = False):
+    """Internal function that performs the actual export."""
+    try:
+        logger.info(f"Navigating to Reports page...")
+        page.goto(REPORTS_URL, wait_until="domcontentloaded", timeout=30000)
+        page.wait_for_load_state("networkidle", timeout=15000)
+        
+        # Aggressively close any modal popups
+        close_popups(page, aggressive=True)
+        time.sleep(1)
+        
+        take_screenshot(page, f"05_reports_page_{brand_filename}")
+        
+        # Click "Dashboard by product" report - need to navigate to the actual report page
+        logger.info("Looking for 'Dashboard by product' report link...")
+        
+        # Strategy 1: Trigger Angular ng-click directly (most reliable)
+        try:
+            logger.info("Attempting to trigger Angular ng-click for Dashboard by product...")
+            clicked = page.evaluate('''
+                () => {
+                    // Remove any modal backdrops first
+                    const backdrops = document.querySelectorAll('.modal-backdrop, [class*="modal-backdrop"], .newFeature');
+                    backdrops.forEach(el => el.remove());
+                    
+                    // For Angular apps, find the element with ng-click="setCurrentType('DashboardGoods')"
+                    const element = document.querySelector('[ng-click*="DashboardGoods"], li[ng-click*="DashboardGoods"]');
+                    
+                    if (element) {
+                        // Trigger Angular click event
+                        const clickEvent = new MouseEvent('click', {
+                            view: window,
+                            bubbles: true,
+                            cancelable: true
+                        });
+                        element.dispatchEvent(clickEvent);
+                        
+                        // Also try direct Angular scope execution (if angular is available)
+                        if (window.angular) {
+                            try {
+                                const scope = angular.element(element).scope();
+                                if (scope && scope.setCurrentType) {
+                                    scope.setCurrentType('DashboardGoods');
+                                    scope.$apply();
+                                }
+                            } catch (e) {
+                                // Angular scope approach failed, but click may have worked
+                            }
+                        }
+                        
+                        return true;
+                    }
+                    
+                    // Fallback: find by text
+                    const allElements = Array.from(document.querySelectorAll('li, div, a'));
+                    const dashboardElement = allElements.find(el => 
+                        el.textContent?.includes('Dashboard by product') && 
+                        el.textContent?.trim().length < 100
+                    );
+                    
+                    if (dashboardElement) {
+                        // Find the parent with ng-click
+                        let current = dashboardElement;
+                        for (let i = 0; i < 5; i++) {
+                            if (current && current.getAttribute && current.getAttribute('ng-click')) {
+                                const clickEvent = new MouseEvent('click', {
+                                    view: window,
+                                    bubbles: true,
+                                    cancelable: true
+                                });
+                                current.dispatchEvent(clickEvent);
+                                return true;
+                            }
+                            current = current.parentElement;
+                        }
+                    }
+                    
+                    return false;
+                }
+            ''')
+            
+            if clicked:
+                logger.info("✓ Angular ng-click triggered")
+                time.sleep(3)  # Give Angular time to route
+                page.wait_for_load_state("networkidle", timeout=15000)
+            else:
+                raise Exception("Could not find Dashboard by product element")
+                
+        except Exception as e:
+            logger.warning(f"Angular trigger failed: {e}")
+            
+            # Strategy 2: Force click with Playwright after removing backdrops
+            try:
+                logger.info("Trying Playwright force click with backdrop removal...")
+                
+                # Remove backdrops again
+                page.evaluate('''
+                    () => {
+                        document.querySelectorAll('.modal-backdrop, [class*="backdrop"], .newFeature').forEach(el => el.remove());
+                    }
+                ''')
+                time.sleep(0.5)
+                
+                # Find and force click the element
+                dashboard_row = page.locator('[ng-click*="DashboardGoods"]').first
+                dashboard_row.click(force=True, timeout=5000)
+                time.sleep(3)
+                page.wait_for_load_state("networkidle", timeout=15000)
+                logger.info("✓ Force click succeeded")
+            except Exception as e2:
+                logger.error(f"Force click failed: {e2}")
+                raise Exception("Could not click 'Dashboard by product' link with any method")
+        
+        # Close any popups that may have appeared after navigation
+        close_popups(page, aggressive=True)
+        time.sleep(1)
+        
+        take_screenshot(page, f"06_dashboard_by_product_page_{brand_filename}")
+        
+        # Verify we're on the right page by checking for download button or date inputs
+        try:
+            page.wait_for_selector('button, input[name*="period"]', timeout=10000)
+            logger.info("✓ Confirmed we're on the Dashboard by product export page")
+        except:
+            logger.warning("Cannot confirm we're on the export page - proceeding anyway")
+        
+        # Set date range using JavaScript (Angular uses hidden inputs and date pickers)
+        logger.info("Setting date range to last 90 days...")
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=90)
+        
+        try:
+            # Use Angular scope manipulation to set dates
+            date_set = page.evaluate(f'''
+                () => {{
+                    const fromTimestamp = {int(start_date.timestamp())};
+                    const toTimestamp = {int(end_date.timestamp())};
+                    
+                    // Try to find and update Angular scope
+                    const angularElement = document.querySelector('[ng-controller]');
+                    if (angularElement && window.angular) {{
+                        const scope = window.angular.element(angularElement).scope();
+                        if (scope && scope.period) {{
+                            scope.period.from = moment.unix(fromTimestamp);
+                            scope.period.to = moment.unix(toTimestamp);
+                            scope.$apply();
+                            return true;
+                        }}
+                    }}
+                    
+                    // Fallback: Set hidden input values and trigger events
+                    const fromInput = document.querySelector('input[name="period_from"], input[id="period_from"]');
+                    const toInput = document.querySelector('input[name="period_to"], input[id="period_to"]');
+                    
+                    if (fromInput && toInput) {{
+                        fromInput.value = fromTimestamp;
+                        toInput.value = toTimestamp;
+                        
+                        // Trigger various events to ensure Angular picks up changes
+                        ['change', 'input', 'blur'].forEach(eventType => {{
+                            fromInput.dispatchEvent(new Event(eventType, {{ bubbles: true }}));
+                            toInput.dispatchEvent(new Event(eventType, {{ bubbles: true }}));
+                        }});
+                        return true;
+                    }}
+                    
+                    return false;
+                }}
+            ''')
+            
+            if date_set:
+                logger.info(f"✓ Date range set: {start_date.date()} to {end_date.date()}")
+            else:
+                logger.warning("Could not set custom date range")
+                logger.info("Proceeding with default date range (should be Last 90 days)")
+            
+            time.sleep(1)
+        except Exception as e:
+            logger.warning(f"Date range setting failed: {e}")
+            logger.info("Proceeding with default date range...")
+        
+        take_screenshot(page, f"07_dates_set_{brand_filename}")
+        
+        if dry_run:
+            logger.info("DRY RUN: Skipping download")
+            return None
+        
+        # Setup download handler BEFORE clicking the button
+        output_file = DATA_DIR / f"{brand_filename}_dashboard_by_product_90d.csv"
+        
+        logger.info("Preparing to download CSV...")
+        
+        # Close any lingering popups before download
+        close_popups(page, aggressive=True)
+        time.sleep(1)
+        
+        # Strategy 1: Find the visible Download button and click it
+        logger.info("Strategy 1: Looking for visible Download button...")
+        download_started = False
+        
+        try:
+            # Find ALL buttons and filter for visible Download button
+            download_button_found = page.evaluate('''
+                () => {
+                    const buttons = Array.from(document.querySelectorAll('button'));
+                    const downloadBtn = buttons.find(btn => {
+                        const text = btn.textContent?.trim();
+                        const isDownload = text === 'Download';
+                        const isVisible = btn.offsetParent !== null && 
+                                        window.getComputedStyle(btn).display !== 'none' &&
+                                        window.getComputedStyle(btn).visibility !== 'hidden';
+                        return isDownload && isVisible;
+                    });
+                    
+                    if (downloadBtn) {
+                        // Mark it so we can find it with Playwright
+                        downloadBtn.setAttribute('data-playwright-download-btn', 'true');
+                        return true;
+                    }
+                    return false;
+                }
+            ''')
+            
+            if download_button_found:
+                logger.info("Found visible Download button!")
+                
+                # Now click it with Playwright and wait for download
+                try:
+                    with page.expect_download(timeout=30000) as download_info:
+                        page.locator('[data-playwright-download-btn="true"]').click()
+                        logger.info("Clicked Download button, waiting for file...")
+                    
+                    download = download_info.value
+                    download.save_as(output_file)
+                    download_started = True
+                    logger.info(f"✓ Strategy 1 success! Downloaded: {output_file}")
+                    
+                except Exception as e:
+                    logger.warning(f"Download button click timed out: {e}")
+                    # Button was clicked but no download started - might be async
+            else:
+                logger.info("No visible Download button found, trying fallbacks...")
+                
+        except Exception as e:
+            logger.warning(f"Strategy 1 failed: {e}")
+        
+        if not download_started:
+            # Strategy 2: Handle async export generation
+            logger.info("Strategy 2: Async export handling (click + wait for generation)...")
+            try:
+                # Click the download button to START the export generation
+                clicked = page.evaluate('''
+                    () => {
+                        const buttons = Array.from(document.querySelectorAll('button'));
+                        const downloadBtn = buttons.find(btn => {
+                            const text = btn.textContent?.trim();
+                            return text === 'Download';
+                        });
+                        
+                        if (downloadBtn) {
+                            downloadBtn.click();
+                            return true;
+                        }
+                        return false;
+                    }
+                ''')
+                
+                if clicked:
+                    logger.info("Download button clicked - export generation started")
+                    
+                    # Wait for modal or status change (export being generated)
+                    time.sleep(3)
+                    
+                    # Check if there's a "generating" or "ready" indicator
+                    logger.info("Waiting for export to be ready...")
+                    
+                    # Strategy 2a: Look for and wait for download link/button to appear
+                    for attempt in range(60):  # Wait up to 2 minutes
+                        time.sleep(2)
+                        
+                        # Check if a download link appeared or file is ready
+                        download_ready = page.evaluate('''
+                            () => {
+                                // Look for download ready indicators
+                                const text = document.body.textContent;
+                                
+                                // Check for "ready" or download link
+                                if (text.includes('ready') || text.includes('Ready') || 
+                                    text.includes('download') || text.includes('Download')) {
+                                    
+                                    // Look for a new download button or link
+                                    const links = Array.from(document.querySelectorAll('a, button'));
+                                    const downloadLink = links.find(el => {
+                                        const text = (el.textContent || el.href || '').toLowerCase();
+                                        return (text.includes('download') || el.href?.includes('download')) &&
+                                               el.offsetParent !== null;
+                                    });
+                                    
+                                    if (downloadLink) {
+                                        return {ready: true, hasLink: true, href: downloadLink.href || null};
+                                    }
+                                }
+                                
+                                return {ready: false, hasLink: false};
+                            }
+                        ''')
+                        
+                        if download_ready['ready'] and download_ready['hasLink']:
+                            logger.info("✓ Export is ready! Download link found")
+                            
+                            # Try to download the file
+                            if download_ready['href']:
+                                # Direct link - use page.request to download
+                                logger.info(f"Downloading from URL: {download_ready['href']}")
+                                try:
+                                    response = page.request.get(download_ready['href'])
+                                    if response.ok:
+                                        output_file.write_bytes(response.body())
+                                        download_started = True
+                                        logger.info(f"✓ Strategy 2 success! Downloaded via direct URL")
+                                        break
+                                except Exception as e:
+                                    logger.warning(f"Direct URL download failed: {e}")
+                            
+                            # Try clicking the download link with expect_download
+                            try:
+                                with page.expect_download(timeout=30000) as download_info:
+                                    page.evaluate('''
+                                        () => {
+                                            const links = Array.from(document.querySelectorAll('a, button'));
+                                            const downloadLink = links.find(el => {
+                                                const text = (el.textContent || '').toLowerCase();
+                                                return text.includes('download') && el.offsetParent !== null;
+                                            });
+                                            if (downloadLink) downloadLink.click();
+                                        }
+                                    ''')
+                                
+                                download = download_info.value
+                                download.save_as(output_file)
+                                download_started = True
+                                logger.info(f"✓ Strategy 2 success! Downloaded via ready link")
+                                break
+                            except Exception as e:
+                                logger.warning(f"Ready link click failed: {e}")
+                                break
+                        
+                        if attempt % 5 == 0:  # Log every 10 seconds
+                            logger.info(f"Still generating export... ({(attempt+1)*2}s elapsed)")
+                    
+                    if not download_started:
+                        logger.warning("Export generation timed out after 2 minutes")
+                else:
+                    logger.warning("Could not find Download button to click")
+                    
+            except Exception as e:
+                logger.warning(f"Strategy 2 failed: {e}")
+        
+        if not download_started:
+            # Strategy 3: Monitor browser Downloads folder
+            logger.info("Strategy 3: Monitoring browser Downloads folder...")
+            try:
+                import os
+                from pathlib import Path as PathLib
+                
+                # Get user's Downloads folder
+                downloads_folder = PathLib.home() / "Downloads"
+                
+                # Get list of CSV files before clicking
+                existing_files = set(downloads_folder.glob("*.csv"))
+                existing_times = {f: f.stat().st_mtime for f in existing_files}
+                
+                logger.info(f"Monitoring {downloads_folder} for new CSV files...")
+                
+                # Click download button
+                page.evaluate('''
+                    () => {
+                        const buttons = Array.from(document.querySelectorAll('button'));
+                        const downloadBtn = buttons.find(btn => btn.textContent?.trim() === 'Download');
+                        if (downloadBtn) {
+                            downloadBtn.click();
+                            return true;
+                        }
+                        return false;
+                    }
+                ''')
+                
+                logger.info("Download initiated, watching for file...")
+                
+                # Wait for new CSV file to appear (up to 2 minutes)
+                new_file = None
+                for i in range(60):  # 2 minutes, check every 2 seconds
+                    time.sleep(2)
+                    
+                    current_files = set(downloads_folder.glob("*.csv"))
+                    new_files = current_files - existing_files
+                    
+                    if new_files:
+                        # New file appeared!
+                        new_file = list(new_files)[0]
+                        logger.info(f"New CSV file detected: {new_file.name}")
+                        break
+                    
+                    # Also check if existing files were updated
+                    for f in existing_files:
+                        if f.exists():
+                            current_mtime = f.stat().st_mtime
+                            if current_mtime > existing_times.get(f, 0):
+                                new_file = f
+                                logger.info(f"Existing CSV file updated: {f.name}")
+                                break
+                    
+                    if new_file:
+                        break
+                    
+                    if i % 5 == 0:
+                        logger.info(f"Still waiting for CSV file... ({(i+1)*2}s)")
+                
+                if new_file:
+                    # Wait a moment for file to finish writing
+                    time.sleep(2)
+                    
+                    # Move file to target location
+                    logger.info(f"Moving {new_file} to {output_file}")
+                    import shutil
+                    shutil.move(str(new_file), str(output_file))
+                    download_started = True
+                    logger.info(f"✓ Strategy 3 success! File moved from Downloads")
+                else:
+                    logger.warning("No new CSV file appeared in Downloads folder")
+                
+            except Exception as e:
+                logger.warning(f"Strategy 3 failed: {e}")
+        
+        if not download_started:
+            # Strategy 4: Network request interception (most robust)
+            logger.info("Strategy 4: Direct network request download...")
+            try:
+                # Get the export URL and request it directly
+                export_url = page.evaluate('''
+                    () => {
+                        const form = document.querySelector('form');
+                        if (form) {
+                            return form.action || window.location.href;
+                        }
+                        return window.location.href;
+                    }
+                ''')
+                
+                logger.info(f"Found export URL: {export_url}")
+                
+                # Make direct request using page context (maintains cookies/session)
+                response = page.request.post(export_url) if 'post' in page.evaluate('document.querySelector("form")?.method?.toLowerCase() || "get"') else page.request.get(export_url)
+                
+                if response.ok:
+                    output_file.write_bytes(response.body())
+                    download_started = True
+                    logger.info(f"✓ Strategy 4 success! Downloaded: {output_file}")
+                else:
+                    logger.warning(f"Network request failed: {response.status}")
+                    
+            except Exception as e:
+                logger.error(f"Strategy 4 failed: {e}")
+        
+        if not download_started:
+            take_screenshot(page, f"error_download_failed_{brand_filename}")
+            raise Exception(f"All download strategies failed for {brand_filename}")
+        
+        take_screenshot(page, f"08_downloaded_{brand_filename}")
+        
+        # Verify file was downloaded and has content
+        if output_file.exists() and output_file.stat().st_size > 1000:
+            logger.info(f"✓ Download verified: {output_file.stat().st_size} bytes")
+        else:
+            raise Exception(f"Downloaded file is missing or too small: {output_file}")
+        
+        return output_file
+        
+    except Exception as e:
+        logger.error(f"Export failed for {brand_filename}: {e}")
+        take_screenshot(page, f"error_export_{brand_filename}")
+        raise
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--dry-run", action="store_true", help="Test navigation without downloading")
+    parser.add_argument("--no-process", action="store_true", help="Download only, don't process into JSON")
+    parser.add_argument("--headless", action="store_true", help="Run browser in headless mode")
+    parser.add_argument("--brand", choices=list(BRANDS.values()), help="Export only one brand")
+    args = parser.parse_args()
+    
+    logger.info("=" * 60)
+    logger.info("Sellerboard Auto Export Started")
+    logger.info(f"Timestamp: {datetime.now().isoformat()}")
+    logger.info(f"Dry run: {args.dry_run}")
+    logger.info("=" * 60)
+    
+    # Get credentials
+    try:
+        username, password = get_credentials()
+        logger.info(f"Retrieved credentials for: {username}")
+    except Exception as e:
+        logger.error("Failed to get credentials. Exiting.")
+        return 1
+    
+    # Setup browser
+    downloaded_files = []
+    failed_brands = []
+    
+    with sync_playwright() as p:
+        logger.info("Launching browser...")
+        browser = p.chromium.launch(headless=args.headless, slow_mo=500)
+        context = browser.new_context(
+            viewport={"width": 1920, "height": 1080},
+            accept_downloads=True
+        )
+        page = context.new_page()
+        
+        try:
+            # Login
+            login(page, username, password)
+            
+            # Filter brands if specified
+            brands_to_export = {k: v for k, v in BRANDS.items() if v == args.brand} if args.brand else BRANDS
+            
+            # Export each brand
+            for brand_ui_name, brand_filename in brands_to_export.items():
+                try:
+                    logger.info(f"\n{'=' * 60}")
+                    logger.info(f"Processing brand: {brand_ui_name} ({brand_filename})")
+                    logger.info(f"{'=' * 60}")
+                    
+                    # Switch brand
+                    if not switch_brand(page, brand_ui_name):
+                        logger.error(f"Failed to switch to {brand_ui_name}, skipping...")
+                        failed_brands.append(brand_ui_name)
+                        continue
+                    
+                    # Export data
+                    output_file = export_dashboard_by_product(page, brand_filename, dry_run=args.dry_run)
+                    
+                    if output_file:
+                        downloaded_files.append(output_file)
+                        logger.info(f"✓ Successfully exported {brand_ui_name}")
+                    
+                    # Brief pause between brands
+                    time.sleep(3)
+                    
+                except Exception as e:
+                    logger.error(f"Failed to export {brand_ui_name}: {e}")
+                    failed_brands.append(brand_ui_name)
+                    continue
+            
+        except Exception as e:
+            logger.error(f"Critical error during automation: {e}")
+            take_screenshot(page, "error_critical")
+            return 1
+        finally:
+            logger.info("Closing browser...")
+            browser.close()
+    
+    # Summary
+    logger.info(f"\n{'=' * 60}")
+    logger.info("EXPORT SUMMARY")
+    logger.info(f"{'=' * 60}")
+    logger.info(f"Successful exports: {len(downloaded_files)}")
+    logger.info(f"Failed exports: {len(failed_brands)}")
+    
+    if downloaded_files:
+        logger.info("\nDownloaded files:")
+        for f in downloaded_files:
+            logger.info(f"  ✓ {f}")
+    
+    if failed_brands:
+        logger.info("\nFailed brands:")
+        for b in failed_brands:
+            logger.info(f"  ✗ {b}")
+    
+    # Process into JSON
+    if not args.dry_run and not args.no_process and downloaded_files:
+        logger.info(f"\n{'=' * 60}")
+        logger.info("Processing CSVs into sku_velocity.json...")
+        logger.info(f"{'=' * 60}")
+        try:
+            velocity_data = update_velocity_data()
+            logger.info("✓ Processing complete!")
+        except Exception as e:
+            logger.error(f"Failed to process CSVs: {e}")
+            return 1
+    
+    logger.info(f"\n{'=' * 60}")
+    logger.info(f"Sellerboard Auto Export Complete")
+    logger.info(f"Timestamp: {datetime.now().isoformat()}")
+    logger.info(f"{'=' * 60}\n")
+    
+    return 0 if not failed_brands else 1
+
+
+if __name__ == "__main__":
+    sys.exit(main())

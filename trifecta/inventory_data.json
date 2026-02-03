@@ -1,0 +1,3660 @@
+{
+  "timestamp": "2026-02-01T16:12:07.069684",
+  "brands": {
+    "cardplug": {
+      "name": "Card Plug",
+      "total_skus": 73,
+      "out_of_stock": 0,
+      "low_stock": 12,
+      "medium_stock": 17,
+      "healthy": 44,
+      "total_fba_units": 20814,
+      "total_awd_units": 0,
+      "items": [
+        {
+          "sku": "IR-WF9Q-2YJL",
+          "asin": "B0DDQGH755",
+          "name": "Hood Riddles : The Ultimate Black Culture Trivia Card Game -",
+          "fba_qty": 20,
+          "awd_qty": 0,
+          "total_qty": 20
+        },
+        {
+          "sku": "YH-VRI0-7FLB",
+          "asin": "B0DSCCHCRG",
+          "name": "Deep Talk Dating Card Game \u2013 Romantic Conversation Starters ",
+          "fba_qty": 24,
+          "awd_qty": 0,
+          "total_qty": 24
+        },
+        {
+          "sku": "K9-EOS6-6WY3",
+          "asin": "B0CZ5647D3",
+          "name": "Sippin' : Vibrant and Culturally-Infused African-American Dr",
+          "fba_qty": 28,
+          "awd_qty": 0,
+          "total_qty": 28
+        },
+        {
+          "sku": "U4-UNJ2-KWMN",
+          "asin": "B0DS7KNKCQ",
+          "name": "I'm from The Hood Charades V1 \u2013 A Dynamic Black Culture Char",
+          "fba_qty": 39,
+          "awd_qty": 0,
+          "total_qty": 39
+        },
+        {
+          "sku": "Z1-6MAK-EYUN",
+          "asin": "B0DSCCWKC7",
+          "name": "Our Father 2 Bible Trivia Game \u2013 A Fun and Faith-Based Chris",
+          "fba_qty": 40,
+          "awd_qty": 0,
+          "total_qty": 40
+        },
+        {
+          "sku": "MN-4DSB-M1CU",
+          "asin": "B0DSCCRH3C",
+          "name": "Hope You\u2019re Thirsty Drinking Card Game \u2013 The Fly Party Game ",
+          "fba_qty": 42,
+          "awd_qty": 0,
+          "total_qty": 42
+        },
+        {
+          "sku": "CF-J9ZD-CANU",
+          "asin": "B0DSCC3LB3",
+          "name": "Card Plug Show and Tell 2 Party Game for The People \u2013 Hilari",
+          "fba_qty": 44,
+          "awd_qty": 0,
+          "total_qty": 44
+        },
+        {
+          "sku": "NH-KO6N-GNUY",
+          "asin": "B0DS7LHZKL",
+          "name": "Word Trap 2 \u2013 A Fun Guessing Game for Everyone - The Ultimat",
+          "fba_qty": 47,
+          "awd_qty": 0,
+          "total_qty": 47
+        },
+        {
+          "sku": "RP-XDKY-SCU3",
+          "asin": "B0DS7SFYJ1",
+          "name": "Game of Shots 2 \u2013 The Ultimate Drinking Card Game for a Get ",
+          "fba_qty": 47,
+          "awd_qty": 0,
+          "total_qty": 47
+        },
+        {
+          "sku": "YP-UCAP-944D",
+          "asin": "B0DSCBYCFT",
+          "name": "Card Plug The Shot Box Ladies Night Drinking Game - Fun and ",
+          "fba_qty": 47,
+          "awd_qty": 0,
+          "total_qty": 47
+        },
+        {
+          "sku": "ZR-1Q6N-N5EY",
+          "asin": "B0DSCBYCFT",
+          "name": "Card Plug The Shot Box Ladies Night Drinking Game - Fun and ",
+          "fba_qty": 47,
+          "awd_qty": 0,
+          "total_qty": 47
+        },
+        {
+          "sku": "Q8-9CGY-HSZ3",
+          "asin": "B0DSCCZFHS",
+          "name": "Song Fight 2 \u2013 The Ultimate Music Battle Party Game for Ever",
+          "fba_qty": 48,
+          "awd_qty": 0,
+          "total_qty": 48
+        },
+        {
+          "sku": "X1-987D-6OCR",
+          "asin": "B0DSCDMGV3",
+          "name": "Card Plug Without Saying \u2013 A Charades-Style Word-Guessing Ga",
+          "fba_qty": 50,
+          "awd_qty": 0,
+          "total_qty": 50
+        },
+        {
+          "sku": "ZN-C4H3-BJFL",
+          "asin": "B0DSC9VCHX",
+          "name": "Race Against Time 2: A Rapid-Fire Drinking Card Game Where Y",
+          "fba_qty": 50,
+          "awd_qty": 0,
+          "total_qty": 50
+        },
+        {
+          "sku": "PK-0FV8-QL6F",
+          "asin": "B0DS7JWG77",
+          "name": "Tipsy Talks Friends Night Card Game Conversation Starter & D",
+          "fba_qty": 54,
+          "awd_qty": 0,
+          "total_qty": 54
+        },
+        {
+          "sku": "US-IXU5-NMIR",
+          "asin": "B0DX4GN32C",
+          "name": "Roses are Red After Dark \u2013 Spicy Conversation Starter for Co",
+          "fba_qty": 54,
+          "awd_qty": 0,
+          "total_qty": 54
+        },
+        {
+          "sku": "DJ-OKTN-RIFN",
+          "asin": "B0DSCDLTVB",
+          "name": "Card Plug Sip Sip Hooray 2 \u2013 The Ultimate Party Drinking Gam",
+          "fba_qty": 57,
+          "awd_qty": 0,
+          "total_qty": 57
+        },
+        {
+          "sku": "KU-UUWZ-PYOV",
+          "asin": "B0DSCDFRQT",
+          "name": "Roses are Red Date Talk \u2013 Fun and Engaging Conversation Star",
+          "fba_qty": 58,
+          "awd_qty": 0,
+          "total_qty": 58
+        },
+        {
+          "sku": "GD-EWJP-COQ0",
+          "asin": "B0DDQGYVXD",
+          "name": "Card Plug No-No Words : The Charades Game with a Hood Twist ",
+          "fba_qty": 61,
+          "awd_qty": 0,
+          "total_qty": 61
+        },
+        {
+          "sku": "HS-G24N-YLTU",
+          "asin": "B0DS7PZVXR",
+          "name": "Card Plug Drunk Charades 3 - Hilarious Adult Party Game with",
+          "fba_qty": 71,
+          "awd_qty": 0,
+          "total_qty": 71
+        },
+        {
+          "sku": "5V-4CH5-NNWY",
+          "asin": "B0CZ4M5QT3",
+          "name": "Soul Trivia: African-American Culture Card Game with 100 Edu",
+          "fba_qty": 85,
+          "awd_qty": 0,
+          "total_qty": 85
+        },
+        {
+          "sku": "YM-Q42T-RCJL",
+          "asin": "B0DS7MDCMX",
+          "name": "Card Plug Game of Shots \u2013 Fun Adult Drinking Game for Any Oc",
+          "fba_qty": 87,
+          "awd_qty": 0,
+          "total_qty": 87
+        },
+        {
+          "sku": "KR-Z8NZ-QSAO",
+          "asin": "B0DS7R2W26",
+          "name": "Card Plug Drunk Charades 2 - Guess, Act, and Drink! The Ulti",
+          "fba_qty": 90,
+          "awd_qty": 0,
+          "total_qty": 90
+        },
+        {
+          "sku": "R5-M0YV-GET9",
+          "asin": "B0DS7JXS4P",
+          "name": "Tipsy Talks Date Night Card Game \u2013 The Ultimate Couples Drin",
+          "fba_qty": 93,
+          "awd_qty": 0,
+          "total_qty": 93
+        },
+        {
+          "sku": "4Z-YGUH-L4BY",
+          "asin": "B0DSC8W9JB",
+          "name": "Mr Shots - Hilarious Drinking Game - The Ultimate Fun Card G",
+          "fba_qty": 94,
+          "awd_qty": 0,
+          "total_qty": 94
+        },
+        {
+          "sku": "OK-VH7S-C4J4",
+          "asin": "B0DDQG3TFY",
+          "name": "Soul Cinema : The Ultimate Black Film Trivia Game - 100 Card",
+          "fba_qty": 96,
+          "awd_qty": 0,
+          "total_qty": 96
+        },
+        {
+          "sku": "FT-T254-FPAY",
+          "asin": "B0DSCCK1Y4",
+          "name": "Deep Talk Married Conversation Starter Game \u2013 Romantic Quest",
+          "fba_qty": 98,
+          "awd_qty": 0,
+          "total_qty": 98
+        },
+        {
+          "sku": "H3-7Z6F-PHCL",
+          "asin": "B0DDQG4W6C",
+          "name": "Where is The Lie - The Hilarious True or False Drinking Card",
+          "fba_qty": 98,
+          "awd_qty": 0,
+          "total_qty": 98
+        },
+        {
+          "sku": "9O-J4WF-81SU",
+          "asin": "B0DS7K9TGP",
+          "name": "I\u2019m from The Hood V2 Trivia Game \u2013 Black Culture Trivia Fun ",
+          "fba_qty": 99,
+          "awd_qty": 0,
+          "total_qty": 99
+        },
+        {
+          "sku": "VF-UPLM-Q2EM",
+          "asin": "B0DS7MZBFP",
+          "name": "Hope You're Thirsty 2 Drinking Game \u2013 Hilarious Card Game fo",
+          "fba_qty": 101,
+          "awd_qty": 0,
+          "total_qty": 101
+        },
+        {
+          "sku": "2X-KJ4N-XXGV",
+          "asin": "B0DS7PHWZ3",
+          "name": "Card Plug Word Trap Hood - A Fun Hood Charades Style Game Ce",
+          "fba_qty": 102,
+          "awd_qty": 0,
+          "total_qty": 102
+        },
+        {
+          "sku": "L5-U622-ZBNO",
+          "asin": "B0DS7LLFPG",
+          "name": "Card Plug I\u2019m from The Hood Charades V2 Black Culture Party ",
+          "fba_qty": 102,
+          "awd_qty": 0,
+          "total_qty": 102
+        },
+        {
+          "sku": "BY-82LE-KHZO",
+          "asin": "B0DSCC9QWS",
+          "name": "Card Plug Without Saying 2 \u2013 an Exciting Game Night Charades",
+          "fba_qty": 105,
+          "awd_qty": 0,
+          "total_qty": 105
+        },
+        {
+          "sku": "X0-S11X-NA81",
+          "asin": "B0DSCBRQ7W",
+          "name": "Card Plug Pivot - The Friends TV Show Drinking Game - Fun Tr",
+          "fba_qty": 115,
+          "awd_qty": 0,
+          "total_qty": 115
+        },
+        {
+          "sku": "VJ-JIHD-D7S3",
+          "asin": "B0DSC8PM3G",
+          "name": "One Fun Box Shot Party - The Ultimate Drinking Game for Part",
+          "fba_qty": 136,
+          "awd_qty": 0,
+          "total_qty": 136
+        },
+        {
+          "sku": "LN-PPIU-UOYQ",
+          "asin": "B0DSC9V9QW",
+          "name": "Amen 2 Christian Charades Game \u2013 Bible-Based Fun for Teens, ",
+          "fba_qty": 142,
+          "awd_qty": 0,
+          "total_qty": 142
+        },
+        {
+          "sku": "SL-3KSQ-IC19",
+          "asin": "B0DDQGCG51",
+          "name": "Card Plug Code Switching : The Ultimate Urban Black Trivia G",
+          "fba_qty": 143,
+          "awd_qty": 0,
+          "total_qty": 143
+        },
+        {
+          "sku": "45-B6YM-1HFZ",
+          "asin": "B0DSCBFKSJ",
+          "name": "Show and Tell 1 \u2013 A Hilarious Guess-The-Word Experience with",
+          "fba_qty": 148,
+          "awd_qty": 0,
+          "total_qty": 148
+        },
+        {
+          "sku": "NS-M7A0-QG1A",
+          "asin": "B0DSC9JDZG",
+          "name": "Roses are Red Married Talk \u2013 Couple Cards for Deep Conversat",
+          "fba_qty": 148,
+          "awd_qty": 0,
+          "total_qty": 148
+        },
+        {
+          "sku": "4I-I7YD-E7NA",
+          "asin": "B0DSC97CJR",
+          "name": "Hammered \u2013 Drinking Card Game for House Parties, College Nig",
+          "fba_qty": 160,
+          "awd_qty": 0,
+          "total_qty": 160
+        },
+        {
+          "sku": "FF-TMWG-KXRH",
+          "asin": "B0DSCCMP6P",
+          "name": "Card Plug Hammered 2 \u2013 Transform Ordinary Gatherings with Th",
+          "fba_qty": 165,
+          "awd_qty": 0,
+          "total_qty": 165
+        },
+        {
+          "sku": "S4-WUXS-3WSL",
+          "asin": "B0DSC9QXQZ",
+          "name": "Card Plug The Shot Box Reloaded \u2013 Party Drinking Game for Ad",
+          "fba_qty": 169,
+          "awd_qty": 0,
+          "total_qty": 169
+        },
+        {
+          "sku": "WX-Y5P2-WHGC",
+          "asin": "B0DSCDKP1Q",
+          "name": "Mr Shots 2 \u2013 Fun Drinking Card Game for Parties, Easy-to-Pla",
+          "fba_qty": 171,
+          "awd_qty": 0,
+          "total_qty": 171
+        },
+        {
+          "sku": "3D-R5YQ-KT1E",
+          "asin": "B0DS7RZ2JD",
+          "name": "Card Plug Drunk Charades \u2013 Hilarious Adult Drinking Game for",
+          "fba_qty": 176,
+          "awd_qty": 0,
+          "total_qty": 176
+        },
+        {
+          "sku": "GK-5QR7-D9QF",
+          "asin": "B0DSCB1C8G",
+          "name": "One Fun Box Girls Night \u2013 Drinking Games for Girls Night Out",
+          "fba_qty": 176,
+          "awd_qty": 0,
+          "total_qty": 176
+        },
+        {
+          "sku": "3O-AOPL-CM33",
+          "asin": "B0DS7HN17V",
+          "name": "Card Plug I\u2019m from The Hood Trivia Game Featuring Black Cult",
+          "fba_qty": 180,
+          "awd_qty": 0,
+          "total_qty": 180
+        },
+        {
+          "sku": "5N-2UAS-XP38",
+          "asin": "B0DSCBSH5D",
+          "name": "The Shot Box Original \u2013 Party Drinking Game, Competitive, Fu",
+          "fba_qty": 182,
+          "awd_qty": 0,
+          "total_qty": 182
+        },
+        {
+          "sku": "SU-XNX6-4YXY",
+          "asin": "B0DSCC33NC",
+          "name": "Our Father Bible Trivia Game \u2013 Christian Fun for Everyone, T",
+          "fba_qty": 195,
+          "awd_qty": 0,
+          "total_qty": 195
+        },
+        {
+          "sku": "32-RONB-M2V1",
+          "asin": "B0DSCDC9ZP",
+          "name": "Deep Talk Family Conversation Cards \u2013 Sharing Joy with a Lar",
+          "fba_qty": 198,
+          "awd_qty": 0,
+          "total_qty": 198
+        },
+        {
+          "sku": "2U-XLW7-1UR4",
+          "asin": "B0DSCCMPXL",
+          "name": "Finish This Lyric Hip-Hop Game \u2013 The Ultimate Party Card Gam",
+          "fba_qty": 202,
+          "awd_qty": 0,
+          "total_qty": 202
+        },
+        {
+          "sku": "A0-F7TE-B2Q7",
+          "asin": "B0DSCD4Z8M",
+          "name": "Amen Bible Trivia and Charades Game \u2013 Christian Faith-Based ",
+          "fba_qty": 203,
+          "awd_qty": 0,
+          "total_qty": 203
+        },
+        {
+          "sku": "8T-TY1A-9HNQ",
+          "asin": "B0DSCFHN4W",
+          "name": "Sip Sip Hooray Drinking Card Game \u2013 Fun Party Game for Adult",
+          "fba_qty": 204,
+          "awd_qty": 0,
+          "total_qty": 204
+        },
+        {
+          "sku": "FJ-3WA2-C7A0",
+          "asin": "B0DSCCRJMM",
+          "name": "Card Plug The Shot Box Couples Night \u2013 Couples Drinking Game",
+          "fba_qty": 214,
+          "awd_qty": 0,
+          "total_qty": 214
+        },
+        {
+          "sku": "11-NJVX-MPL4",
+          "asin": "B0DS7NRGVN",
+          "name": "Card Plug Word Trap \u2013 Exciting Word Guessing Game with a For",
+          "fba_qty": 241,
+          "awd_qty": 0,
+          "total_qty": 241
+        },
+        {
+          "sku": "7O-O811-RHX7",
+          "asin": "B0DSCBSL4P",
+          "name": "Song Fight Card Game \u2013 Music Trivia & Playlist Battles for E",
+          "fba_qty": 248,
+          "awd_qty": 0,
+          "total_qty": 248
+        },
+        {
+          "sku": "TK-ZC1Y-CPTP",
+          "asin": "B0FCN3NLK2",
+          "name": "HoodFued Music Edition \u2013 Black Culture Hip Hop and RNB Soul ",
+          "fba_qty": 249,
+          "awd_qty": 0,
+          "total_qty": 249
+        },
+        {
+          "sku": "WU-SMIA-FKAV",
+          "asin": "B0DSC9VJNW",
+          "name": "One Fun Box Date Night \u2013 Games for Couples, Perfect for Drin",
+          "fba_qty": 297,
+          "awd_qty": 0,
+          "total_qty": 297
+        },
+        {
+          "sku": "FU-ZNS5-JDEV",
+          "asin": "B0DS7VBTWF",
+          "name": "Chug Life 2 Drinking Game \u2013 Party Card Game, Fun Social Game",
+          "fba_qty": 298,
+          "awd_qty": 0,
+          "total_qty": 298
+        },
+        {
+          "sku": "YJ-VUU8-BA8J",
+          "asin": "B0FX5M2G3D",
+          "name": "Card Plug ORALE \u2013 The Latino Charades Game | Act\u00faalo o H\u00e1bla",
+          "fba_qty": 307,
+          "awd_qty": 0,
+          "total_qty": 307
+        },
+        {
+          "sku": "QG-O41D-QPBQ",
+          "asin": "B0DS7S795W",
+          "name": "Chug Life Drinking Game - The Hilarious Party Game for Party",
+          "fba_qty": 327,
+          "awd_qty": 0,
+          "total_qty": 327
+        },
+        {
+          "sku": "44-AT7N-HTHB",
+          "asin": "B0CZ4M426Q",
+          "name": "Rent'em Spoons Martin Lawrence Trivia Card Game \u2013 Definitive",
+          "fba_qty": 328,
+          "awd_qty": 0,
+          "total_qty": 328
+        },
+        {
+          "sku": "XH-S6IT-GVMH",
+          "asin": "B0DDQG49ZG",
+          "name": "Akeem : from Queens to Zamunda: Test Your Knowledge of This ",
+          "fba_qty": 357,
+          "awd_qty": 0,
+          "total_qty": 357
+        },
+        {
+          "sku": "XP-IENX-U6FT",
+          "asin": "B0DS7RXN9T",
+          "name": "Shot Caller Party Game \u2013 Exciting Drinking Card Game for Gro",
+          "fba_qty": 358,
+          "awd_qty": 0,
+          "total_qty": 358
+        },
+        {
+          "sku": "U7-OW4Q-U9ZW",
+          "asin": "B0DSCC32L1",
+          "name": "Race Against Time \u2013 A Thrilling Party Drinking Card Game for",
+          "fba_qty": 387,
+          "awd_qty": 0,
+          "total_qty": 387
+        },
+        {
+          "sku": "4U-E989-F8DQ",
+          "asin": "B0DSCBM896",
+          "name": "Shots Shots Shots Drinking Card Game \u2013 Fun Party Game for Ad",
+          "fba_qty": 419,
+          "awd_qty": 0,
+          "total_qty": 419
+        },
+        {
+          "sku": "HF-1LJG-9V04",
+          "asin": "B0FCN1V23Z",
+          "name": "HoodFued 3 Urban Survey Showdown \u2013 Black Culture Party Card ",
+          "fba_qty": 450,
+          "awd_qty": 0,
+          "total_qty": 450
+        },
+        {
+          "sku": "0L-S1YT-4P6M",
+          "asin": "B0F7HRMLDN",
+          "name": "HoodFued Presents Receipts Card Game \u2013 Bring The Group Chat ",
+          "fba_qty": 506,
+          "awd_qty": 0,
+          "total_qty": 506
+        },
+        {
+          "sku": "3W-YBA6-F19M",
+          "asin": "B0DDQHXYLW",
+          "name": "Shot Luck The Hood Edition - Adult Drinking Card Game - Hila",
+          "fba_qty": 540,
+          "awd_qty": 0,
+          "total_qty": 540
+        },
+        {
+          "sku": "GU-GREK-EZ60",
+          "asin": "B0G3TDFKPW",
+          "name": "Vacay Cruise Essentials People-Watching Card Game for Royal ",
+          "fba_qty": 832,
+          "awd_qty": 0,
+          "total_qty": 832
+        },
+        {
+          "sku": "7N-QIB8-3LFW",
+          "asin": "B0CZ4LHFQL",
+          "name": "Card Plug Don't Snitch: Urban-Themed Word Challenge for Fami",
+          "fba_qty": 1276,
+          "awd_qty": 0,
+          "total_qty": 1276
+        },
+        {
+          "sku": "Y3-O4PK-NLFV",
+          "asin": "B0F33T665K",
+          "name": "Momma Said No \u2013 Culture Inspired Family Teens Card Game with",
+          "fba_qty": 1677,
+          "awd_qty": 0,
+          "total_qty": 1677
+        },
+        {
+          "sku": "BN-RFHY-U2GJ",
+          "asin": "B0DSCCFVSC",
+          "name": "HoodFued 2 \u2013 Black Family Feud-Style Card Game for African-A",
+          "fba_qty": 2060,
+          "awd_qty": 0,
+          "total_qty": 2060
+        },
+        {
+          "sku": "R6-HVWV-5C89",
+          "asin": "B0CZ4L451Y",
+          "name": "HoodFued : The Ultimate Family Trivia Card Game - A Culture-",
+          "fba_qty": 4052,
+          "awd_qty": 0,
+          "total_qty": 4052
+        }
+      ]
+    },
+    "blackowned": {
+      "name": "Black Owned",
+      "total_skus": 155,
+      "out_of_stock": 104,
+      "low_stock": 5,
+      "medium_stock": 8,
+      "healthy": 38,
+      "total_fba_units": 57137,
+      "total_awd_units": 0,
+      "items": [
+        {
+          "sku": "0A-W09L-XSY5",
+          "asin": "B0BWNK9NDM",
+          "name": "African American Puzzles for Adults 1000 Piece: LewisRenee A",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "0F-S3PF-PKYH",
+          "asin": "B0BWNKZJBL",
+          "name": "African Jigsaw Puzzle for Adults: LewisRenee 1000 Piece Mast",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "0T-NPZU-UDYP",
+          "asin": "B0BWLFSBMD",
+          "name": "LewisRenee Adorn your walls African American Art Eye-Catchin",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "11-NRJZ-8S1G",
+          "asin": "B0BWLS7ZF9",
+          "name": "LewisRenee Transform Your Home With Stunning African Wall Ar",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "19-F1YI-2211",
+          "asin": "B0BWNKXJ29",
+          "name": "African American Expressions Jigsaw Puzzles Black: 1000 Piec",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "1O-92LA-HBAP",
+          "asin": "B0B8R18FBG",
+          "name": "The Majority | Voting Drinking Adult Games for Game Night | ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "28-548M-UZOA",
+          "asin": "B0BV35Z43H",
+          "name": "Black Puzzles for Adult Enthusiasts: Black Art Puzzles 1000 ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "2H-PLCL-HKAK",
+          "asin": "B0BWNK4PJJ",
+          "name": "African American Puzzles : 1000 Piece LewisRenee Jigsaw, Dis",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "2T-2XPS-8UWB",
+          "asin": "B0BWLP263B",
+          "name": "LewisRenee Showcase Your Love For African American Wall Art ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "3E-NI39-N970",
+          "asin": "B0BWNLKWRV",
+          "name": "Black History African Jigsaw Puzzles: 1000 Piece LewisRenee ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "3F-C0FW-CM6B",
+          "asin": "B0BWNM5QKW",
+          "name": "African American Expressions Jigsaw Puzzles : 1000 Piece Lew",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "4E-HI7M-69OE",
+          "asin": "B0BWNMN45K",
+          "name": "African American Puzzles : 1000 Piece African American Jigsa",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "4I-BJ5A-L44Y",
+          "asin": "B0BWLVXXJF",
+          "name": "LewisRenee Elevate Your Decor African Woman Wall Art A Timel",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "4P-W689-8VEN",
+          "asin": "B0BWL2MX78",
+          "name": "LewisRenee Jazz Up Your Home Decor African American Art - Wo",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "4W-EC32-5Q4R",
+          "asin": "B0BWLPPR7R",
+          "name": "Celebrate Black Beauty With This African Woman Canvas A Piec",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "5G-5MS6-T4P3",
+          "asin": "B0BWLCR4PR",
+          "name": "LewisRenee Bring Some Black People Wall Art Culture Into You",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "6B-E8Z6-AP28",
+          "asin": "B0BVKPVTZX",
+          "name": "LewisRenee African Art 1000 Piece Jigsaw Puzzle - Sun Fire, ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "71-Q4II-WRW9",
+          "asin": "B0BWLZM6SQ",
+          "name": "LewisRenee Create An Inspiring Living Room African American ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "7B-2798-2SWV",
+          "asin": "B0BWKYRB4K",
+          "name": "LewisRenee Beautiful Black Art For The Office 16 X 20 Unfram",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "7K-PDC1-UHFE",
+          "asin": "B0BWLVZH7Z",
+          "name": "Upgrade Your Living Room With This African American Wall Art",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "7S-KIE5-X5QO",
+          "asin": "B0BVKQ9HDF",
+          "name": "Mesmerizing Black Art Puzzles : 1000 Piece African American ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "7U-55UV-XRJU",
+          "asin": "B0B6QDGQPL",
+          "name": "Black Owned Hall Pass Drinking for The Culture Card Game | B",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "86-SM5P-0KHT",
+          "asin": "B0BT83NBHQ",
+          "name": "Hey Girl Heyyy LGBTQ Drinking Card Game | Gay Adult Game Gre",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "8P-IC8O-0AC8",
+          "asin": "B0BWLWVTJC",
+          "name": "Create A Warm And Inviting Atmosphere With This Inspiring Af",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "8S-U43O-ZN5U",
+          "asin": "B0BWLZXF9X",
+          "name": "Celebrate Black People Wall Art Culture And Heritage With A ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "90-LV92-40J6",
+          "asin": "B08YXXDK6T",
+          "name": "Black Owned | Southern Hip Hop / Rap Trivia",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "98-TYVH-VZI5",
+          "asin": "B0BWL13XPQ",
+          "name": "LewisRenee Art African American Wall Art (Basart8)",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "9E-VDU1-FCEB",
+          "asin": "B0BWLY88CK",
+          "name": "LewisRenee Add A Touch Of African American Style To Your Hom",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "9J-M64W-BZTR",
+          "asin": "B0BWLYLW6K",
+          "name": "LewisRenee Unframed Canvas African American Art A Perfect Ac",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "9N-U4SS-MQ0U",
+          "asin": "B0BWNKP9TG",
+          "name": "African Puzzles for Adults 1000 Piece: LewisRenee Art Jigsaw",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "A9-HVKF-TPQY",
+          "asin": "B09YMFLFPM",
+          "name": "Bazinga | Adult Drinking Trivia Party Card Game from The Ico",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "AQ-MCIH-ZTC0",
+          "asin": "B0BVKQYPV9",
+          "name": "African American Puzzles for Adults Delight: 1000 Piece Lewi",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "Amazon.Found.B0917WRLSN",
+          "asin": "B0917WRLSN",
+          "name": "Black Owned - Hip Hop/Rap Drinking Lyric Trivia Card Game - ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "B4-X4PE-DFFH",
+          "asin": "B0BWLXRQYM",
+          "name": "LewisRenee Celebrate The Black People Wall Art Culture Afric",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "BA-66WR-4E6M",
+          "asin": "B0BWNL2955",
+          "name": "African American Puzzles : 1000 Piece Africa Jigsaw Puzzle, ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "BP-VFLY-E588",
+          "asin": "B0BWNLXCC4",
+          "name": "Powerful African American Women Jigsaw: 1000 Piece African A",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "C4-MO1Y-7MEV",
+          "asin": "B0BWL6FR48",
+          "name": "LewisRenee Enhance Your Living Space African American Unfram",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "CA-I8WP-J5MV",
+          "asin": "B0BWNJ6JQ3",
+          "name": "Black Art Puzzles : 1000 Piece African American Jigsaw Puzzl",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "CU-KDTP-0P8I",
+          "asin": "B0BWNM35BG",
+          "name": "Black African American Puzzles for Adults 1000 Pieces : Lewi",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "CU-RD9D-KAER",
+          "asin": "B0BWLSGH5F",
+          "name": "Empower Your Space With Bold 16x20 Unframed Black Girl Paint",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "D9-N6S8-74L2",
+          "asin": "B0BWNM8N7J",
+          "name": "Great African American Puzzle: 1000 Piece Jigsaw for Adults,",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "DD-QL5Q-OCPS",
+          "asin": "B0BVKQXL2Q",
+          "name": "African American Jigsaw Puzzles for Adults 1000 Piece Wonder",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "DF-X6HN-PDQ8",
+          "asin": "B0BWLVFWH9",
+          "name": "LewisRenee Elevate Your Space African American Wall Art - Bo",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "E0-WFU9-UWFJ",
+          "asin": "B0BWLWH3T1",
+          "name": "Black Love Art African American Wall Art Water Colors (Wc27)",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "E7-4296-IXEX",
+          "asin": "B0BVKPS4YL",
+          "name": "African American Women Power Puzzle: 1000 Piece LewisRenee B",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "E7-AQPH-11DU",
+          "asin": "B0BWLMNGFB",
+          "name": "Black Love Art African American Wall Art Water Colors (Wc21)",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "FO-VKWG-TB1G",
+          "asin": "B0BWNM7B36",
+          "name": "African Art Jigsaw Puzzles: 1000 Piece LewisRenee Masterpiec",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "G2-9N6O-8UK1",
+          "asin": "B09XN17BVR",
+          "name": "Black Owned Soul Glo Adult Drinking Trivia Party Black Card ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "GA-5ZQY-OSNJ",
+          "asin": "B09VZL8QDM",
+          "name": "She's Your Lobster Adult Drinking Friends Trivia Party Card ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "GD-PQ08-QRCC",
+          "asin": "B09JVFS8FS",
+          "name": "She's Your Lobster | Adult Drinking Trivia Party Card Game f",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "GF-B8Z2-STIZ",
+          "asin": "B0BWLLWG56",
+          "name": "LewisRenee Make A Statement African American Wall Art - Bold",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "GO-FSND-7XN0",
+          "asin": "B0BWNM5NWZ",
+          "name": "Black People Africa Jigsaw Puzzle: LewisRenee 1000 Piece Afr",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "HG-F58B-M1FZ",
+          "asin": "B0BWNHPLCF",
+          "name": "Puzzles for Adults African American: 1000 Piece LewisRenee B",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "HN-XMW1-U98H",
+          "asin": "B09YMGY1X7",
+          "name": "Black Owned | Uncle Phil Drinking Trivia Party Card Game fro",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "HO-N8XT-3JVI",
+          "asin": "B0BWLRZC98",
+          "name": "Add An Artistic Flair To Your Space With African Wall Art Ca",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "IQ-LHXU-2NIX",
+          "asin": "B0BWLG14TQ",
+          "name": "LewisRenee Unframed 16 X 20 African American Art - African A",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "J4-UA57-ST9B",
+          "asin": "B0BWNJ5H8Z",
+          "name": "African American Jigsaw Puzzles 1000 Pieces: LewisRenee Art,",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "JI-N6OF-SOEC",
+          "asin": "B0BWLRCVNW",
+          "name": "LewisRenee Infuse Your Home With History And Beauty African ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "JK-YAIY-X4AR",
+          "asin": "B0BWLVWHMS",
+          "name": "LewisRenee African American Wall Art Prints - Inspiring And ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "JQ-71EJ-FRXK",
+          "asin": "B0BWNMXX49",
+          "name": "Africa Jigsaw Puzzle Adventure: 1000 Piece LewisRenee Master",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "K8-7IPU-9W9J",
+          "asin": "B09JYL8T85",
+          "name": "World's Best Boss | Adult Drinking Trivia Party Card Game fr",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "KM-9R0Z-V2FP",
+          "asin": "B0BWNGGPCT",
+          "name": "African American Woman Jigsaw Puzzles: 1000 Piece LewisRenee",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "KS-7SN5-Y2AF",
+          "asin": "B0BWLQKC8X",
+          "name": "LewisRenee Experience The Magic Of Black Girl Art Unframed C",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "M1-MOZY-ULJ8",
+          "asin": "B0BWLVBBZG",
+          "name": "LewisRenee Bring Your Living Space To Life African American ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "M4-52IS-INNE",
+          "asin": "B0BWLV4VYB",
+          "name": "Experience The Beauty And Culture Of African Afro Art With T",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "MU-6WPQ-CDRH",
+          "asin": "B0BWNLS9B1",
+          "name": "Black Mom & Daughter Puzzle: 1000 Piece Heartwarming African",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "MV-XYVQ-UZID",
+          "asin": "B0BWLP5QFC",
+          "name": "Black Love Art African American Wall Art Water Colors (Wc13)",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "NG-F2GR-AXYJ",
+          "asin": "B0BVKQ2L9M",
+          "name": "Black Puzzles for Adults: 1000 Piece LewisRenee Jigsaw, Embr",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "O0-9JQM-J8DX",
+          "asin": "B0BWLXBCJT",
+          "name": "Celebrate Black Culture and Heritage with this Stunning Afri",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "O3-2B0T-LNV8",
+          "asin": "B0BWLZN3F4",
+          "name": "LewisRenee Experience The Beauty Of Black Art/African Americ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "O5-XEEK-NQKP",
+          "asin": "B09YMDRKH8",
+          "name": "The North Remembers | Adult Drinking Trivia Party Card Game ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "OZ-32RZ-W8P3",
+          "asin": "B0BV3786CW",
+          "name": "African American Puzzle Expedition: 1000 Piece LewisRenee Af",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "PN-G6C4-QQPZ",
+          "asin": "B0BWLQ1TQG",
+          "name": "LewisRenee Decorate Your Home With Inspiring African America",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "PS-3WQN-6GY7",
+          "asin": "B0BWNHL928",
+          "name": "African American Woman Jigsaw Puzzle Africa : 1000 Piece Lew",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "Q1-C5SX-3UH9",
+          "asin": "B0BV37PBLF",
+          "name": "Powerful African American Women Puzzle: 1000 Piece LewisRene",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "QE-GG8E-KWLX",
+          "asin": "B0BWLSK25R",
+          "name": "Black Love Art African American Wall Art Water Colors (Wc23)",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "QN-H0SG-9KTF",
+          "asin": "B0BWLYN4MT",
+          "name": "LewisRenee Celebrate the Power of Black Love and Unity Stunn",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "QU-NFGD-KZXY",
+          "asin": "B0BWLTTFPF",
+          "name": "LewisRenee Make a bold statement African wall art - a captiv",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "RI-3DNK-KTHY",
+          "asin": "B0BWNJHL6X",
+          "name": "African Puzzle Adventure: 1000 Piece Black Woman Puzzle by L",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "S2-752K-Q5UO",
+          "asin": "B0BWLTBVDN",
+          "name": "LewisRenee Art African American Woman Wall Art (AbstractFace",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "S8-V2JJ-T7MG",
+          "asin": "B0BWLVWDWP",
+          "name": "LewisRenee Celebrate Black Beauty With Stunning African Amer",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "SG-Z18L-Y320",
+          "asin": "B0BWNNH1LK",
+          "name": "Puzzle African American: 1000 Piece Puzzle African American ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "SH-04OV-JD3F",
+          "asin": "B083RZZ7LQ",
+          "name": "Hammered The Adult NSFW Drinking Party Starter Card Game | D",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "TE-G68U-FJ3R",
+          "asin": "B09YNXSW1C",
+          "name": "Walter White | Adult Drinking Trivia Party Card Game from Th",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "TE-ZI2R-F0A0",
+          "asin": "B0BWLRRD5W",
+          "name": "LewisRenee Experience The Richness Of African American Wall ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "TL-LVHM-RF1E",
+          "asin": "B0BWL8D9PZ",
+          "name": "LewisRenee 16 X 20 Unframed Afro African American Wall Art A",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "TL-N8I0-YPRI",
+          "asin": "B0BWL2Y4QK",
+          "name": "LewisRenee Decorate Your Office Or Home Walls Stunning Black",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "TQ-5MHX-5Z9Q",
+          "asin": "B09VZJ8CSN",
+          "name": "Best Boss | Adult Drinking Trivia Party Card Game from The I",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "Uncommingled.MSKU.1715988515908",
+          "asin": "B0D4GSZ9ND",
+          "name": "Girlll 2 Drinking Card Game Bachelorette Bash - The Ultimate",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "VA-MM5H-8K5D",
+          "asin": "B0BWLVXS96",
+          "name": "LewisRenee Elevate The Space Black African Wall Art Artwork ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "VN-N76W-LIOI",
+          "asin": "B0BWLS6NYT",
+          "name": "LewisRenee Discover The Richness Of African American Wall Ar",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "W3-DNY7-EI25",
+          "asin": "B0BWLC8SYG",
+          "name": "LewisRenee Revamp Your Home Interiors African American Wall ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "W5-1BKE-DJII",
+          "asin": "B0BWNRLZR1",
+          "name": "African American Expressions Jigsaw : 1000 Piece LewisRenee ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "W6-1MC7-GPUO",
+          "asin": "B0BWLKG45Y",
+          "name": "The Power Of Afrocentric Art With African Woman Art Beautifu",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "WT-6LLP-IL0U",
+          "asin": "B09YMGPZYC",
+          "name": "Grey Sloan | Adult Drinking Trivia Party Card Game from The ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "X4-MK2W-V9H6",
+          "asin": "B0BWLMSB4G",
+          "name": "Black Love Art African American Wall Art Water Colors (Wc3)",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "XI-G53N-EDAF",
+          "asin": "B0BWLPGM17",
+          "name": "LewisRenee Stylish African-American Art Decorate Your Home W",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "XJ-D86M-SX9L",
+          "asin": "B0BWLY93C6",
+          "name": "LewisRenee Transform Your Home African American Wall Art - A",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "XY-AKL6-ISVV",
+          "asin": "B0BVKQFXLL",
+          "name": "African American Heritage Puzzles: 1000 Piece LewisRenee Bla",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "YG-T33I-IQ5Q",
+          "asin": "B0BWNJP99P",
+          "name": "Captivating Black Art Puzzles for Adults: 1000 Piece African",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "YX-7WRB-9UJH",
+          "asin": "B0BWLSJB4S",
+          "name": "Transform Your Space With This Bold And Beautiful African Wo",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "YZ-4RBO-MQNJ",
+          "asin": "B0BWNKCWFV",
+          "name": "Explore African American Puzzles for Adults: 1000 Piece Enga",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "Z1-HFCT-62QB",
+          "asin": "B0BWLHDGG4",
+          "name": "LewisRenee Create A Unique And Personalized Living Space Afr",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "ZP-23CO-UD2P",
+          "asin": "B0BVKPW3PY",
+          "name": "African American Puzzles for Adult Minds: 1000 Piece LewisRe",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "QS-3U1B-3NFR",
+          "asin": "B0BNJPZQP9",
+          "name": "Charades and Chill: Black-Owned Trap Charades for Adults \u2013 U",
+          "fba_qty": 1,
+          "awd_qty": 0,
+          "total_qty": 1
+        },
+        {
+          "sku": "DS-FG8W-LCK7",
+          "asin": "B0BWNK3W84",
+          "name": "Beautiful African American Puzzle : Black Art Puzzles for Ad",
+          "fba_qty": 2,
+          "awd_qty": 0,
+          "total_qty": 2
+        },
+        {
+          "sku": "EM-6689-IDKD",
+          "asin": "B0BWNKBGJ7",
+          "name": "African American Artistry Jigsaw: 1000 Piece LewisRenee Puzz",
+          "fba_qty": 6,
+          "awd_qty": 0,
+          "total_qty": 6
+        },
+        {
+          "sku": "DA-XHX8-T0B7",
+          "asin": "B0B8R2XYG1",
+          "name": "LIT A Simple Drinking Card Game \u2013 Perfect for Girls\u2019 Night, ",
+          "fba_qty": 32,
+          "awd_qty": 0,
+          "total_qty": 32
+        },
+        {
+          "sku": "RB-9ZQM-XH41",
+          "asin": "B0B6QHNJLL",
+          "name": "Black Owned Edibles The Ultimate Weed Card Game for Adults \u2013",
+          "fba_qty": 43,
+          "awd_qty": 0,
+          "total_qty": 43
+        },
+        {
+          "sku": "JH-KMHV-RU1N",
+          "asin": "B0FWKTM5CD",
+          "name": "Hood Charades : Girls Night Edition High-Energy Card Game Bu",
+          "fba_qty": 55,
+          "awd_qty": 0,
+          "total_qty": 55
+        },
+        {
+          "sku": "MD-6BL6-GKZR",
+          "asin": "B0B6QFXTTD",
+          "name": "Black Owned The South 2000s Rap & Hip Hop Trivia \u2013 A Drinkin",
+          "fba_qty": 57,
+          "awd_qty": 0,
+          "total_qty": 57
+        },
+        {
+          "sku": "T0-CAEW-6ZV4",
+          "asin": "B0B6QDMBQ4",
+          "name": "Divulge Black Owned Couples Party Drinking Card Game - Perfe",
+          "fba_qty": 57,
+          "awd_qty": 0,
+          "total_qty": 57
+        },
+        {
+          "sku": "BS-ANA4-MBKR",
+          "asin": "B0F9LDLH79",
+          "name": "Black Owned Janky \u2013 High-Energy Word Party Card Game, 76 Gue",
+          "fba_qty": 59,
+          "awd_qty": 0,
+          "total_qty": 59
+        },
+        {
+          "sku": "X5-72X0-P27B",
+          "asin": "B0B8QYB835",
+          "name": "Black Owned Slow Jamz 90s R&B Music Trivia Drinking Game \u2013 E",
+          "fba_qty": 80,
+          "awd_qty": 0,
+          "total_qty": 80
+        },
+        {
+          "sku": "03-AMHW-4XXZ",
+          "asin": "B0FBMCC41F",
+          "name": "Hood Charades Hip Hop Edition \u2013 Urban Music Act-It-Out and T",
+          "fba_qty": 86,
+          "awd_qty": 0,
+          "total_qty": 86
+        },
+        {
+          "sku": "G7-EUP0-941H",
+          "asin": "B09XN1PCS6",
+          "name": "Black Owned Hi Ms Parker 90s Movie Trivia Drinking Game for ",
+          "fba_qty": 87,
+          "awd_qty": 0,
+          "total_qty": 87
+        },
+        {
+          "sku": "G5-ZOAD-79BN",
+          "asin": "B0B6QG13P4",
+          "name": "LewisRenee Private Party The Couples Spicy Card Game \u2013 Heat ",
+          "fba_qty": 93,
+          "awd_qty": 0,
+          "total_qty": 93
+        },
+        {
+          "sku": "F2-YYL9-TQP8",
+          "asin": "B0FBMCVL11",
+          "name": "Hood Charades R&B Edition \u2013 Energetic Black Culture Party Ga",
+          "fba_qty": 109,
+          "awd_qty": 0,
+          "total_qty": 109
+        },
+        {
+          "sku": "S0-1YP6-5VUA",
+          "asin": "B0994SFM5J",
+          "name": "Black Owned Black Love Couple Games - Tabletop Game for Date",
+          "fba_qty": 112,
+          "awd_qty": 0,
+          "total_qty": 112
+        },
+        {
+          "sku": "LZ-QBT8-U9PY",
+          "asin": "B0FWKX68Z3",
+          "name": "Hood Charades : Praise Break Edition Gospel Church Party Car",
+          "fba_qty": 118,
+          "awd_qty": 0,
+          "total_qty": 118
+        },
+        {
+          "sku": "Black-Owned-85-95-movie-tv",
+          "asin": "B08WHQ957T",
+          "name": "Black Owned - Adult Party Drinking Black People Trivia Card ",
+          "fba_qty": 136,
+          "awd_qty": 0,
+          "total_qty": 136
+        },
+        {
+          "sku": "UD-QJT6-YXGH",
+          "asin": "B0DZY2GH63",
+          "name": "Hood Charades Presents Hood Exit Card Game - Stack Your Cash",
+          "fba_qty": 136,
+          "awd_qty": 0,
+          "total_qty": 136
+        },
+        {
+          "sku": "QQ-YCM1-D88G",
+          "asin": "B0B3V5WX5T",
+          "name": "Black Owned Music Head 80s\u20132000s Hip Hop & R&B Trivia Game \u2013",
+          "fba_qty": 142,
+          "awd_qty": 0,
+          "total_qty": 142
+        },
+        {
+          "sku": "TP-H5T0-LLRS",
+          "asin": "B0CZVBLNLS",
+          "name": "LewisRenee Shot Clock 2 Drinking Game Fast-Paced Urban Trivi",
+          "fba_qty": 172,
+          "awd_qty": 0,
+          "total_qty": 172
+        },
+        {
+          "sku": "ZE-9KAF-ZTC3",
+          "asin": "B0CZVM754F",
+          "name": "LewisRenee Ghetto Pass 2 Card Game \u2013 Trivia Game Celebrating",
+          "fba_qty": 179,
+          "awd_qty": 0,
+          "total_qty": 179
+        },
+        {
+          "sku": "4D-BCHR-RV47",
+          "asin": "B0BV38YRNP",
+          "name": "African American Puzzles Art Celebration: 1000 Piece LewisRe",
+          "fba_qty": 184,
+          "awd_qty": 0,
+          "total_qty": 184
+        },
+        {
+          "sku": "PJ-XAT2-U065",
+          "asin": "B0BHR6S8S3",
+          "name": "LewisRenee Ghetto Pass \u2013 Black Culture Celebration Card Game",
+          "fba_qty": 213,
+          "awd_qty": 0,
+          "total_qty": 213
+        },
+        {
+          "sku": "W4-96YN-43NF",
+          "asin": "B0FBML4HZS",
+          "name": "Black Owned Hood Charades 90\u2019s Throwback Edition \u2013 Nostalgic",
+          "fba_qty": 311,
+          "awd_qty": 0,
+          "total_qty": 311
+        },
+        {
+          "sku": "I1-72BH-XJZ4",
+          "asin": "B0BNJRHPQT",
+          "name": "Baddie Drinking Cards Fun Adult Black-Owned Girls' Night Car",
+          "fba_qty": 316,
+          "awd_qty": 0,
+          "total_qty": 316
+        },
+        {
+          "sku": "0Z-BLNT-DMGG",
+          "asin": "B0B8QX8RM4",
+          "name": "LewisRenee Spell\u2019n Slang Spelling and Trivia Game \u2013 Family-F",
+          "fba_qty": 319,
+          "awd_qty": 0,
+          "total_qty": 319
+        },
+        {
+          "sku": "HR-9W91-N20O",
+          "asin": "B094LJMC42",
+          "name": "Damn Gina Drinking Game 90s Martin TV Show Trivia Cards Fun ",
+          "fba_qty": 327,
+          "awd_qty": 0,
+          "total_qty": 327
+        },
+        {
+          "sku": "IL-RUYS-ZXLP",
+          "asin": "B0BJ9C671F",
+          "name": "LewisRenee Off The Brown A Drinking Challenge Card Game \u2013 Ea",
+          "fba_qty": 342,
+          "awd_qty": 0,
+          "total_qty": 342
+        },
+        {
+          "sku": "BH-20EQ-6ZZW",
+          "asin": "B0BSR4QN7F",
+          "name": "LewisRenee Prayer Warrior \u2013 Bible Charades Card, Christian B",
+          "fba_qty": 378,
+          "awd_qty": 0,
+          "total_qty": 378
+        },
+        {
+          "sku": "9M-JDK3-E3DQ",
+          "asin": "B0BNLT1577",
+          "name": "LewisRenee Shot Clock - Black Owned Drinking Card Games for ",
+          "fba_qty": 414,
+          "awd_qty": 0,
+          "total_qty": 414
+        },
+        {
+          "sku": "XR-JO10-5IFH",
+          "asin": "B0BNK6KZ58",
+          "name": "LewisRenee What You Talkin Bout: The Riddle-Infused Drinking",
+          "fba_qty": 418,
+          "awd_qty": 0,
+          "total_qty": 418
+        },
+        {
+          "sku": "O9-JPIU-R6Z4",
+          "asin": "B0BNLVMHL2",
+          "name": "LewisRenee Grown Folks Hood Charades \u2013 A Black-Owned Party G",
+          "fba_qty": 421,
+          "awd_qty": 0,
+          "total_qty": 421
+        },
+        {
+          "sku": "G4-LY8B-Q9CU",
+          "asin": "B09XN27JM9",
+          "name": "Black Owned - Party Drinking Black People Trivia Card Game -",
+          "fba_qty": 441,
+          "awd_qty": 0,
+          "total_qty": 441
+        },
+        {
+          "sku": "B4-VCOR-XXFE",
+          "asin": "B0BNJSN95M",
+          "name": "Bad and Boujee Black Owned Drinking Card for The Girls Game ",
+          "fba_qty": 551,
+          "awd_qty": 0,
+          "total_qty": 551
+        },
+        {
+          "sku": "EH-J04P-1WY4",
+          "asin": "B0CZVPLPMM",
+          "name": "Hood Charades 2 Urban Card Game for Game Nights and Parties,",
+          "fba_qty": 752,
+          "awd_qty": 0,
+          "total_qty": 752
+        },
+        {
+          "sku": "Z0-J0SR-V96A",
+          "asin": "B09PJ4GCS8",
+          "name": "Black Owned - Adult Party Drinking Black People Trivia Card ",
+          "fba_qty": 770,
+          "awd_qty": 0,
+          "total_qty": 770
+        },
+        {
+          "sku": "8Z-1NL5-D9H2",
+          "asin": "B0BNLT8DBX",
+          "name": "LewisRenee Trap Queen Hood Charades \u2013 Black-Owned Adult Part",
+          "fba_qty": 859,
+          "awd_qty": 0,
+          "total_qty": 859
+        },
+        {
+          "sku": "V5-HDQG-0ULT",
+          "asin": "B0BJ9C3W1L",
+          "name": "Hot Girl Drinking Games: A Black-Owned Card Set for Adults \u2013",
+          "fba_qty": 936,
+          "awd_qty": 0,
+          "total_qty": 936
+        },
+        {
+          "sku": "CP-C9QC-IWKM",
+          "asin": "B09PCXT4JS",
+          "name": "Jerome in The House Family Martin Trivia Party Card Game fro",
+          "fba_qty": 989,
+          "awd_qty": 0,
+          "total_qty": 989
+        },
+        {
+          "sku": "MX-QRXZ-M76H",
+          "asin": "B0BNLSJXRX",
+          "name": "LewisRenee Spill The Tea \u2013 Black-Owned Girls' Night Drinking",
+          "fba_qty": 1041,
+          "awd_qty": 0,
+          "total_qty": 1041
+        },
+        {
+          "sku": "I3-H64A-HOBC",
+          "asin": "B0BNJRMH84",
+          "name": "LewisRenee MLK BLVD Black Culture Trivia Urban Family Game C",
+          "fba_qty": 1515,
+          "awd_qty": 0,
+          "total_qty": 1515
+        },
+        {
+          "sku": "S4-7RL2-KB71",
+          "asin": "B0D4GSZ9ND",
+          "name": "Girlll 2 Drinking Card Game Bachelorette Bash - The Ultimate",
+          "fba_qty": 1905,
+          "awd_qty": 0,
+          "total_qty": 1905
+        },
+        {
+          "sku": "N5-QUXI-EPI6",
+          "asin": "B0BNJRNRCN",
+          "name": "A Family That Plays Together Black Owned Family Hood Charade",
+          "fba_qty": 2038,
+          "awd_qty": 0,
+          "total_qty": 2038
+        },
+        {
+          "sku": "MN-2131-M62I",
+          "asin": "B0B6QDQPQY",
+          "name": "LewisRenee Get Together Drinking Card Game \u2013 Perfect for Coo",
+          "fba_qty": 2123,
+          "awd_qty": 0,
+          "total_qty": 2123
+        },
+        {
+          "sku": "L9-AYCB-P4FB",
+          "asin": "B0917WRLSN",
+          "name": "Black Owned - Hip Hop/Rap Drinking Lyric Trivia Card Game - ",
+          "fba_qty": 2301,
+          "awd_qty": 0,
+          "total_qty": 2301
+        },
+        {
+          "sku": "QZ-529V-YFF7",
+          "asin": "B0BSR2VDK8",
+          "name": "God Is Dope \u2013 Bible Trivia and Christian Conversation Starte",
+          "fba_qty": 2509,
+          "awd_qty": 0,
+          "total_qty": 2509
+        },
+        {
+          "sku": "6S-5YYD-QX04",
+          "asin": "B0B3V59MYG",
+          "name": "Black Owned Lyric Genius 90s & 2000s Hip Hop Trivia \u2013 A Must",
+          "fba_qty": 2531,
+          "awd_qty": 0,
+          "total_qty": 2531
+        },
+        {
+          "sku": "IT-6B42-XZTQ",
+          "asin": "B0F4YFM8DG",
+          "name": "Black Owned Street King by Maker of Hood Charades \u2013 A High-E",
+          "fba_qty": 5004,
+          "awd_qty": 0,
+          "total_qty": 5004
+        },
+        {
+          "sku": "FA-3JE4-39UL",
+          "asin": "B0B3V463XQ",
+          "name": "Black Owned Hood Charades Card Games for People Its A Thing ",
+          "fba_qty": 5023,
+          "awd_qty": 0,
+          "total_qty": 5023
+        },
+        {
+          "sku": "PV-L6AG-GNME",
+          "asin": "B09284PSML",
+          "name": "Black Owned - Party Starter Drinking Card Game - Great for A",
+          "fba_qty": 7055,
+          "awd_qty": 0,
+          "total_qty": 7055
+        },
+        {
+          "sku": "LJ-HV5D-PSEO",
+          "asin": "B09HNH1W74",
+          "name": "Black Owned Girlll - Drinking Card Game The Ultimate Bachelo",
+          "fba_qty": 13389,
+          "awd_qty": 0,
+          "total_qty": 13389
+        }
+      ]
+    },
+    "kinfolk": {
+      "name": "Kinfolk",
+      "total_skus": 49,
+      "out_of_stock": 3,
+      "low_stock": 2,
+      "medium_stock": 3,
+      "healthy": 41,
+      "total_fba_units": 15595,
+      "total_awd_units": 0,
+      "items": [
+        {
+          "sku": "JA-TEJP-NAO4",
+          "asin": "B0CJVNLN7W",
+          "name": "Kinfolk Soulful Game Night: Culture Trivia & Drinking Fun \u2013 ",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "Stickered.MSKU.1761062659393",
+          "asin": "B0FX5LB2R3",
+          "name": "Kinfolk Who Said Dat Hip Hop Trivia 76 Rap Lyric Guessing Ca",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "Stickered.MSKU.1761062942364",
+          "asin": "B0FX5JDNPF",
+          "name": "Kinfolk Who Said Dat: R&B Trivia Card Game \u2013 Name That Artis",
+          "fba_qty": 0,
+          "awd_qty": 0,
+          "total_qty": 0
+        },
+        {
+          "sku": "JH-CBU9-365L",
+          "asin": "B0CJVQZ8L2",
+          "name": "Kinfolk VS. Hip-Hop & R&B Battle: The Ultimate Adult Party G",
+          "fba_qty": 18,
+          "awd_qty": 0,
+          "total_qty": 18
+        },
+        {
+          "sku": "S2-5RXX-WBE7",
+          "asin": "B0CPL6BBG7",
+          "name": "Kinfolk Melanin Moments Couples Card Game Thought-Provoking,",
+          "fba_qty": 39,
+          "awd_qty": 0,
+          "total_qty": 39
+        },
+        {
+          "sku": "OC-26YJ-KQ4A",
+          "asin": "B0CPL2SD6G",
+          "name": "Street Smart A Must-Have Black Culture Trivia Game, Reveal R",
+          "fba_qty": 89,
+          "awd_qty": 0,
+          "total_qty": 89
+        },
+        {
+          "sku": "00-3TSD-JSET",
+          "asin": "B0CPL7XWH1",
+          "name": "Kinfolk Mic Drop 2000s Hip Hop and RNB Epic Lyric Battles Tr",
+          "fba_qty": 93,
+          "awd_qty": 0,
+          "total_qty": 93
+        },
+        {
+          "sku": "JG-DQ2Q-07EA",
+          "asin": "B0D4GXR5PY",
+          "name": "Kinfolk Turnt 2 Adult Drinking Game Ignite Lit Nights, Eleva",
+          "fba_qty": 99,
+          "awd_qty": 0,
+          "total_qty": 99
+        },
+        {
+          "sku": "GZ-4PMA-PWVP",
+          "asin": "B0CPLF7Q4C",
+          "name": "Ghetto Fabulous A Vibrant Celebration of African-American He",
+          "fba_qty": 112,
+          "awd_qty": 0,
+          "total_qty": 112
+        },
+        {
+          "sku": "NF-RY7S-01XZ",
+          "asin": "B0CPL22KQW",
+          "name": "Kinfolk Turnt Adult Drinking Game Energize Parties from Preg",
+          "fba_qty": 113,
+          "awd_qty": 0,
+          "total_qty": 113
+        },
+        {
+          "sku": "U9-4THH-C5NI",
+          "asin": "B0CPL7CGR6",
+          "name": "Kinfolk Street Savvy Vibrant Hood Trivia Game Featuring 100 ",
+          "fba_qty": 120,
+          "awd_qty": 0,
+          "total_qty": 120
+        },
+        {
+          "sku": "5Q-MP8I-4X2J",
+          "asin": "B0F677914S",
+          "name": "Kinfolk Hood Hints Presents Family Tree Card Game - of Gener",
+          "fba_qty": 147,
+          "awd_qty": 0,
+          "total_qty": 147
+        },
+        {
+          "sku": "L7-BVQM-TKE1",
+          "asin": "B0CPKQ6QD1",
+          "name": "Kinfolk Hood to Hollywood Epic Black Cinema Trivia Game - Te",
+          "fba_qty": 157,
+          "awd_qty": 0,
+          "total_qty": 157
+        },
+        {
+          "sku": "T3-5MGN-HOWV",
+          "asin": "B0CPL7HWV3",
+          "name": "Kinfolk Chill Celebrate Black Excellence in a Relaxed Drinki",
+          "fba_qty": 171,
+          "awd_qty": 0,
+          "total_qty": 171
+        },
+        {
+          "sku": "RG-F2SH-R0IC",
+          "asin": "B0CJVQHPD9",
+          "name": "Kinfolk Stay Woke - A Trivia Black Card Game Celebrating Bla",
+          "fba_qty": 174,
+          "awd_qty": 0,
+          "total_qty": 174
+        },
+        {
+          "sku": "12-UWSB-07VH",
+          "asin": "B0CPLB8W8P",
+          "name": "Sistas Ladies' Night Drinking Game Empowerment, Laughs & Sis",
+          "fba_qty": 186,
+          "awd_qty": 0,
+          "total_qty": 186
+        },
+        {
+          "sku": "R2-YCWW-VEU9",
+          "asin": "B0CPKYWXL4",
+          "name": "Kinfolk Soul Music Hip Hop & R&B Quiz 90's - 2000 Game - Pro",
+          "fba_qty": 194,
+          "awd_qty": 0,
+          "total_qty": 194
+        },
+        {
+          "sku": "EB-8U2M-GE6R",
+          "asin": "B0CPKTCT7L",
+          "name": "Kinfolk Street Cred Unleash Hood Trivia Skills in a Dynamic ",
+          "fba_qty": 229,
+          "awd_qty": 0,
+          "total_qty": 229
+        },
+        {
+          "sku": "7U-QT0N-7SF6",
+          "asin": "B0CPL2CZGM",
+          "name": "Kinfolk Block Party Celebrate Togetherness, Savor Drinks, an",
+          "fba_qty": 236,
+          "awd_qty": 0,
+          "total_qty": 236
+        },
+        {
+          "sku": "WT-VENV-F6YR",
+          "asin": "B0CPLBD21D",
+          "name": "Kinfolk Nightcap Couples Conversation Game Spark Culturally ",
+          "fba_qty": 236,
+          "awd_qty": 0,
+          "total_qty": 236
+        },
+        {
+          "sku": "JP-BZML-RLHQ",
+          "asin": "B0CPL1ZXDJ",
+          "name": "Kinfolk True Or Tipsy Urban Drinking Game for Adults: Laugh,",
+          "fba_qty": 237,
+          "awd_qty": 0,
+          "total_qty": 237
+        },
+        {
+          "sku": "C3-HIAU-DFZ5",
+          "asin": "B0CPKVD2DP",
+          "name": "Kinfolk Juneteenth Cultural Trivia Explore Black History and",
+          "fba_qty": 251,
+          "awd_qty": 0,
+          "total_qty": 251
+        },
+        {
+          "sku": "4A-9D3Y-YTK6",
+          "asin": "B0CPL5M3JL",
+          "name": "Stopwatch Black-Owned Urban Party Drinking Card Game for Cel",
+          "fba_qty": 284,
+          "awd_qty": 0,
+          "total_qty": 284
+        },
+        {
+          "sku": "HV-58HG-8H07",
+          "asin": "B0CPL9QSRW",
+          "name": "Kinfolk Share Your Soul Deep Connection Card Games for Coupl",
+          "fba_qty": 296,
+          "awd_qty": 0,
+          "total_qty": 296
+        },
+        {
+          "sku": "9M-8XPM-BLFU",
+          "asin": "B0CPLB9KL9",
+          "name": "Kinfolk BFFs Bonding Bash Spark Memorable Girls' Nights with",
+          "fba_qty": 298,
+          "awd_qty": 0,
+          "total_qty": 298
+        },
+        {
+          "sku": "25-TQIW-WSSK",
+          "asin": "B0CPL8PGP8",
+          "name": "Kinfolk Urban Intellect Expand Knowledge of African American",
+          "fba_qty": 301,
+          "awd_qty": 0,
+          "total_qty": 301
+        },
+        {
+          "sku": "LI-J02N-YP9X",
+          "asin": "B0CPL159VG",
+          "name": "Kinfolk Shot of Truth A Real Talk Drinking Card Game\u2014Elevate",
+          "fba_qty": 303,
+          "awd_qty": 0,
+          "total_qty": 303
+        },
+        {
+          "sku": "KA-7BBS-659W",
+          "asin": "B0D4GZ4GZ2",
+          "name": "Hood Hints V2: The Ultimate Black Culture Charades Game \u2013 A ",
+          "fba_qty": 305,
+          "awd_qty": 0,
+          "total_qty": 305
+        },
+        {
+          "sku": "NU-NQRV-ODC5",
+          "asin": "B0CPLCB87B",
+          "name": "Kinfolk Cappin Bold Adult Drinking Card Game of Truths and L",
+          "fba_qty": 342,
+          "awd_qty": 0,
+          "total_qty": 342
+        },
+        {
+          "sku": "4W-TMCL-J98M",
+          "asin": "B0FX5LB2R3",
+          "name": "Kinfolk Who Said Dat Hip Hop Trivia 76 Rap Lyric Guessing Ca",
+          "fba_qty": 354,
+          "awd_qty": 0,
+          "total_qty": 354
+        },
+        {
+          "sku": "6H-JX4U-9V1T",
+          "asin": "B0CPL11L1V",
+          "name": "Kinfolk Rhyme Culture A 90s and 2000s Hip Hop Card Game\u2014Test",
+          "fba_qty": 355,
+          "awd_qty": 0,
+          "total_qty": 355
+        },
+        {
+          "sku": "DH-I0F8-FZ9M",
+          "asin": "B0CPL8L9ZT",
+          "name": "Kinfolk for The Culture Card Game Ghetto Fabulous Edition, A",
+          "fba_qty": 355,
+          "awd_qty": 0,
+          "total_qty": 355
+        },
+        {
+          "sku": "HJ-70KU-12WV",
+          "asin": "B0CPL843FR",
+          "name": "Kinfolk Family Goals Conversation Cards for Families: Bond, ",
+          "fba_qty": 357,
+          "awd_qty": 0,
+          "total_qty": 357
+        },
+        {
+          "sku": "4X-5C4Z-K3XI",
+          "asin": "B0CPL15M7H",
+          "name": "Kinfolk Urban Lingo Expand Vocabulary and Cultural Insight, ",
+          "fba_qty": 358,
+          "awd_qty": 0,
+          "total_qty": 358
+        },
+        {
+          "sku": "7W-LG4F-ED66",
+          "asin": "B0CPLC34L8",
+          "name": "Kinfolk Hood Genius Family Trivia: Celebrate Black Excellenc",
+          "fba_qty": 359,
+          "awd_qty": 0,
+          "total_qty": 359
+        },
+        {
+          "sku": "T6-QVBG-K94E",
+          "asin": "B0CPL2N9C8",
+          "name": "Kinfolk Slang Shots The Urban Adult Drinking Games - Test Yo",
+          "fba_qty": 359,
+          "awd_qty": 0,
+          "total_qty": 359
+        },
+        {
+          "sku": "C8-Y81L-M7FE",
+          "asin": "B0CPLC3JFL",
+          "name": "Kinfolk Faded Hilarious Drinking Game for Adults, The Ultima",
+          "fba_qty": 360,
+          "awd_qty": 0,
+          "total_qty": 360
+        },
+        {
+          "sku": "GH-5TS6-OBB8",
+          "asin": "B0CJVNCVKF",
+          "name": "Slang: Unleash The Laughs with Trivia and Street Talk\u2014Black-",
+          "fba_qty": 360,
+          "awd_qty": 0,
+          "total_qty": 360
+        },
+        {
+          "sku": "IS-AQXF-CK2T",
+          "asin": "B0CPL6ZG15",
+          "name": "Kinfolk HoodRich Game Night Extravaganza African American Cu",
+          "fba_qty": 361,
+          "awd_qty": 0,
+          "total_qty": 361
+        },
+        {
+          "sku": "W7-FM68-X8BR",
+          "asin": "B0CPL2SDCS",
+          "name": "Kinfolk King & Queen Conversation Game Spark Meaningful Dial",
+          "fba_qty": 361,
+          "awd_qty": 0,
+          "total_qty": 361
+        },
+        {
+          "sku": "A4-A0KQ-5U9C",
+          "asin": "B0CPL68HYG",
+          "name": "Kinfolk Divas Night Out Toast Your Girls' Night with a Livel",
+          "fba_qty": 373,
+          "awd_qty": 0,
+          "total_qty": 373
+        },
+        {
+          "sku": "7A-WIJM-VCYZ",
+          "asin": "B0F225284V",
+          "name": "Kinfolk Sayless Presents - Who Made The Potato Salad - Ultim",
+          "fba_qty": 396,
+          "awd_qty": 0,
+          "total_qty": 396
+        },
+        {
+          "sku": "GN-1SYY-FQZK",
+          "asin": "B0CPL4Z5DJ",
+          "name": "Kinfolk Sunday's Best Christian Taboo-Style Bible Trivia Gam",
+          "fba_qty": 399,
+          "awd_qty": 0,
+          "total_qty": 399
+        },
+        {
+          "sku": "LQ-BFXU-SOIO",
+          "asin": "B0FX5JDNPF",
+          "name": "Kinfolk Who Said Dat: R&B Trivia Card Game \u2013 Name That Artis",
+          "fba_qty": 408,
+          "awd_qty": 0,
+          "total_qty": 408
+        },
+        {
+          "sku": "LD-JF7K-ERQJ",
+          "asin": "B0D4GXVCRW",
+          "name": "Kinfolk SayLess 2 Family Game Night Hood Charades with a Cul",
+          "fba_qty": 440,
+          "awd_qty": 0,
+          "total_qty": 440
+        },
+        {
+          "sku": "2Q-SVQN-2WH8",
+          "asin": "B0CJVPBHTG",
+          "name": "Kinfolk Culture Cues: The Heritage-Inspired Party Game for A",
+          "fba_qty": 737,
+          "awd_qty": 0,
+          "total_qty": 737
+        },
+        {
+          "sku": "9Z-LDUS-ENKT",
+          "asin": "B0CPKYWKHB",
+          "name": "Who Said Dat Game: Immerse Yourself in the World of Urban Qu",
+          "fba_qty": 1052,
+          "awd_qty": 0,
+          "total_qty": 1052
+        },
+        {
+          "sku": "L9-UZ2J-C8K0",
+          "asin": "B0CPLF7PT8",
+          "name": "Kinfolk SayLess The Ultimate Family Game Night Party Starter",
+          "fba_qty": 1165,
+          "awd_qty": 0,
+          "total_qty": 1165
+        },
+        {
+          "sku": "QH-L2RA-G5KS",
+          "asin": "B0CPLC2Q67",
+          "name": "Kinfolk Hood Hints Black Culture Unleashed Charades Game - C",
+          "fba_qty": 1656,
+          "awd_qty": 0,
+          "total_qty": 1656
+        }
+      ]
+    }
+  },
+  "alerts": {
+    "out_of_stock": [
+      {
+        "brand": "Black Owned",
+        "sku": "0A-W09L-XSY5",
+        "asin": "B0BWNK9NDM",
+        "name": "African American Puzzles for Adults 1000 Piece: LewisRenee A",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "0F-S3PF-PKYH",
+        "asin": "B0BWNKZJBL",
+        "name": "African Jigsaw Puzzle for Adults: LewisRenee 1000 Piece Mast",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "0T-NPZU-UDYP",
+        "asin": "B0BWLFSBMD",
+        "name": "LewisRenee Adorn your walls African American Art Eye-Catchin",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "11-NRJZ-8S1G",
+        "asin": "B0BWLS7ZF9",
+        "name": "LewisRenee Transform Your Home With Stunning African Wall Ar",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "19-F1YI-2211",
+        "asin": "B0BWNKXJ29",
+        "name": "African American Expressions Jigsaw Puzzles Black: 1000 Piec",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "1O-92LA-HBAP",
+        "asin": "B0B8R18FBG",
+        "name": "The Majority | Voting Drinking Adult Games for Game Night | ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "28-548M-UZOA",
+        "asin": "B0BV35Z43H",
+        "name": "Black Puzzles for Adult Enthusiasts: Black Art Puzzles 1000 ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "2H-PLCL-HKAK",
+        "asin": "B0BWNK4PJJ",
+        "name": "African American Puzzles : 1000 Piece LewisRenee Jigsaw, Dis",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "2T-2XPS-8UWB",
+        "asin": "B0BWLP263B",
+        "name": "LewisRenee Showcase Your Love For African American Wall Art ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "3E-NI39-N970",
+        "asin": "B0BWNLKWRV",
+        "name": "Black History African Jigsaw Puzzles: 1000 Piece LewisRenee ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "3F-C0FW-CM6B",
+        "asin": "B0BWNM5QKW",
+        "name": "African American Expressions Jigsaw Puzzles : 1000 Piece Lew",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "4E-HI7M-69OE",
+        "asin": "B0BWNMN45K",
+        "name": "African American Puzzles : 1000 Piece African American Jigsa",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "4I-BJ5A-L44Y",
+        "asin": "B0BWLVXXJF",
+        "name": "LewisRenee Elevate Your Decor African Woman Wall Art A Timel",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "4P-W689-8VEN",
+        "asin": "B0BWL2MX78",
+        "name": "LewisRenee Jazz Up Your Home Decor African American Art - Wo",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "4W-EC32-5Q4R",
+        "asin": "B0BWLPPR7R",
+        "name": "Celebrate Black Beauty With This African Woman Canvas A Piec",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "5G-5MS6-T4P3",
+        "asin": "B0BWLCR4PR",
+        "name": "LewisRenee Bring Some Black People Wall Art Culture Into You",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "6B-E8Z6-AP28",
+        "asin": "B0BVKPVTZX",
+        "name": "LewisRenee African Art 1000 Piece Jigsaw Puzzle - Sun Fire, ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "71-Q4II-WRW9",
+        "asin": "B0BWLZM6SQ",
+        "name": "LewisRenee Create An Inspiring Living Room African American ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "7B-2798-2SWV",
+        "asin": "B0BWKYRB4K",
+        "name": "LewisRenee Beautiful Black Art For The Office 16 X 20 Unfram",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "7K-PDC1-UHFE",
+        "asin": "B0BWLVZH7Z",
+        "name": "Upgrade Your Living Room With This African American Wall Art",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "7S-KIE5-X5QO",
+        "asin": "B0BVKQ9HDF",
+        "name": "Mesmerizing Black Art Puzzles : 1000 Piece African American ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "7U-55UV-XRJU",
+        "asin": "B0B6QDGQPL",
+        "name": "Black Owned Hall Pass Drinking for The Culture Card Game | B",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "86-SM5P-0KHT",
+        "asin": "B0BT83NBHQ",
+        "name": "Hey Girl Heyyy LGBTQ Drinking Card Game | Gay Adult Game Gre",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "8P-IC8O-0AC8",
+        "asin": "B0BWLWVTJC",
+        "name": "Create A Warm And Inviting Atmosphere With This Inspiring Af",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "8S-U43O-ZN5U",
+        "asin": "B0BWLZXF9X",
+        "name": "Celebrate Black People Wall Art Culture And Heritage With A ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "90-LV92-40J6",
+        "asin": "B08YXXDK6T",
+        "name": "Black Owned | Southern Hip Hop / Rap Trivia",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "98-TYVH-VZI5",
+        "asin": "B0BWL13XPQ",
+        "name": "LewisRenee Art African American Wall Art (Basart8)",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "9E-VDU1-FCEB",
+        "asin": "B0BWLY88CK",
+        "name": "LewisRenee Add A Touch Of African American Style To Your Hom",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "9J-M64W-BZTR",
+        "asin": "B0BWLYLW6K",
+        "name": "LewisRenee Unframed Canvas African American Art A Perfect Ac",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "9N-U4SS-MQ0U",
+        "asin": "B0BWNKP9TG",
+        "name": "African Puzzles for Adults 1000 Piece: LewisRenee Art Jigsaw",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "A9-HVKF-TPQY",
+        "asin": "B09YMFLFPM",
+        "name": "Bazinga | Adult Drinking Trivia Party Card Game from The Ico",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "AQ-MCIH-ZTC0",
+        "asin": "B0BVKQYPV9",
+        "name": "African American Puzzles for Adults Delight: 1000 Piece Lewi",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "Amazon.Found.B0917WRLSN",
+        "asin": "B0917WRLSN",
+        "name": "Black Owned - Hip Hop/Rap Drinking Lyric Trivia Card Game - ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "B4-X4PE-DFFH",
+        "asin": "B0BWLXRQYM",
+        "name": "LewisRenee Celebrate The Black People Wall Art Culture Afric",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "BA-66WR-4E6M",
+        "asin": "B0BWNL2955",
+        "name": "African American Puzzles : 1000 Piece Africa Jigsaw Puzzle, ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "BP-VFLY-E588",
+        "asin": "B0BWNLXCC4",
+        "name": "Powerful African American Women Jigsaw: 1000 Piece African A",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "C4-MO1Y-7MEV",
+        "asin": "B0BWL6FR48",
+        "name": "LewisRenee Enhance Your Living Space African American Unfram",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "CA-I8WP-J5MV",
+        "asin": "B0BWNJ6JQ3",
+        "name": "Black Art Puzzles : 1000 Piece African American Jigsaw Puzzl",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "CU-KDTP-0P8I",
+        "asin": "B0BWNM35BG",
+        "name": "Black African American Puzzles for Adults 1000 Pieces : Lewi",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "CU-RD9D-KAER",
+        "asin": "B0BWLSGH5F",
+        "name": "Empower Your Space With Bold 16x20 Unframed Black Girl Paint",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "D9-N6S8-74L2",
+        "asin": "B0BWNM8N7J",
+        "name": "Great African American Puzzle: 1000 Piece Jigsaw for Adults,",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "DD-QL5Q-OCPS",
+        "asin": "B0BVKQXL2Q",
+        "name": "African American Jigsaw Puzzles for Adults 1000 Piece Wonder",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "DF-X6HN-PDQ8",
+        "asin": "B0BWLVFWH9",
+        "name": "LewisRenee Elevate Your Space African American Wall Art - Bo",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "E0-WFU9-UWFJ",
+        "asin": "B0BWLWH3T1",
+        "name": "Black Love Art African American Wall Art Water Colors (Wc27)",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "E7-4296-IXEX",
+        "asin": "B0BVKPS4YL",
+        "name": "African American Women Power Puzzle: 1000 Piece LewisRenee B",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "E7-AQPH-11DU",
+        "asin": "B0BWLMNGFB",
+        "name": "Black Love Art African American Wall Art Water Colors (Wc21)",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "FO-VKWG-TB1G",
+        "asin": "B0BWNM7B36",
+        "name": "African Art Jigsaw Puzzles: 1000 Piece LewisRenee Masterpiec",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "G2-9N6O-8UK1",
+        "asin": "B09XN17BVR",
+        "name": "Black Owned Soul Glo Adult Drinking Trivia Party Black Card ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "GA-5ZQY-OSNJ",
+        "asin": "B09VZL8QDM",
+        "name": "She's Your Lobster Adult Drinking Friends Trivia Party Card ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "GD-PQ08-QRCC",
+        "asin": "B09JVFS8FS",
+        "name": "She's Your Lobster | Adult Drinking Trivia Party Card Game f",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "GF-B8Z2-STIZ",
+        "asin": "B0BWLLWG56",
+        "name": "LewisRenee Make A Statement African American Wall Art - Bold",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "GO-FSND-7XN0",
+        "asin": "B0BWNM5NWZ",
+        "name": "Black People Africa Jigsaw Puzzle: LewisRenee 1000 Piece Afr",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "HG-F58B-M1FZ",
+        "asin": "B0BWNHPLCF",
+        "name": "Puzzles for Adults African American: 1000 Piece LewisRenee B",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "HN-XMW1-U98H",
+        "asin": "B09YMGY1X7",
+        "name": "Black Owned | Uncle Phil Drinking Trivia Party Card Game fro",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "HO-N8XT-3JVI",
+        "asin": "B0BWLRZC98",
+        "name": "Add An Artistic Flair To Your Space With African Wall Art Ca",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "IQ-LHXU-2NIX",
+        "asin": "B0BWLG14TQ",
+        "name": "LewisRenee Unframed 16 X 20 African American Art - African A",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "J4-UA57-ST9B",
+        "asin": "B0BWNJ5H8Z",
+        "name": "African American Jigsaw Puzzles 1000 Pieces: LewisRenee Art,",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "JI-N6OF-SOEC",
+        "asin": "B0BWLRCVNW",
+        "name": "LewisRenee Infuse Your Home With History And Beauty African ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "JK-YAIY-X4AR",
+        "asin": "B0BWLVWHMS",
+        "name": "LewisRenee African American Wall Art Prints - Inspiring And ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "JQ-71EJ-FRXK",
+        "asin": "B0BWNMXX49",
+        "name": "Africa Jigsaw Puzzle Adventure: 1000 Piece LewisRenee Master",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "K8-7IPU-9W9J",
+        "asin": "B09JYL8T85",
+        "name": "World's Best Boss | Adult Drinking Trivia Party Card Game fr",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "KM-9R0Z-V2FP",
+        "asin": "B0BWNGGPCT",
+        "name": "African American Woman Jigsaw Puzzles: 1000 Piece LewisRenee",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "KS-7SN5-Y2AF",
+        "asin": "B0BWLQKC8X",
+        "name": "LewisRenee Experience The Magic Of Black Girl Art Unframed C",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "M1-MOZY-ULJ8",
+        "asin": "B0BWLVBBZG",
+        "name": "LewisRenee Bring Your Living Space To Life African American ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "M4-52IS-INNE",
+        "asin": "B0BWLV4VYB",
+        "name": "Experience The Beauty And Culture Of African Afro Art With T",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "MU-6WPQ-CDRH",
+        "asin": "B0BWNLS9B1",
+        "name": "Black Mom & Daughter Puzzle: 1000 Piece Heartwarming African",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "MV-XYVQ-UZID",
+        "asin": "B0BWLP5QFC",
+        "name": "Black Love Art African American Wall Art Water Colors (Wc13)",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "NG-F2GR-AXYJ",
+        "asin": "B0BVKQ2L9M",
+        "name": "Black Puzzles for Adults: 1000 Piece LewisRenee Jigsaw, Embr",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "O0-9JQM-J8DX",
+        "asin": "B0BWLXBCJT",
+        "name": "Celebrate Black Culture and Heritage with this Stunning Afri",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "O3-2B0T-LNV8",
+        "asin": "B0BWLZN3F4",
+        "name": "LewisRenee Experience The Beauty Of Black Art/African Americ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "O5-XEEK-NQKP",
+        "asin": "B09YMDRKH8",
+        "name": "The North Remembers | Adult Drinking Trivia Party Card Game ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "OZ-32RZ-W8P3",
+        "asin": "B0BV3786CW",
+        "name": "African American Puzzle Expedition: 1000 Piece LewisRenee Af",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "PN-G6C4-QQPZ",
+        "asin": "B0BWLQ1TQG",
+        "name": "LewisRenee Decorate Your Home With Inspiring African America",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "PS-3WQN-6GY7",
+        "asin": "B0BWNHL928",
+        "name": "African American Woman Jigsaw Puzzle Africa : 1000 Piece Lew",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "Q1-C5SX-3UH9",
+        "asin": "B0BV37PBLF",
+        "name": "Powerful African American Women Puzzle: 1000 Piece LewisRene",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "QE-GG8E-KWLX",
+        "asin": "B0BWLSK25R",
+        "name": "Black Love Art African American Wall Art Water Colors (Wc23)",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "QN-H0SG-9KTF",
+        "asin": "B0BWLYN4MT",
+        "name": "LewisRenee Celebrate the Power of Black Love and Unity Stunn",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "QU-NFGD-KZXY",
+        "asin": "B0BWLTTFPF",
+        "name": "LewisRenee Make a bold statement African wall art - a captiv",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "RI-3DNK-KTHY",
+        "asin": "B0BWNJHL6X",
+        "name": "African Puzzle Adventure: 1000 Piece Black Woman Puzzle by L",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "S2-752K-Q5UO",
+        "asin": "B0BWLTBVDN",
+        "name": "LewisRenee Art African American Woman Wall Art (AbstractFace",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "S8-V2JJ-T7MG",
+        "asin": "B0BWLVWDWP",
+        "name": "LewisRenee Celebrate Black Beauty With Stunning African Amer",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "SG-Z18L-Y320",
+        "asin": "B0BWNNH1LK",
+        "name": "Puzzle African American: 1000 Piece Puzzle African American ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "SH-04OV-JD3F",
+        "asin": "B083RZZ7LQ",
+        "name": "Hammered The Adult NSFW Drinking Party Starter Card Game | D",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "TE-G68U-FJ3R",
+        "asin": "B09YNXSW1C",
+        "name": "Walter White | Adult Drinking Trivia Party Card Game from Th",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "TE-ZI2R-F0A0",
+        "asin": "B0BWLRRD5W",
+        "name": "LewisRenee Experience The Richness Of African American Wall ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "TL-LVHM-RF1E",
+        "asin": "B0BWL8D9PZ",
+        "name": "LewisRenee 16 X 20 Unframed Afro African American Wall Art A",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "TL-N8I0-YPRI",
+        "asin": "B0BWL2Y4QK",
+        "name": "LewisRenee Decorate Your Office Or Home Walls Stunning Black",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "TQ-5MHX-5Z9Q",
+        "asin": "B09VZJ8CSN",
+        "name": "Best Boss | Adult Drinking Trivia Party Card Game from The I",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "Uncommingled.MSKU.1715988515908",
+        "asin": "B0D4GSZ9ND",
+        "name": "Girlll 2 Drinking Card Game Bachelorette Bash - The Ultimate",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "VA-MM5H-8K5D",
+        "asin": "B0BWLVXS96",
+        "name": "LewisRenee Elevate The Space Black African Wall Art Artwork ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "VN-N76W-LIOI",
+        "asin": "B0BWLS6NYT",
+        "name": "LewisRenee Discover The Richness Of African American Wall Ar",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "W3-DNY7-EI25",
+        "asin": "B0BWLC8SYG",
+        "name": "LewisRenee Revamp Your Home Interiors African American Wall ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "W5-1BKE-DJII",
+        "asin": "B0BWNRLZR1",
+        "name": "African American Expressions Jigsaw : 1000 Piece LewisRenee ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "W6-1MC7-GPUO",
+        "asin": "B0BWLKG45Y",
+        "name": "The Power Of Afrocentric Art With African Woman Art Beautifu",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "WT-6LLP-IL0U",
+        "asin": "B09YMGPZYC",
+        "name": "Grey Sloan | Adult Drinking Trivia Party Card Game from The ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "X4-MK2W-V9H6",
+        "asin": "B0BWLMSB4G",
+        "name": "Black Love Art African American Wall Art Water Colors (Wc3)",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "XI-G53N-EDAF",
+        "asin": "B0BWLPGM17",
+        "name": "LewisRenee Stylish African-American Art Decorate Your Home W",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "XJ-D86M-SX9L",
+        "asin": "B0BWLY93C6",
+        "name": "LewisRenee Transform Your Home African American Wall Art - A",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "XY-AKL6-ISVV",
+        "asin": "B0BVKQFXLL",
+        "name": "African American Heritage Puzzles: 1000 Piece LewisRenee Bla",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "YG-T33I-IQ5Q",
+        "asin": "B0BWNJP99P",
+        "name": "Captivating Black Art Puzzles for Adults: 1000 Piece African",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "YX-7WRB-9UJH",
+        "asin": "B0BWLSJB4S",
+        "name": "Transform Your Space With This Bold And Beautiful African Wo",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "YZ-4RBO-MQNJ",
+        "asin": "B0BWNKCWFV",
+        "name": "Explore African American Puzzles for Adults: 1000 Piece Enga",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "Z1-HFCT-62QB",
+        "asin": "B0BWLHDGG4",
+        "name": "LewisRenee Create A Unique And Personalized Living Space Afr",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "ZP-23CO-UD2P",
+        "asin": "B0BVKPW3PY",
+        "name": "African American Puzzles for Adult Minds: 1000 Piece LewisRe",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "JA-TEJP-NAO4",
+        "asin": "B0CJVNLN7W",
+        "name": "Kinfolk Soulful Game Night: Culture Trivia & Drinking Fun \u2013 ",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "Stickered.MSKU.1761062659393",
+        "asin": "B0FX5LB2R3",
+        "name": "Kinfolk Who Said Dat Hip Hop Trivia 76 Rap Lyric Guessing Ca",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "Stickered.MSKU.1761062942364",
+        "asin": "B0FX5JDNPF",
+        "name": "Kinfolk Who Said Dat: R&B Trivia Card Game \u2013 Name That Artis",
+        "fba_qty": 0,
+        "awd_qty": 0,
+        "total_qty": 0
+      }
+    ],
+    "low_stock": [
+      {
+        "brand": "Black Owned",
+        "sku": "QS-3U1B-3NFR",
+        "asin": "B0BNJPZQP9",
+        "name": "Charades and Chill: Black-Owned Trap Charades for Adults \u2013 U",
+        "fba_qty": 1,
+        "awd_qty": 0,
+        "total_qty": 1
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "DS-FG8W-LCK7",
+        "asin": "B0BWNK3W84",
+        "name": "Beautiful African American Puzzle : Black Art Puzzles for Ad",
+        "fba_qty": 2,
+        "awd_qty": 0,
+        "total_qty": 2
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "EM-6689-IDKD",
+        "asin": "B0BWNKBGJ7",
+        "name": "African American Artistry Jigsaw: 1000 Piece LewisRenee Puzz",
+        "fba_qty": 6,
+        "awd_qty": 0,
+        "total_qty": 6
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "JH-CBU9-365L",
+        "asin": "B0CJVQZ8L2",
+        "name": "Kinfolk VS. Hip-Hop & R&B Battle: The Ultimate Adult Party G",
+        "fba_qty": 18,
+        "awd_qty": 0,
+        "total_qty": 18
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "IR-WF9Q-2YJL",
+        "asin": "B0DDQGH755",
+        "name": "Hood Riddles : The Ultimate Black Culture Trivia Card Game -",
+        "fba_qty": 20,
+        "awd_qty": 0,
+        "total_qty": 20
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "YH-VRI0-7FLB",
+        "asin": "B0DSCCHCRG",
+        "name": "Deep Talk Dating Card Game \u2013 Romantic Conversation Starters ",
+        "fba_qty": 24,
+        "awd_qty": 0,
+        "total_qty": 24
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "K9-EOS6-6WY3",
+        "asin": "B0CZ5647D3",
+        "name": "Sippin' : Vibrant and Culturally-Infused African-American Dr",
+        "fba_qty": 28,
+        "awd_qty": 0,
+        "total_qty": 28
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "DA-XHX8-T0B7",
+        "asin": "B0B8R2XYG1",
+        "name": "LIT A Simple Drinking Card Game \u2013 Perfect for Girls\u2019 Night, ",
+        "fba_qty": 32,
+        "awd_qty": 0,
+        "total_qty": 32
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "U4-UNJ2-KWMN",
+        "asin": "B0DS7KNKCQ",
+        "name": "I'm from The Hood Charades V1 \u2013 A Dynamic Black Culture Char",
+        "fba_qty": 39,
+        "awd_qty": 0,
+        "total_qty": 39
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "S2-5RXX-WBE7",
+        "asin": "B0CPL6BBG7",
+        "name": "Kinfolk Melanin Moments Couples Card Game Thought-Provoking,",
+        "fba_qty": 39,
+        "awd_qty": 0,
+        "total_qty": 39
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "Z1-6MAK-EYUN",
+        "asin": "B0DSCCWKC7",
+        "name": "Our Father 2 Bible Trivia Game \u2013 A Fun and Faith-Based Chris",
+        "fba_qty": 40,
+        "awd_qty": 0,
+        "total_qty": 40
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "MN-4DSB-M1CU",
+        "asin": "B0DSCCRH3C",
+        "name": "Hope You\u2019re Thirsty Drinking Card Game \u2013 The Fly Party Game ",
+        "fba_qty": 42,
+        "awd_qty": 0,
+        "total_qty": 42
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "RB-9ZQM-XH41",
+        "asin": "B0B6QHNJLL",
+        "name": "Black Owned Edibles The Ultimate Weed Card Game for Adults \u2013",
+        "fba_qty": 43,
+        "awd_qty": 0,
+        "total_qty": 43
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "CF-J9ZD-CANU",
+        "asin": "B0DSCC3LB3",
+        "name": "Card Plug Show and Tell 2 Party Game for The People \u2013 Hilari",
+        "fba_qty": 44,
+        "awd_qty": 0,
+        "total_qty": 44
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "NH-KO6N-GNUY",
+        "asin": "B0DS7LHZKL",
+        "name": "Word Trap 2 \u2013 A Fun Guessing Game for Everyone - The Ultimat",
+        "fba_qty": 47,
+        "awd_qty": 0,
+        "total_qty": 47
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "RP-XDKY-SCU3",
+        "asin": "B0DS7SFYJ1",
+        "name": "Game of Shots 2 \u2013 The Ultimate Drinking Card Game for a Get ",
+        "fba_qty": 47,
+        "awd_qty": 0,
+        "total_qty": 47
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "YP-UCAP-944D",
+        "asin": "B0DSCBYCFT",
+        "name": "Card Plug The Shot Box Ladies Night Drinking Game - Fun and ",
+        "fba_qty": 47,
+        "awd_qty": 0,
+        "total_qty": 47
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "ZR-1Q6N-N5EY",
+        "asin": "B0DSCBYCFT",
+        "name": "Card Plug The Shot Box Ladies Night Drinking Game - Fun and ",
+        "fba_qty": 47,
+        "awd_qty": 0,
+        "total_qty": 47
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "Q8-9CGY-HSZ3",
+        "asin": "B0DSCCZFHS",
+        "name": "Song Fight 2 \u2013 The Ultimate Music Battle Party Game for Ever",
+        "fba_qty": 48,
+        "awd_qty": 0,
+        "total_qty": 48
+      }
+    ],
+    "medium_stock": [
+      {
+        "brand": "Card Plug",
+        "sku": "X1-987D-6OCR",
+        "asin": "B0DSCDMGV3",
+        "name": "Card Plug Without Saying \u2013 A Charades-Style Word-Guessing Ga",
+        "fba_qty": 50,
+        "awd_qty": 0,
+        "total_qty": 50
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "ZN-C4H3-BJFL",
+        "asin": "B0DSC9VCHX",
+        "name": "Race Against Time 2: A Rapid-Fire Drinking Card Game Where Y",
+        "fba_qty": 50,
+        "awd_qty": 0,
+        "total_qty": 50
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "PK-0FV8-QL6F",
+        "asin": "B0DS7JWG77",
+        "name": "Tipsy Talks Friends Night Card Game Conversation Starter & D",
+        "fba_qty": 54,
+        "awd_qty": 0,
+        "total_qty": 54
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "US-IXU5-NMIR",
+        "asin": "B0DX4GN32C",
+        "name": "Roses are Red After Dark \u2013 Spicy Conversation Starter for Co",
+        "fba_qty": 54,
+        "awd_qty": 0,
+        "total_qty": 54
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "JH-KMHV-RU1N",
+        "asin": "B0FWKTM5CD",
+        "name": "Hood Charades : Girls Night Edition High-Energy Card Game Bu",
+        "fba_qty": 55,
+        "awd_qty": 0,
+        "total_qty": 55
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "DJ-OKTN-RIFN",
+        "asin": "B0DSCDLTVB",
+        "name": "Card Plug Sip Sip Hooray 2 \u2013 The Ultimate Party Drinking Gam",
+        "fba_qty": 57,
+        "awd_qty": 0,
+        "total_qty": 57
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "MD-6BL6-GKZR",
+        "asin": "B0B6QFXTTD",
+        "name": "Black Owned The South 2000s Rap & Hip Hop Trivia \u2013 A Drinkin",
+        "fba_qty": 57,
+        "awd_qty": 0,
+        "total_qty": 57
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "T0-CAEW-6ZV4",
+        "asin": "B0B6QDMBQ4",
+        "name": "Divulge Black Owned Couples Party Drinking Card Game - Perfe",
+        "fba_qty": 57,
+        "awd_qty": 0,
+        "total_qty": 57
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "KU-UUWZ-PYOV",
+        "asin": "B0DSCDFRQT",
+        "name": "Roses are Red Date Talk \u2013 Fun and Engaging Conversation Star",
+        "fba_qty": 58,
+        "awd_qty": 0,
+        "total_qty": 58
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "BS-ANA4-MBKR",
+        "asin": "B0F9LDLH79",
+        "name": "Black Owned Janky \u2013 High-Energy Word Party Card Game, 76 Gue",
+        "fba_qty": 59,
+        "awd_qty": 0,
+        "total_qty": 59
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "GD-EWJP-COQ0",
+        "asin": "B0DDQGYVXD",
+        "name": "Card Plug No-No Words : The Charades Game with a Hood Twist ",
+        "fba_qty": 61,
+        "awd_qty": 0,
+        "total_qty": 61
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "HS-G24N-YLTU",
+        "asin": "B0DS7PZVXR",
+        "name": "Card Plug Drunk Charades 3 - Hilarious Adult Party Game with",
+        "fba_qty": 71,
+        "awd_qty": 0,
+        "total_qty": 71
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "X5-72X0-P27B",
+        "asin": "B0B8QYB835",
+        "name": "Black Owned Slow Jamz 90s R&B Music Trivia Drinking Game \u2013 E",
+        "fba_qty": 80,
+        "awd_qty": 0,
+        "total_qty": 80
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "5V-4CH5-NNWY",
+        "asin": "B0CZ4M5QT3",
+        "name": "Soul Trivia: African-American Culture Card Game with 100 Edu",
+        "fba_qty": 85,
+        "awd_qty": 0,
+        "total_qty": 85
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "03-AMHW-4XXZ",
+        "asin": "B0FBMCC41F",
+        "name": "Hood Charades Hip Hop Edition \u2013 Urban Music Act-It-Out and T",
+        "fba_qty": 86,
+        "awd_qty": 0,
+        "total_qty": 86
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "YM-Q42T-RCJL",
+        "asin": "B0DS7MDCMX",
+        "name": "Card Plug Game of Shots \u2013 Fun Adult Drinking Game for Any Oc",
+        "fba_qty": 87,
+        "awd_qty": 0,
+        "total_qty": 87
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "G7-EUP0-941H",
+        "asin": "B09XN1PCS6",
+        "name": "Black Owned Hi Ms Parker 90s Movie Trivia Drinking Game for ",
+        "fba_qty": 87,
+        "awd_qty": 0,
+        "total_qty": 87
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "OC-26YJ-KQ4A",
+        "asin": "B0CPL2SD6G",
+        "name": "Street Smart A Must-Have Black Culture Trivia Game, Reveal R",
+        "fba_qty": 89,
+        "awd_qty": 0,
+        "total_qty": 89
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "KR-Z8NZ-QSAO",
+        "asin": "B0DS7R2W26",
+        "name": "Card Plug Drunk Charades 2 - Guess, Act, and Drink! The Ulti",
+        "fba_qty": 90,
+        "awd_qty": 0,
+        "total_qty": 90
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "R5-M0YV-GET9",
+        "asin": "B0DS7JXS4P",
+        "name": "Tipsy Talks Date Night Card Game \u2013 The Ultimate Couples Drin",
+        "fba_qty": 93,
+        "awd_qty": 0,
+        "total_qty": 93
+      },
+      {
+        "brand": "Black Owned",
+        "sku": "G5-ZOAD-79BN",
+        "asin": "B0B6QG13P4",
+        "name": "LewisRenee Private Party The Couples Spicy Card Game \u2013 Heat ",
+        "fba_qty": 93,
+        "awd_qty": 0,
+        "total_qty": 93
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "00-3TSD-JSET",
+        "asin": "B0CPL7XWH1",
+        "name": "Kinfolk Mic Drop 2000s Hip Hop and RNB Epic Lyric Battles Tr",
+        "fba_qty": 93,
+        "awd_qty": 0,
+        "total_qty": 93
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "4Z-YGUH-L4BY",
+        "asin": "B0DSC8W9JB",
+        "name": "Mr Shots - Hilarious Drinking Game - The Ultimate Fun Card G",
+        "fba_qty": 94,
+        "awd_qty": 0,
+        "total_qty": 94
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "OK-VH7S-C4J4",
+        "asin": "B0DDQG3TFY",
+        "name": "Soul Cinema : The Ultimate Black Film Trivia Game - 100 Card",
+        "fba_qty": 96,
+        "awd_qty": 0,
+        "total_qty": 96
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "FT-T254-FPAY",
+        "asin": "B0DSCCK1Y4",
+        "name": "Deep Talk Married Conversation Starter Game \u2013 Romantic Quest",
+        "fba_qty": 98,
+        "awd_qty": 0,
+        "total_qty": 98
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "H3-7Z6F-PHCL",
+        "asin": "B0DDQG4W6C",
+        "name": "Where is The Lie - The Hilarious True or False Drinking Card",
+        "fba_qty": 98,
+        "awd_qty": 0,
+        "total_qty": 98
+      },
+      {
+        "brand": "Card Plug",
+        "sku": "9O-J4WF-81SU",
+        "asin": "B0DS7K9TGP",
+        "name": "I\u2019m from The Hood V2 Trivia Game \u2013 Black Culture Trivia Fun ",
+        "fba_qty": 99,
+        "awd_qty": 0,
+        "total_qty": 99
+      },
+      {
+        "brand": "Kinfolk",
+        "sku": "JG-DQ2Q-07EA",
+        "asin": "B0D4GXR5PY",
+        "name": "Kinfolk Turnt 2 Adult Drinking Game Ignite Lit Nights, Eleva",
+        "fba_qty": 99,
+        "awd_qty": 0,
+        "total_qty": 99
+      }
+    ]
+  },
+  "totals": {
+    "total_skus": 277,
+    "out_of_stock": 107,
+    "low_stock": 19,
+    "medium_stock": 28,
+    "healthy": 123,
+    "total_fba_units": 93546,
+    "total_awd_units": 0
+  }
+}
