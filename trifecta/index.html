@@ -466,57 +466,81 @@
     </style>
 </head>
 <body>
+    <style>
+        .nav-tabs {
+            display: flex;
+            gap: 8px;
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .nav-tab:hover { background: #30363d; color: #e6edf3; }
+        .nav-tab.active { background: #388bfd; border-color: #388bfd; color: #fff; }
+    </style>
     <div class="header">
         <div class="logo">▲ Trifecta</div>
-        <div class="period">Last <span>30 Days</span> • January 2026</div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab active">Overview</a>
+            <a href="inventory.html" class="nav-tab">Inventory</a>
+            <a href="products.html" class="nav-tab">Products</a>
+            <a href="profitability.html" class="nav-tab">Profitability</a>
+        </div>
     </div>
     
     <div class="top-metrics">
         <div class="metric-card highlight">
-            <div class="metric-label">Total Sales</div>
-            <div class="metric-value">$52,602</div>
-            <div class="metric-change down">
-                <span>↓</span> 73.8% vs prior 30 days
+            <div class="metric-label">Total Sales (30d)</div>
+            <div class="metric-value">$52,970</div>
+            <div class="metric-change" style="color:#8b949e;">
+                Yesterday: <strong style="color:#58a6ff;">$1,576</strong> (74 units)
             </div>
         </div>
         
         <div class="metric-card">
-            <div class="metric-label">Total Profit</div>
-            <div class="metric-value profit">$14,933</div>
-            <div class="metric-change down">
-                <span>↓</span> 82.3% vs prior 30 days
+            <div class="metric-label">Total Profit (30d)</div>
+            <div class="metric-value profit">$15,891</div>
+            <div class="metric-change" style="color:#8b949e;">
+                Yesterday: <strong style="color:#3fb950;">$473</strong> (est)
             </div>
         </div>
         
         <div class="metric-card">
             <div class="metric-label">Profit Margin</div>
-            <div class="metric-value">28.4%</div>
-            <div class="metric-change down">
-                <span>↓</span> from 41.2%
+            <div class="metric-value">30.0%</div>
+            <div class="metric-change" style="color:#8b949e;">
+                Est. until Sellerboard connected
             </div>
         </div>
     </div>
     
-    <div class="section-title">By Brand</div>
+    <div class="section-title">By Brand (30 Days)</div>
     <div class="brand-grid">
         <div class="brand-card">
             <div class="brand-name black-owned">Black Owned</div>
             <div class="brand-stats">
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Sales</span>
-                    <span class="brand-stat-value">$17,863</span>
+                    <span class="brand-stat-label">Sales (30d)</span>
+                    <span class="brand-stat-value">$17,874</span>
                 </div>
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Profit</span>
-                    <span class="brand-stat-value profit">$3,587</span>
+                    <span class="brand-stat-label">Yesterday</span>
+                    <span class="brand-stat-value" style="color:#58a6ff;">$671</span>
                 </div>
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Units</span>
+                    <span class="brand-stat-label">Units (30d)</span>
                     <span class="brand-stat-value">732</span>
                 </div>
                 <div class="brand-stat">
                     <span class="brand-stat-label">Margin</span>
-                    <span class="brand-stat-value">20.1%</span>
+                    <span class="brand-stat-value">30%</span>
                 </div>
             </div>
         </div>
@@ -525,20 +549,20 @@
             <div class="brand-name cardplug">Card Plug</div>
             <div class="brand-stats">
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Sales</span>
-                    <span class="brand-stat-value">$19,636</span>
+                    <span class="brand-stat-label">Sales (30d)</span>
+                    <span class="brand-stat-value">$19,696</span>
                 </div>
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Profit</span>
-                    <span class="brand-stat-value profit">$7,902</span>
+                    <span class="brand-stat-label">Yesterday</span>
+                    <span class="brand-stat-value" style="color:#58a6ff;">$534</span>
                 </div>
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Units</span>
+                    <span class="brand-stat-label">Units (30d)</span>
                     <span class="brand-stat-value">996</span>
                 </div>
                 <div class="brand-stat">
                     <span class="brand-stat-label">Margin</span>
-                    <span class="brand-stat-value">40.2%</span>
+                    <span class="brand-stat-value">30%</span>
                 </div>
             </div>
         </div>
@@ -547,20 +571,20 @@
             <div class="brand-name kinfolk">Kinfolk</div>
             <div class="brand-stats">
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Sales</span>
-                    <span class="brand-stat-value">$15,103</span>
+                    <span class="brand-stat-label">Sales (30d)</span>
+                    <span class="brand-stat-value">$15,361</span>
                 </div>
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Profit</span>
-                    <span class="brand-stat-value profit">$3,444</span>
+                    <span class="brand-stat-label">Yesterday</span>
+                    <span class="brand-stat-value" style="color:#58a6ff;">$372</span>
                 </div>
                 <div class="brand-stat">
-                    <span class="brand-stat-label">Units</span>
+                    <span class="brand-stat-label">Units (30d)</span>
                     <span class="brand-stat-value">728</span>
                 </div>
                 <div class="brand-stat">
                     <span class="brand-stat-label">Margin</span>
-                    <span class="brand-stat-value">22.8%</span>
+                    <span class="brand-stat-value">30%</span>
                 </div>
             </div>
         </div>
@@ -582,8 +606,8 @@
                 </div>
                 <div class="asin-health-info">
                     <h3>All Clear</h3>
-                    <p>186 of 186 ASINs visible in Amazon search</p>
-                    <div class="last-checked">Last checked: <span>Jan 31, 2026 at 8:08 PM</span></div>
+                    <p>166 of 166 ASINs visible in Amazon search</p>
+                    <div class="last-checked">Last checked: <span>Feb 2, 2026 at 1:09 AM</span></div>
                 </div>
             </div>
             <div class="brand-pills">
@@ -593,7 +617,7 @@
                 </div>
                 <div class="brand-pill">
                     <div class="brand-pill-dot cardplug"></div>
-                    <div class="brand-pill-count"><span>92</span> Card Plug</div>
+                    <div class="brand-pill-count"><span>72</span> Card Plug</div>
                 </div>
                 <div class="brand-pill">
                     <div class="brand-pill-dot kinfolk"></div>
@@ -618,27 +642,14 @@
     <div class="section-title">Alerts</div>
     <div class="alerts">
         <div class="alert-list">
-            <div class="alert-item">
-                <div class="alert-dot red"></div>
-                <span><strong>Low Stock:</strong> Soul Trivia (CardPlug) — 70 units remaining</span>
-            </div>
-            <div class="alert-item">
-                <div class="alert-dot red"></div>
-                <span><strong>Low Stock:</strong> Kinfolk Mic Drop — 92 units remaining</span>
-            </div>
-            <div class="alert-item">
-                <div class="alert-dot yellow"></div>
-                <span><strong>High Refunds:</strong> 392 returns this month (16% rate)</span>
-            </div>
-            <div class="alert-item">
-                <div class="alert-dot green"></div>
-                <span><strong>Top Performer:</strong> Card Plug maintaining 40%+ margin despite slowdown</span>
-            </div>
+            <!-- ALERTS_START -->
+<div class="alert-item"><div class="alert-dot green"></div><span><strong>No alerts:</strong> Inventory runway is healthy</span></div>
+            <!-- ALERTS_END -->
         </div>
     </div>
     
     <div class="updated">
-        Data last updated: January 31, 2026 at 8:02 PM CT • ASIN check: Daily at 1 AM
+        Data last updated: February 02, 2026 at 07:35 PM CT • ASIN check: Daily at 1 AM (report at 7 AM)
     </div>
 </body>
 </html>

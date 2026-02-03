@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Trifecta</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+            padding: 24px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #58a6ff, #a371f7, #f778ba);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-tabs { display: flex; gap: 8px; }
+        .nav-tab {
+            padding: 8px 16px;
+            background: #21262d;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #8b949e;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .nav-tab:hover { background: #30363d; color: #e6edf3; }
+        .nav-tab.active { background: #388bfd; border-color: #388bfd; color: #fff; }
+        
+        .summary-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .summary-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px 24px;
+            flex: 1;
+        }
+        .summary-value { font-size: 28px; font-weight: 700; }
+        .summary-label { font-size: 12px; color: #8b949e; margin-top: 4px; }
+        .summary-value.green { color: #3fb950; }
+        .summary-value.blue { color: #58a6ff; }
+        .summary-value.yellow { color: #d29922; }
+        .summary-value.red { color: #f85149; }
+        
+        .section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .count-badge {
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+        .count-badge.green { background: rgba(63, 185, 80, 0.2); color: #3fb950; }
+        .count-badge.blue { background: rgba(88, 166, 255, 0.2); color: #58a6ff; }
+        .count-badge.yellow { background: rgba(210, 153, 34, 0.2); color: #d29922; }
+        .count-badge.red { background: rgba(248, 81, 73, 0.2); color: #f85149; }
+        
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .product-table th {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid #30363d;
+            color: #8b949e;
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        .product-table td {
+            padding: 12px;
+            border-bottom: 1px solid #21262d;
+        }
+        .product-table tr:hover { background: rgba(88, 166, 255, 0.05); }
+        
+        .brand-tag {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .brand-tag.cardplug { background: rgba(163, 113, 247, 0.2); color: #a371f7; }
+        .brand-tag.blackowned { background: rgba(240, 136, 62, 0.2); color: #f0883e; }
+        .brand-tag.kinfolk { background: rgba(88, 166, 255, 0.2); color: #58a6ff; }
+        
+        .product-name {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .revenue { color: #3fb950; font-weight: 600; }
+        .velocity { color: #58a6ff; }
+        .stock { color: #8b949e; }
+        .runway { font-weight: 600; }
+        .runway.danger { color: #f85149; }
+        .runway.warning { color: #d29922; }
+        .runway.good { color: #3fb950; }
+        
+        .updated {
+            text-align: center;
+            color: #484f58;
+            font-size: 11px;
+            margin-top: 32px;
+        }
+        
+        .perf-bar {
+            width: 60px;
+            height: 6px;
+            background: #21262d;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .perf-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        .perf-bar-fill.high { background: #3fb950; }
+        .perf-bar-fill.med { background: #58a6ff; }
+        .perf-bar-fill.low { background: #d29922; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">▲ Trifecta</div>
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Overview</a>
+            <a href="inventory.html" class="nav-tab">Inventory</a>
+            <a href="products.html" class="nav-tab active">Products</a>
+            <a href="profitability.html" class="nav-tab">Profitability</a>
+        </div>
+    </div>
+    
+    <div class="summary-row">
+        <div class="summary-card">
+            <div class="summary-value green">22</div>
+            <div class="summary-label">🔥 Top Performers (2+/day)</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-value blue">74</div>
+            <div class="summary-label">✓ Solid (0.5-2/day)</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-value yellow">72</div>
+            <div class="summary-label">⚠️ Slow (&lt;0.5/day)</div>
+        </div>
+        <div class="summary-card">
+            <div class="summary-value red">2</div>
+            <div class="summary-label">💀 Dead Stock (0/day)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-title">🔥 Top Performers</div>
+            <span class="count-badge green">22 products</span>
+        </div>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Brand</th>
+                    <th>Rev (30d)</th>
+                    <th>Velocity</th>
+                    <th>Stock</th>
+                    <th>Runway</th>
+                    <th>Performance</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="product-name" title="HoodFued : The Ultimate Family Trivia Card Game - ">HoodFued : The Ultimate Family Trivia Card Ga</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$20,936</td>
+                    <td class="velocity">15.8/day</td>
+                    <td class="stock">4046</td>
+                    <td class="runway good">256d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:100%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned Hood Charades Card Games for People It">Black Owned Hood Charades Card Games for Peop</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$17,366</td>
+                    <td class="velocity">5.6/day</td>
+                    <td class="stock">5020</td>
+                    <td class="runway good">892d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:82.95038931275467%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="HoodFued 2 – Black Family Feud-Style Card Game for">HoodFued 2 – Black Family Feud-Style Card Gam</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$11,554</td>
+                    <td class="velocity">8.0/day</td>
+                    <td class="stock">2050</td>
+                    <td class="runway good">256d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:55.18893406975005%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Vacay Cruise Essentials People-Watching Card Game ">Vacay Cruise Essentials People-Watching Card </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$486</td>
+                    <td class="velocity">3.2/day</td>
+                    <td class="stock">831</td>
+                    <td class="runway good">256d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:2.3234097310754263%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="A Family That Plays Together Black Owned Family Ho">A Family That Plays Together Black Owned Fami</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$424</td>
+                    <td class="velocity">2.3/day</td>
+                    <td class="stock">2037</td>
+                    <td class="runway good">890d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:2.0243498995252587%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned Girlll - Drinking Card Game The Ultima">Black Owned Girlll - Drinking Card Game The U</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$306</td>
+                    <td class="velocity">15.0/day</td>
+                    <td class="stock">13388</td>
+                    <td class="runway good">891d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:1.462627551812438%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned - Party Starter Drinking Card Game - G">Black Owned - Party Starter Drinking Card Gam</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$209</td>
+                    <td class="velocity">7.9/day</td>
+                    <td class="stock">7057</td>
+                    <td class="runway good">891d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.9963406846038879%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned - Hip Hop/Rap Drinking Lyric Trivia Ca">Black Owned - Hip Hop/Rap Drinking Lyric Triv</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$125</td>
+                    <td class="velocity">2.7/day</td>
+                    <td class="stock">2391</td>
+                    <td class="runway good">892d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.5968299944448717%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="God Is Dope – Bible Trivia and Christian Conversat">God Is Dope – Bible Trivia and Christian Conv</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$92</td>
+                    <td class="velocity">2.8/day</td>
+                    <td class="stock">2513</td>
+                    <td class="runway good">891d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.43767532925957253%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Girlll 2 Drinking Card Game Bachelorette Bash - Th">Girlll 2 Drinking Card Game Bachelorette Bash</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$75</td>
+                    <td class="velocity">2.1/day</td>
+                    <td class="stock">1905</td>
+                    <td class="runway good">890d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.358097996666923%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned Lyric Genius 90s & 2000s Hip Hop Trivi">Black Owned Lyric Genius 90s & 2000s Hip Hop </td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$67</td>
+                    <td class="velocity">2.8/day</td>
+                    <td class="stock">2531</td>
+                    <td class="runway good">891d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.3183093303705982%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Get Together Drinking Card Game – Perfe">LewisRenee Get Together Drinking Card Game – </td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$56</td>
+                    <td class="velocity">2.1/day</td>
+                    <td class="stock">1860</td>
+                    <td class="runway good">890d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.26896756292269486%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Shot Luck The Hood Edition - Adult Drinking Card G">Shot Luck The Hood Edition - Adult Drinking C</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$52</td>
+                    <td class="velocity">3.0/day</td>
+                    <td class="stock">780</td>
+                    <td class="runway good">256d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.24818956791801144%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug Don't Snitch: Urban-Themed Word Challeng">Card Plug Don't Snitch: Urban-Themed Word Cha</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$27</td>
+                    <td class="velocity">5.0/day</td>
+                    <td class="stock">1276</td>
+                    <td class="runway good">256d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.13001770667298443%"></div></div></td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Akeem : from Queens to Zamunda: Test Your Knowledg">Akeem : from Queens to Zamunda: Test Your Kno</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$6</td>
+                    <td class="velocity">3.0/day</td>
+                    <td class="stock">777</td>
+                    <td class="runway good">256d</td>
+                    <td><div class="perf-bar"><div class="perf-bar-fill high" style="width:0.030235565144746197%"></div></div></td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-header">
+            <div class="section-title">✓ Solid Performers</div>
+            <span class="count-badge blue">74 products</span>
+        </div>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Brand</th>
+                    <th>Rev (30d)</th>
+                    <th>Velocity</th>
+                    <th>Stock</th>
+                    <th>Runway</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="product-name" title="Jerome in The House Family Martin Trivia Party Car">Jerome in The House Family Martin Trivia Part</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$5,165</td>
+                    <td class="velocity">1.1/day</td>
+                    <td class="stock">988</td>
+                    <td class="runway good">890d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="HoodFued 3 Urban Survey Showdown – Black Culture P">HoodFued 3 Urban Survey Showdown – Black Cult</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$2,512</td>
+                    <td class="velocity">1.8/day</td>
+                    <td class="stock">451</td>
+                    <td class="runway good">256d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Hood Charades 2 Urban Card Game for Game Nights an">Hood Charades 2 Urban Card Game for Game Nigh</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$2,180</td>
+                    <td class="velocity">0.8/day</td>
+                    <td class="stock">751</td>
+                    <td class="runway good">894d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="HoodFued Music Edition – Black Culture Hip Hop and">HoodFued Music Edition – Black Culture Hip Ho</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$1,661</td>
+                    <td class="velocity">1.0/day</td>
+                    <td class="stock">247</td>
+                    <td class="runway good">255d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Rent'em Spoons Martin Lawrence Trivia Card Game – ">Rent'em Spoons Martin Lawrence Trivia Card Ga</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$1,352</td>
+                    <td class="velocity">1.3/day</td>
+                    <td class="stock">326</td>
+                    <td class="runway good">257d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug Drunk Charades – Hilarious Adult Drinkin">Card Plug Drunk Charades – Hilarious Adult Dr</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$1,133</td>
+                    <td class="velocity">0.7/day</td>
+                    <td class="stock">175</td>
+                    <td class="runway good">257d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug ORALE – The Latino Charades Game | Actúa">Card Plug ORALE – The Latino Charades Game | </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$993</td>
+                    <td class="velocity">1.2/day</td>
+                    <td class="stock">306</td>
+                    <td class="runway good">255d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug I’m from The Hood Trivia Game Featuring ">Card Plug I’m from The Hood Trivia Game Featu</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$991</td>
+                    <td class="velocity">0.7/day</td>
+                    <td class="stock">180</td>
+                    <td class="runway good">257d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Amen Bible Trivia and Charades Game – Christian Fa">Amen Bible Trivia and Charades Game – Christi</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$646</td>
+                    <td class="velocity">0.8/day</td>
+                    <td class="stock">201</td>
+                    <td class="runway good">254d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Finish This Lyric Hip-Hop Game – The Ultimate Part">Finish This Lyric Hip-Hop Game – The Ultimate</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$470</td>
+                    <td class="velocity">0.8/day</td>
+                    <td class="stock">202</td>
+                    <td class="runway good">256d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug Code Switching : The Ultimate Urban Blac">Card Plug Code Switching : The Ultimate Urban</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$253</td>
+                    <td class="velocity">0.6/day</td>
+                    <td class="stock">143</td>
+                    <td class="runway good">255d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Bad and Boujee Black Owned Drinking Card for The G">Bad and Boujee Black Owned Drinking Card for </td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$225</td>
+                    <td class="velocity">0.6/day</td>
+                    <td class="stock">551</td>
+                    <td class="runway good">889d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Deep Talk Family Conversation Cards – Sharing Joy ">Deep Talk Family Conversation Cards – Sharing</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$225</td>
+                    <td class="velocity">0.8/day</td>
+                    <td class="stock">198</td>
+                    <td class="runway good">257d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Amen 2 Christian Charades Game – Bible-Based Fun f">Amen 2 Christian Charades Game – Bible-Based </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$190</td>
+                    <td class="velocity">0.6/day</td>
+                    <td class="stock">142</td>
+                    <td class="runway good">258d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Spill The Tea – Black-Owned Girls' Nigh">LewisRenee Spill The Tea – Black-Owned Girls'</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$167</td>
+                    <td class="velocity">1.2/day</td>
+                    <td class="stock">1040</td>
+                    <td class="runway good">889d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="The Shot Box Original – Party Drinking Game, Compe">The Shot Box Original – Party Drinking Game, </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$153</td>
+                    <td class="velocity">0.7/day</td>
+                    <td class="stock">182</td>
+                    <td class="runway good">256d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Our Father Bible Trivia Game – Christian Fun for E">Our Father Bible Trivia Game – Christian Fun </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$144</td>
+                    <td class="velocity">0.8/day</td>
+                    <td class="stock">195</td>
+                    <td class="runway good">257d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug Word Trap – Exciting Word Guessing Game ">Card Plug Word Trap – Exciting Word Guessing </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$135</td>
+                    <td class="velocity">0.9/day</td>
+                    <td class="stock">241</td>
+                    <td class="runway good">256d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Show and Tell 1 – A Hilarious Guess-The-Word Exper">Show and Tell 1 – A Hilarious Guess-The-Word </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$127</td>
+                    <td class="velocity">0.6/day</td>
+                    <td class="stock">148</td>
+                    <td class="runway good">255d</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Hammered – Drinking Card Game for House Parties, C">Hammered – Drinking Card Game for House Parti</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$113</td>
+                    <td class="velocity">0.6/day</td>
+                    <td class="stock">160</td>
+                    <td class="runway good">254d</td>
+                </tr>
+<tr><td colspan="6" style="color:#8b949e;text-align:center;">+ 54 more</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section" style="border-color: rgba(210, 153, 34, 0.3);">
+        <div class="section-header">
+            <div class="section-title">⚠️ Slow Movers</div>
+            <span class="count-badge yellow">72 products</span>
+        </div>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Brand</th>
+                    <th>Rev (30d)</th>
+                    <th>Velocity</th>
+                    <th>Stock Sitting</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="product-name" title="Damn Gina Drinking Game 90s Martin TV Show Trivia ">Damn Gina Drinking Game 90s Martin TV Show Tr</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$2,343</td>
+                    <td class="velocity" style="color:#d29922;">0.37/day</td>
+                    <td class="stock">327 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Prayer Warrior – Bible Charades Card, C">LewisRenee Prayer Warrior – Bible Charades Ca</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$2,183</td>
+                    <td class="velocity" style="color:#d29922;">0.42/day</td>
+                    <td class="stock">377 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Grown Folks Hood Charades – A Black-Own">LewisRenee Grown Folks Hood Charades – A Blac</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$1,628</td>
+                    <td class="velocity" style="color:#d29922;">0.47/day</td>
+                    <td class="stock">422 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Soul Trivia: African-American Culture Card Game wi">Soul Trivia: African-American Culture Card Ga</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$1,614</td>
+                    <td class="velocity" style="color:#d29922;">0.30/day</td>
+                    <td class="stock">77 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Baddie Drinking Cards Fun Adult Black-Owned Girls'">Baddie Drinking Cards Fun Adult Black-Owned G</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$1,475</td>
+                    <td class="velocity" style="color:#d29922;">0.35/day</td>
+                    <td class="stock">312 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Shot Clock - Black Owned Drinking Card ">LewisRenee Shot Clock - Black Owned Drinking </td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$1,445</td>
+                    <td class="velocity" style="color:#d29922;">0.46/day</td>
+                    <td class="stock">413 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Card Plug Pivot - The Friends TV Show Drinking Gam">Card Plug Pivot - The Friends TV Show Drinkin</td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$1,253</td>
+                    <td class="velocity" style="color:#d29922;">0.45/day</td>
+                    <td class="stock">116 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned Black Love Couple Games - Tabletop Gam">Black Owned Black Love Couple Games - Tableto</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$1,235</td>
+                    <td class="velocity" style="color:#d29922;">0.12/day</td>
+                    <td class="stock">109 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Ghetto Pass – Black Culture Celebration">LewisRenee Ghetto Pass – Black Culture Celebr</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$1,213</td>
+                    <td class="velocity" style="color:#d29922;">0.24/day</td>
+                    <td class="stock">212 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Spell’n Slang Spelling and Trivia Game ">LewisRenee Spell’n Slang Spelling and Trivia </td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$878</td>
+                    <td class="velocity" style="color:#d29922;">0.36/day</td>
+                    <td class="stock">319 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned Hood Charades 90’s Throwback Edition –">Black Owned Hood Charades 90’s Throwback Edit</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$685</td>
+                    <td class="velocity" style="color:#d29922;">0.35/day</td>
+                    <td class="stock">309 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Ghetto Pass 2 Card Game – Trivia Game C">LewisRenee Ghetto Pass 2 Card Game – Trivia G</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$556</td>
+                    <td class="velocity" style="color:#d29922;">0.20/day</td>
+                    <td class="stock">178 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="LewisRenee Shot Clock 2 Drinking Game Fast-Paced U">LewisRenee Shot Clock 2 Drinking Game Fast-Pa</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$525</td>
+                    <td class="velocity" style="color:#d29922;">0.19/day</td>
+                    <td class="stock">172 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Soul Cinema : The Ultimate Black Film Trivia Game ">Soul Cinema : The Ultimate Black Film Trivia </td>
+                    <td><span class="brand-tag cardplug">Card Plug</span></td>
+                    <td class="revenue">$483</td>
+                    <td class="velocity" style="color:#d29922;">0.38/day</td>
+                    <td class="stock">96 units</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Black Owned - Adult Party Drinking Black People Tr">Black Owned - Adult Party Drinking Black Peop</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td class="revenue">$468</td>
+                    <td class="velocity" style="color:#d29922;">0.15/day</td>
+                    <td class="stock">136 units</td>
+                </tr>
+<tr><td colspan="5" style="color:#8b949e;text-align:center;">+ 57 more</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section" style="border-color: rgba(248, 81, 73, 0.3);">
+        <div class="section-header">
+            <div class="section-title">💀 Dead Stock (No Sales)</div>
+            <span class="count-badge red">2 products</span>
+        </div>
+        <p style="color:#8b949e;font-size:13px;margin-bottom:16px;">These products have inventory but zero velocity — consider liquidation</p>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Brand</th>
+                    <th>Stock Sitting</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td class="product-name" title="Charades and Chill: Black-Owned Trap Charades for ">Charades and Chill: Black-Owned Trap Charades for </td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td style="color:#f85149;font-weight:600;">1 units</td>
+                    <td style="color:#8b949e;">Liquidate / Promote</td>
+                </tr>
+
+                <tr>
+                    <td class="product-name" title="Beautiful African American Puzzle : Black Art Puzz">Beautiful African American Puzzle : Black Art Puzz</td>
+                    <td><span class="brand-tag blackowned">Black Owned</span></td>
+                    <td style="color:#f85149;font-weight:600;">2 units</td>
+                    <td style="color:#8b949e;">Liquidate / Promote</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="updated">
+        Last updated: February 02, 2026 at 07:35 PM CT • Revenue/units from Sellerboard 90-day export
+    </div>
+</body>
+</html>

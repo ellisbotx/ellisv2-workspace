@@ -1,0 +1,45 @@
+# Credentials and secrets (NEVER commit these!)
+credentials/
+*.txt
+*.key
+*.pem
+*.env
+config.json
+**/config.json
+
+# API keys and tokens
+*token*
+*secret*
+*password*
+*credentials*
+
+# Sensitive data
+data/sellerboard/*.csv
+*.csv
+
+# Logs (can be large and contain sensitive info)
+*.log
+logs/
+data/logs/
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Node modules (if any)
+node_modules/
+
+# Data files that get regenerated
+data/*.json
+data/sellerboard/*.csv
+
+# Keep structure but ignore contents
+!data/.gitkeep
+!credentials/.gitkeep

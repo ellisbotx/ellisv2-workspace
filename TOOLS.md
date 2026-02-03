@@ -24,10 +24,20 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 
 ---
 
+## Sellerboard
+
+- **URL:** https://sellerboard.com
+- **Login:** In 1Password (search "sellerboard")
+- **Account:** One account, 3 brands via dropdown (top-right corner)
+- **Brand Mapping:**
+  - `srgrier45` = Black Owned
+  - `Card Plug` = Card Plug
+  - `Kinfolk` = Kinfolk
+
+---
+
 ## Pending Setup
 
-- Seller Central API credentials (×3 accounts)
-- Sellerboard API credentials
 - Google Sheets API access
 
 ---
