@@ -135,9 +135,13 @@ def process_dashboard_by_product_csv(
     else:
         start_dt = end_dt - timedelta(days=90)
 
-    # This export is semicolon-delimited with quoted headers.
+    # Sellerboard automated reports use comma delimiters (manual exports use semicolon)
     with filepath.open("r", encoding="utf-8-sig", errors="replace", newline="") as f:
-        reader = csv.DictReader(f, delimiter=";")
+        # Auto-detect delimiter (try comma first, then semicolon)
+        first_line = f.readline()
+        f.seek(0)
+        delimiter = "," if "," in first_line else ";"
+        reader = csv.DictReader(f, delimiter=delimiter)
         for row in reader:
             # Filter by date range
             date_str = (row.get("Date") or "").strip()

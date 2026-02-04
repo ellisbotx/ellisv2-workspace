@@ -463,6 +463,39 @@
             color: #484f58;
             font-size: 12px;
         }
+
+        /* Overall health badge (uses existing palette) */
+        .health-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #30363d;
+            background: #161b22;
+            color: #8b949e;
+        }
+        .health-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #8b949e;
+        }
+        .health-badge.good { border-color: rgba(63, 185, 80, 0.35); color: #3fb950; }
+        .health-badge.good .health-dot { background: #3fb950; }
+        .health-badge.warn { border-color: rgba(210, 153, 34, 0.35); color: #d29922; }
+        .health-badge.warn .health-dot { background: #d29922; }
+        .health-badge.bad { border-color: rgba(248, 81, 73, 0.35); color: #f85149; }
+        .health-badge.bad .health-dot { background: #f85149; }
+
+        .mini-metric {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #8b949e;
+        }
+        .mini-metric strong { color: #e6edf3; }
     </style>
 </head>
 <body>
@@ -486,7 +519,13 @@
         .nav-tab.active { background: #388bfd; border-color: #388bfd; color: #fff; }
     </style>
     <div class="header">
-        <div class="logo">▲ Trifecta</div>
+        <div style="display:flex;align-items:center;gap:12px;">
+            <div class="logo">▲ Trifecta</div>
+            <div id="overallHealthBadge" class="health-badge" title="Derived from stockouts, suppressions, and revenue trend">
+                <span class="health-dot"></span>
+                <span id="overallHealthText">Health: —</span>
+            </div>
+        </div>
         <div class="nav-tabs">
             <a href="index.html" class="nav-tab active">Overview</a>
             <a href="inventory.html" class="nav-tab">Inventory</a>
@@ -501,6 +540,9 @@
             <div class="metric-value">$52,970</div>
             <div class="metric-change" style="color:#8b949e;">
                 Yesterday: <strong style="color:#58a6ff;">$1,576</strong> (74 units)
+            </div>
+            <div class="mini-metric">
+                Last 7d: <strong id="rev7Value">—</strong> <span id="rev7Trend" style="margin-left:6px;"></span>
             </div>
         </div>
         
@@ -600,14 +642,14 @@
                         <circle class="health-ring-progress" cx="50" cy="50" r="40"/>
                     </svg>
                     <div class="health-ring-text">
-                        <div class="health-percent">100%</div>
+                        <div class="health-percent">99%</div>
                         <div class="health-label">Healthy</div>
                     </div>
                 </div>
                 <div class="asin-health-info">
                     <h3>All Clear</h3>
-                    <p>166 of 166 ASINs visible in Amazon search</p>
-                    <div class="last-checked">Last checked: <span>Feb 2, 2026 at 10:09 PM</span></div>
+                    <p>165 of 166 ASINs visible in Amazon search</p>
+                    <div class="last-checked">Last checked: <span>Feb 3, 2026 at 10:10 PM</span></div>
                 </div>
             </div>
             <div class="brand-pills">
@@ -649,7 +691,200 @@
     </div>
     
     <div class="updated">
-        Data last updated: February 03, 2026 at 03:00 AM CT • ASIN check: Daily at 1 AM (report at 7 AM)
+        Data last updated: February 04, 2026 at 03:04 AM CT • ASIN check: Daily at 1 AM (report at 7 AM)
     </div>
+
+    <script>
+        (function(){
+            const paths = {
+                range7: '../data/derived/range_7d.json',
+                timeSeries: '../data/derived/time_series.json',
+                suppressions: '../data/suppression_tracker.csv',
+                reorder: '../data/reorder_report.json',
+            };
+
+            function usd(n){
+                const v = Number(n);
+                if (!Number.isFinite(v)) return '—';
+                return v.toLocaleString(undefined, { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+            }
+            function pct(frac){
+                const v = Number(frac);
+                if (!Number.isFinite(v)) return '';
+                const sign = v > 0 ? '+' : '';
+                return `${sign}${(v*100).toFixed(1)}%`;
+            }
+            function revenueFromSums(sums){
+                const s = sums || {};
+                const direct = Number(s.Revenue ?? s.Sales ?? s.SalesTotal ?? NaN);
+                if (Number.isFinite(direct)) return direct;
+                const organic = Number(s.SalesOrganic || 0);
+                const ppc = Number(s.SalesPPC || 0);
+                const both = organic + ppc;
+                if (Number.isFinite(both) && both !== 0) return both;
+                return 0;
+            }
+            function parseCSV(text){
+                const lines = (text || '').split(/\r?\n/).filter(l => l.trim().length);
+                if (!lines.length) return [];
+                const headers = lines[0].split(',').map(h => h.trim());
+                return lines.slice(1).map(line => {
+                    const cols = [];
+                    let cur = '', inQ = false;
+                    for (let i=0;i<line.length;i++){
+                        const ch = line[i];
+                        if (ch === '"') { inQ = !inQ; continue; }
+                        if (ch === ',' && !inQ) { cols.push(cur); cur=''; continue; }
+                        cur += ch;
+                    }
+                    cols.push(cur);
+                    const row = {};
+                    headers.forEach((h, idx) => row[h] = (cols[idx] || '').trim());
+                    return row;
+                });
+            }
+
+            async function fetchJSON(url){
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+                return res.json();
+            }
+            async function fetchText(url){
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+                return res.text();
+            }
+
+            async function computeRevenueTrendFromTimeSeries(ts, latestDate){
+                const rows = ts?.data || ts?.rows || {};
+                const latest = new Date(String(latestDate) + 'T00:00:00');
+                if (!Number.isFinite(latest.getTime())) return { last7: null, prev7: null };
+
+                const dayMs = 86400000;
+                let last7 = 0;
+                let prev7 = 0;
+
+                for (const k in rows){
+                    const row = rows[k];
+                    const d = new Date(String(row.date) + 'T00:00:00');
+                    if (!Number.isFinite(d.getTime())) continue;
+                    const diff = Math.floor((latest - d) / dayMs);
+                    if (diff < 0 || diff > 13) continue;
+
+                    const m = row.metrics || row.sums || row;
+                    const rev = (Number(m.SalesOrganic||0) + Number(m.SalesPPC||0)) || Number(m.Sales||0) || 0;
+                    if (diff <= 6) last7 += rev;
+                    else prev7 += rev;
+                }
+
+                return { last7, prev7 };
+            }
+
+            function setOverallHealth(level, label, title){
+                const badge = document.getElementById('overallHealthBadge');
+                const text = document.getElementById('overallHealthText');
+                if (!badge || !text) return;
+                badge.classList.remove('good','warn','bad');
+                if (level) badge.classList.add(level);
+                text.textContent = label;
+                if (title) badge.title = title;
+            }
+
+            function addAlert(text, color){
+                const list = document.querySelector('.alerts .alert-list');
+                if (!list) return;
+                const item = document.createElement('div');
+                item.className = 'alert-item';
+                const dot = document.createElement('div');
+                dot.className = 'alert-dot ' + (color || 'yellow');
+                const span = document.createElement('span');
+                span.innerHTML = text;
+                item.appendChild(dot);
+                item.appendChild(span);
+                // Insert above existing alerts block if present
+                const start = list.querySelector('div.alert-item');
+                if (start) list.insertBefore(item, start);
+                else list.appendChild(item);
+            }
+
+            async function main(){
+                try{
+                    setOverallHealth('', 'Health: Loading…');
+
+                    const range7 = await fetchJSON(paths.range7);
+                    const latest = range7?.meta?.latest_date || range7?.meta?.date_end;
+
+                    const skuRows7 = Object.values(range7?.by_sku || {});
+                    const rev7 = skuRows7.reduce((acc, r) => acc + revenueFromSums(r.sums), 0);
+                    const revEl = document.getElementById('rev7Value');
+                    if (revEl) revEl.textContent = usd(rev7);
+
+                    // Trend vs prior 7 days (best-effort)
+                    let frac = null;
+                    try{
+                        const ts = await fetchJSON(paths.timeSeries);
+                        const trend = await computeRevenueTrendFromTimeSeries(ts, latest);
+                        if (Number.isFinite(trend.last7) && Number.isFinite(trend.prev7) && trend.prev7 > 0){
+                            frac = (trend.last7 - trend.prev7) / trend.prev7;
+                            const t = document.getElementById('rev7Trend');
+                            if (t){
+                                const cls = frac > 0.03 ? 'up' : (frac < -0.07 ? 'down' : '');
+                                t.className = 'metric-change ' + cls;
+                                t.textContent = `${pct(frac)} vs prior week`;
+                            }
+                        }
+                    } catch(e){
+                        // ignore trend if unavailable
+                    }
+
+                    // Stockout alerts
+                    let stockouts = 0;
+                    try{
+                        const rr = await fetchJSON(paths.reorder);
+                        const items = rr?.items || rr?.rows || rr?.reorder_report || [];
+                        if (Array.isArray(items)) stockouts = items.length;
+                    } catch(e){ stockouts = 0; }
+
+                    // Suppressions
+                    let suppressedCount = 0;
+                    try{
+                        const txt = await fetchText(paths.suppressions);
+                        const rows = parseCSV(txt);
+                        if (rows.length === 0){
+                            suppressedCount = 0;
+                        } else {
+                            suppressedCount = rows.filter(r => {
+                                const s = (r.status || r.Status || r.suppressed || r.Suppressed || '').toString().toLowerCase();
+                                if (!s) return true; // treat as list-only file
+                                return ['true','1','yes','suppressed'].includes(s);
+                            }).length;
+                        }
+                    } catch(e){ suppressedCount = 0; }
+
+                    const revenueDown = (typeof frac === 'number') ? (frac < -0.07) : false;
+
+                    // Overall health
+                    let level = 'good';
+                    const reasons = [];
+                    if (stockouts > 0) { level = 'warn'; reasons.push(`${stockouts} stockout alert(s)`); }
+                    if (suppressedCount > 0) { level = 'bad'; reasons.push(`${suppressedCount} suppressed ASIN(s)`); }
+                    if (revenueDown) { if (level === 'good') level = 'warn'; reasons.push('revenue down vs prior week'); }
+
+                    const label = level === 'bad' ? 'Health: RED' : (level === 'warn' ? 'Health: YELLOW' : 'Health: GREEN');
+                    setOverallHealth(level, label, reasons.length ? `Drivers: ${reasons.join(', ')}` : 'No material issues detected');
+
+                    // Add a couple lightweight alert lines (doesn't remove existing alerts)
+                    if (suppressedCount > 0) addAlert(`<strong>Suppression:</strong> ${suppressedCount} ASIN(s) suppressed`, 'red');
+                    if (stockouts > 0) addAlert(`<strong>Stockout risk:</strong> ${stockouts} SKU(s) flagged in reorder report`, 'yellow');
+                    if (revenueDown) addAlert(`<strong>Revenue trend:</strong> down vs prior week`, 'yellow');
+                } catch (e){
+                    setOverallHealth('bad', 'Health: RED', `Data load failed: ${e.message}`);
+                }
+            }
+
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', main);
+            else main();
+        })();
+    </script>
 </body>
 </html>

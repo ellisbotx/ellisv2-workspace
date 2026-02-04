@@ -6,19 +6,21 @@
 
 ## 🎯 Quick Start
 
-**View Your Dashboards:**
+### Recommended (fixes Profitability time-range loading)
+The Profitability page loads JSON via `fetch()`, which is blocked when opening via `file://`.
+
 ```bash
-# Main dashboard (overview)
+/Users/ellisbot/.openclaw/workspace/scripts/serve_dashboard.sh
+# then open:
+open http://localhost:8000/trifecta/
+open http://localhost:8000/trifecta/profitability.html
+```
+
+### Direct file open (works for pages that don’t `fetch()` JSON)
+```bash
 open /Users/ellisbot/.openclaw/workspace/trifecta/index.html
-
-# Inventory tracking
 open /Users/ellisbot/.openclaw/workspace/trifecta/inventory.html
-
-# Product catalog
 open /Users/ellisbot/.openclaw/workspace/trifecta/products.html
-
-# Profitability analysis (NEW!)
-open /Users/ellisbot/.openclaw/workspace/trifecta/profitability.html
 ```
 
 ---

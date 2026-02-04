@@ -19,11 +19,13 @@ Options:
 import argparse
 import json
 import logging
+import re
 import subprocess
 import sys
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
+from typing import Optional, Tuple
 
 # Try to import playwright, provide helpful error if missing
 try:
@@ -42,10 +44,14 @@ from sellerboard_export import update_velocity_data
 DATA_DIR = Path("/Users/ellisbot/.openclaw/workspace/data/sellerboard")
 LOG_FILE = DATA_DIR / "auto_export.log"
 SCREENSHOT_DIR = DATA_DIR / "screenshots"
+DOWNLOADS_DIR = DATA_DIR / "downloads"
+PROFILE_DIR = DATA_DIR / "chromium_profile"
 
 # Ensure directories exist
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
+DOWNLOADS_DIR.mkdir(parents=True, exist_ok=True)
+PROFILE_DIR.mkdir(parents=True, exist_ok=True)
 
 # Brands to export (UI name -> filename prefix)
 BRANDS = {
@@ -71,24 +77,16 @@ logger = logging.getLogger(__name__)
 
 
 def get_credentials():
-    """Fetch Sellerboard credentials from 1Password."""
+    """Fetch Sellerboard credentials from local credential file."""
     try:
-        result = subprocess.run(
-            ["op", "item", "get", "sellerboard", "--fields", "label=username,label=password", "--format", "json"],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        creds = json.loads(result.stdout)
-        username = next(c["value"] for c in creds if c["label"] == "username")
-        password = next(c["value"] for c in creds if c["label"] == "password")
+        creds_path = Path("/Users/ellisbot/.openclaw/workspace/.credentials.json")
+        with open(creds_path, 'r') as f:
+            creds = json.load(f)
+        username = creds['sellerboard']['username']
+        password = creds['sellerboard']['password']
         return username, password
-    except subprocess.CalledProcessError as e:
-        logger.error(f"Failed to get credentials from 1Password: {e}")
-        logger.error(f"Make sure you're authenticated: op signin")
-        raise
     except Exception as e:
-        logger.error(f"Error parsing credentials: {e}")
+        logger.error(f"Failed to get credentials from {creds_path}: {e}")
         raise
 
 
@@ -106,24 +104,31 @@ def close_popups(page, aggressive=False):
     popup_closed = False
     
     # First: Remove modal backdrops via JavaScript (most reliable)
+    # NOTE: keep selectors tight; avoid nuking normal UI elements that happen to
+    # contain substrings like "modal" or "overlay" in class names.
     try:
         removed = page.evaluate('''
             () => {
-                const backdrops = document.querySelectorAll('.modal-backdrop, [class*="modal-backdrop"], [class*="overlay"]');
+                const backdrops = document.querySelectorAll(
+                    '.modal-backdrop, .cdk-overlay-backdrop, [data-backdrop], [class*="backdrop"]'
+                );
                 backdrops.forEach(el => el.remove());
-                const modals = document.querySelectorAll('.modal, [class*="modal"]');
-                modals.forEach(el => {
-                    if (el.style.display !== 'none') {
-                        el.style.display = 'none';
-                    }
+
+                // Hide common dialog containers
+                const dialogs = document.querySelectorAll(
+                    '.modal[role="dialog"], .modal.show, [role="dialog"], [aria-modal="true"]'
+                );
+                dialogs.forEach(el => {
+                    try { el.style.display = 'none'; } catch (e) {}
                 });
-                return backdrops.length + modals.length;
+
+                return backdrops.length + dialogs.length;
             }
         ''')
         if removed > 0:
             logger.info(f"Removed {removed} modal elements via JavaScript")
             popup_closed = True
-            time.sleep(1)
+            time.sleep(0.5)
     except Exception as e:
         logger.debug(f"JavaScript modal removal failed: {e}")
     
@@ -268,54 +273,101 @@ def login(page, username: str, password: str, max_retries: int = 3):
 
 
 def switch_brand(page, brand_name: str, max_retries: int = 3):
-    """Switch to a specific brand using the dropdown."""
+    """Switch to a specific brand using the account/brand switcher.
+
+    Sellerboard's UI varies: sometimes it's a <select>, other times it's a
+    dropdown menu in the header. This function tries both paths.
+    """
+    brands_regex = "|".join([re.escape(b) for b in BRANDS.keys()])
+
     for attempt in range(max_retries):
         try:
             logger.info(f"Switching to brand: {brand_name} (attempt {attempt + 1}/{max_retries})...")
+
+            close_popups(page, aggressive=True)
+
+            # Strategy 1: native <select>
+            select_loc = page.locator('select[name*="brand" i], select[name*="account" i], select[name*="store" i]').first
+            try:
+                if select_loc.count() and select_loc.is_visible(timeout=1500):
+                    select_loc.select_option(label=brand_name)
+                    page.wait_for_load_state("networkidle", timeout=15000)
+                    take_screenshot(page, f"04_brand_switched_{brand_name.lower().replace(' ', '_')}")
+                    logger.info(f"✓ Switched to {brand_name} (select)")
+                    return True
+            except Exception:
+                pass
+
+            # Strategy 2: Click the account/brand dropdown in top-right header
+            # The dropdown shows EMAIL ADDRESS (e.g., srgrier45@gmail.com), not brand name
+            logger.info("Looking for account dropdown in header (shows email)...")
             
-            # Look for brand switcher dropdown (usually in top-right)
-            # Common selectors: dropdown, select, or button that opens a menu
-            brand_selectors = [
-                'select[name*="brand"], select[name*="account"], select[name*="store"]',
-                'button:has-text("' + brand_name + '")',
-                '[class*="brand"], [class*="account"], [class*="store"]'
+            # Click the element showing the email address
+            try:
+                # Try to find the element with @gmail.com in the header
+                email_button = page.locator('header:has-text("@gmail.com")').locator('button, a').first
+                if email_button.is_visible(timeout=5000):
+                    logger.info("Found account dropdown (contains @gmail.com)")
+                    email_button.click(timeout=5000)
+                    time.sleep(1.5)  # Let dropdown menu appear
+                    dropdown_opened = True
+                else:
+                    raise Exception("Email dropdown not visible")
+            except Exception as e:
+                logger.warning(f"Could not find account dropdown: {e}")
+                raise Exception(f"Could not find/open account dropdown in header: {e}")
+            
+            # Now click the target brand INSIDE the dropdown menu
+            logger.info(f"Looking for '{brand_name}' in dropdown menu...")
+            
+            # Wait for menu to be visible, then click the brand name
+            try:
+                # Look for the brand name text in any visible dropdown/menu
+                brand_item = page.locator(f'text={brand_name}').first
+                if brand_item.is_visible(timeout=5000):
+                    logger.info(f"Found '{brand_name}' in dropdown menu")
+                    brand_item.click(timeout=5000)
+                else:
+                    raise Exception(f"Brand '{brand_name}' not visible in menu")
+            except Exception as e:
+                logger.error(f"Could not find/click '{brand_name}' in dropdown: {e}")
+                raise Exception(f"Could not find/click '{brand_name}' in dropdown menu: {e}")
+
+            time.sleep(2)
+            page.wait_for_load_state("networkidle", timeout=15000)
+            take_screenshot(page, f"04_brand_switched_{brand_name.lower().replace(' ', '_')}")
+            
+            # MANDATORY verification - confirm the header now shows the target brand
+            logger.info(f"Verifying brand switch to {brand_name}...")
+            header_text_selectors = [
+                f'header button:has-text("{brand_name}")',
+                f'header a:has-text("{brand_name}")',
+                f'header:has-text("{brand_name}")',
             ]
-            
-            # Try to find and click the dropdown
-            dropdown_clicked = False
-            for selector in brand_selectors:
+            verified = False
+            for sel in header_text_selectors:
                 try:
-                    element = page.locator(selector).first
-                    if element.is_visible(timeout=2000):
-                        element.click()
-                        dropdown_clicked = True
-                        logger.info(f"Clicked dropdown with selector: {selector}")
+                    if page.locator(sel).first.is_visible(timeout=3000):
+                        verified = True
+                        logger.info(f"✓ VERIFIED: Brand switched to {brand_name}")
                         break
                 except:
                     continue
             
-            if not dropdown_clicked:
-                # Try finding by text content
-                logger.info("Trying to find brand switcher by text...")
-                page.locator(f'text={brand_name}').first.click(timeout=5000)
+            if not verified:
+                raise Exception(f"Brand verification FAILED - header does not show '{brand_name}' after switch attempt")
             
-            time.sleep(2)  # Wait for brand switch to complete
-            page.wait_for_load_state("networkidle", timeout=15000)
-            
-            take_screenshot(page, f"04_brand_switched_{brand_name.lower().replace(' ', '_')}")
-            logger.info(f"✓ Switched to {brand_name}")
             return True
-            
+
         except Exception as e:
             logger.warning(f"Brand switch attempt {attempt + 1} failed: {e}")
             take_screenshot(page, f"error_brand_switch_{attempt + 1}")
             if attempt < max_retries - 1:
                 time.sleep(2)
                 continue
-            else:
-                logger.error(f"Failed to switch to {brand_name} after {max_retries} attempts")
-                return False
-    
+            logger.error(f"Failed to switch to {brand_name} after {max_retries} attempts")
+            return False
+
     return False
 
 
@@ -359,6 +411,137 @@ def verify_button_enabled(page, timeout_ms=10000):
         return False
 
 
+def wait_for_downloading_modal(page, appear_timeout_ms: int = 15000) -> Tuple[bool, Optional[str]]:
+    """Best-effort wait for Sellerboard 'Downloading / Your file is being prepared' modal.
+
+    Returns (appeared, selector_that_appeared).
+
+    NOTE: We intentionally do NOT wait for the modal to disappear. In the current
+    Sellerboard flow, we want to click "Email me when ready" and immediately
+    move on to the next brand (no local download waiting).
+    """
+    modal_selectors = [
+        'text=/Your file is being prepared/i',
+        'text=/Downloading/i',
+        'text=/Preparing/i',
+        'css=.modal:has-text("Downloading")',
+        'css=.modal:has-text("prepared")',
+        'css=[class*="modal"]:has-text("Downloading")',
+        'css=[class*="modal"]:has-text("prepared")',
+    ]
+
+    for sel in modal_selectors:
+        try:
+            page.wait_for_selector(sel, state="visible", timeout=appear_timeout_ms)
+            logger.info("✓ Downloading modal appeared")
+            return True, sel
+        except Exception:
+            continue
+
+    return False, None
+
+
+def click_email_me_when_ready_and_close(page, appear_timeout_ms: int = 15000) -> bool:
+    """When the Downloading modal appears, click "Email me when ready", close it, and return.
+
+    Returns True if the modal appeared and we attempted the click.
+    """
+    appeared, _ = wait_for_downloading_modal(page, appear_timeout_ms=appear_timeout_ms)
+    if not appeared:
+        return False
+
+    # 1) Click the "Email me when ready" button (best-effort)
+    email_btn_selectors = [
+        'button:has-text("Email me when ready")',
+        'button:has-text("Email me")',
+        'text=/Email me when ready/i',
+    ]
+
+    clicked = False
+    for sel in email_btn_selectors:
+        try:
+            btn = page.locator(sel).first
+            if btn.count() and btn.is_visible(timeout=2000):
+                btn.click(timeout=5000)
+                clicked = True
+                logger.info("✓ Clicked 'Email me when ready'")
+                break
+        except Exception:
+            continue
+
+    if not clicked:
+        logger.warning("Downloading modal appeared, but could not find 'Email me when ready' button")
+
+    # 2) Close the modal so it doesn't block next brand
+    try:
+        close_popups(page, aggressive=True)
+    except Exception:
+        pass
+
+    # 3) Small settle time
+    time.sleep(1)
+    return True
+
+
+def _wait_for_file_stable(path: Path, min_bytes: int = 1000, stable_secs: int = 3, timeout_secs: int = 60) -> bool:
+    """Verify file exists, has min size, and stops growing for stable_secs."""
+    start = time.time()
+    last_size = -1
+    last_change = time.time()
+
+    while time.time() - start < timeout_secs:
+        if path.exists():
+            try:
+                size = path.stat().st_size
+            except FileNotFoundError:
+                size = 0
+
+            if size != last_size:
+                last_size = size
+                last_change = time.time()
+
+            if size >= min_bytes and (time.time() - last_change) >= stable_secs:
+                return True
+        time.sleep(0.5)
+
+    return False
+
+
+def find_recent_download_file(since_ts: float, timeout_secs: int = 180, directory: Path = DOWNLOADS_DIR) -> Optional[Path]:
+    """Fallback: poll downloads directory for a newly created file after since_ts.
+
+    Sellerboard/Playwright sometimes saves downloads with UUID-like filenames (no .csv extension).
+    """
+    deadline = time.time() + timeout_secs
+    best: Optional[Path] = None
+
+    while time.time() < deadline:
+        candidates = []
+        for p in directory.iterdir():
+            try:
+                if not p.is_file():
+                    continue
+                # Skip temp/partial names
+                if p.name.endswith('.crdownload') or p.name.endswith('.tmp'):
+                    continue
+                mtime = p.stat().st_mtime
+                size = p.stat().st_size
+            except FileNotFoundError:
+                continue
+            if mtime >= since_ts and size > 0:
+                candidates.append((mtime, size, p))
+
+        if candidates:
+            candidates.sort(reverse=True)
+            best = candidates[0][2]
+            if _wait_for_file_stable(best, min_bytes=1000, stable_secs=3, timeout_secs=30):
+                return best
+
+        time.sleep(2)
+
+    return best
+
+
 def export_dashboard_by_product(page, brand_filename: str, dry_run: bool = False):
     """Navigate to Dashboard by product report and download CSV (IMPROVED)."""
     try:
@@ -381,10 +564,12 @@ def export_dashboard_by_product(page, brand_filename: str, dry_run: bool = False
         # Click "Dashboard by product" report
         logger.info("Clicking 'Dashboard by product' report...")
         
-        # Remove any modal backdrops that might block the click
+        # Remove any modal/tooltips/backdrops that might block clicks
         page.evaluate('''
             () => {
-                document.querySelectorAll('.modal-backdrop, [class*="modal-backdrop"], .newFeature').forEach(el => el.remove());
+                document.querySelectorAll(
+                    '.modal-backdrop, [class*="modal-backdrop"], .newFeature, [data-tippy-root], [id^="tippy-"]'
+                ).forEach(el => el.remove());
             }
         ''')
         time.sleep(0.5)
@@ -397,111 +582,242 @@ def export_dashboard_by_product(page, brand_filename: str, dry_run: bool = False
         
         take_screenshot(page, f"06_dashboard_by_product_{brand_filename}")
         
-        # Set date range (last 90 days)
-        logger.info("Setting date range to last 90 days...")
-        end_date = datetime.now()
-        start_date = end_date - timedelta(days=90)
+        # Set date range: last 90 days (inclusive), ending yesterday to avoid partial-day data.
+        end_date = (datetime.now() - timedelta(days=1)).date()
+        start_date = (end_date - timedelta(days=89))
+        logger.info(f"Setting date range to {start_date} → {end_date} (last 90 days)...")
         
         # Fill date inputs (try multiple strategies)
         try:
-            # Strategy 1: Direct fill
-            from_input = page.locator('input').filter(has_text="From").or_(
-                page.locator('input[placeholder*="From" i]')
-            ).first
-            to_input = page.locator('input').filter(has_text="To").or_(
-                page.locator('input[placeholder*="To" i]')
-            ).first
-            
+            # Strategy 1: label → following input (most reliable)
+            from_input = page.locator('xpath=//label[contains(normalize-space(.),"From")]/following::input[1]').first
+            to_input = page.locator('xpath=//label[contains(normalize-space(.),"To")]/following::input[1]').first
+
+            if from_input.count() == 0 or to_input.count() == 0:
+                raise Exception("Label-based date inputs not found")
+
+            from_input.click()
             from_input.fill(start_date.strftime("%m/%d/%Y"))
+            to_input.click()
             to_input.fill(end_date.strftime("%m/%d/%Y"))
-            
+
             # Trigger Angular update
             from_input.press("Tab")
             to_input.press("Tab")
             time.sleep(1)
             wait_for_angular(page)
-            
-            logger.info(f"Date range set: {start_date.date()} to {end_date.date()}")
-        except Exception as e:
-            logger.warning(f"Could not set date range: {e}")
+
+            logger.info(f"Date range set: {start_date} to {end_date}")
+        except Exception as e1:
+            logger.warning(f"Could not set date range via labels: {e1}")
+            try:
+                # Strategy 2: first two visible text inputs on the page (fallback)
+                inputs = page.locator('input[type="text"], input:not([type])').filter(has_not=page.locator('[disabled]'))
+                from_input = inputs.nth(0)
+                to_input = inputs.nth(1)
+                from_input.click()
+                from_input.fill(start_date.strftime("%m/%d/%Y"))
+                to_input.click()
+                to_input.fill(end_date.strftime("%m/%d/%Y"))
+                from_input.press("Tab")
+                to_input.press("Tab")
+                time.sleep(1)
+                wait_for_angular(page)
+                logger.info(f"Date range set (fallback): {start_date} to {end_date}")
+            except Exception as e2:
+                logger.warning(f"Could not set date range (fallback): {e2}")
         
         take_screenshot(page, f"07_dates_set_{brand_filename}")
         
         # Select CSV format
         logger.info("Selecting CSV format...")
         try:
+            # Clear any blocking popovers
+            page.evaluate('''() => {
+                document.querySelectorAll('[data-tippy-root], [id^="tippy-"]').forEach(el => el.remove());
+            }''')
             csv_option = page.locator('text=".CSV"').or_(
                 page.locator('text="CSV"')
             ).first
-            csv_option.click()
+            csv_option.click(timeout=10000)
             time.sleep(1)
             wait_for_angular(page)
             logger.info("✓ CSV format selected")
         except Exception as e:
             logger.warning(f"CSV selection issue: {e}")
+            # Fallback: click the underlying radio/input directly
+            try:
+                page.evaluate('''() => {
+                    const el = document.querySelector('#exportFormatCsv, input#exportFormatCsv, input[name*="exportFormat" i][value*="csv" i]');
+                    if (el) el.click();
+                }''')
+                time.sleep(1)
+                wait_for_angular(page)
+                logger.info("✓ CSV format selected (JS fallback)")
+            except Exception as e2:
+                logger.warning(f"CSV JS fallback failed: {e2}")
         
         take_screenshot(page, f"08_format_selected_{brand_filename}")
-        
+
+        # Set marketplace to Amazon.com only
+        logger.info("Setting marketplace to Amazon.com only...")
+        try:
+            # Prefer clicking a visible label/text first
+            amazon_label = page.locator('label:has-text("Amazon.com")').first
+            amazon_text = page.locator('text=/Amazon\\.com/i').first
+
+            if amazon_label.count() and amazon_label.is_visible(timeout=3000):
+                amazon_label.click(timeout=5000)
+            elif amazon_text.count() and amazon_text.is_visible(timeout=3000):
+                amazon_text.click(timeout=5000)
+            else:
+                # Fallback: check a checkbox within the Amazon.com label
+                page.locator('xpath=//label[contains(.,"Amazon.com")]//input[@type="checkbox"]').first.check(timeout=5000)
+            time.sleep(1)
+            wait_for_angular(page)
+            logger.info("✓ Marketplace set (Amazon.com)")
+        except Exception as e:
+            logger.warning(f"Marketplace selection issue (continuing): {e}")
+
+        # Ensure email delivery is ON
+        logger.info("Ensuring 'Send to email' is ON (email delivery)...")
+        try:
+            cb = page.locator('xpath=//label[contains(.,"Send to email")]//input[@type="checkbox"]').first
+            if cb.count() and cb.is_visible(timeout=3000):
+                if not cb.is_checked():
+                    cb.check(timeout=3000)
+                    time.sleep(0.5)
+                logger.info("✓ Email delivery enabled")
+            else:
+                # If we can't access the checkbox directly, try toggling via label
+                send_label = page.locator('label:has-text("Send to email")').first
+                if send_label.count() and send_label.is_visible(timeout=3000):
+                    # Best-effort: click label to enable
+                    send_label.click(timeout=3000)
+                    time.sleep(0.5)
+                    logger.info("✓ Email delivery enabled (label toggle)")
+        except Exception as e:
+            logger.warning(f"Could not confirm 'Send to email' on (continuing): {e}")
+
+        take_screenshot(page, f"08b_marketplace_email_{brand_filename}")
+
         if dry_run:
             logger.info("DRY RUN: Skipping download")
             return None
-        
+
+        # Ensure any datepicker/popover overlays are closed so the Download button is clickable.
+        try:
+            page.keyboard.press("Escape")
+            time.sleep(0.3)
+            page.click('body', position={"x": 10, "y": 10}, timeout=1000)
+            time.sleep(0.3)
+        except Exception:
+            pass
+        close_popups(page, aggressive=True)
+
         # Verify button is enabled
         if not verify_button_enabled(page):
             raise Exception("Download button is not enabled (Angular validation failed)")
-        
-        # Setup download handler BEFORE clicking
-        output_file = DATA_DIR / f"{brand_filename}_dashboard_by_product_90d.csv"
-        
-        logger.info("Initiating download...")
-        
-        # Try download with multiple strategies
-        download = None
+
+        # Trigger export with EMAIL delivery
+        logger.info("Triggering export (email delivery)...")
+
+        desired_path = DOWNLOADS_DIR / f"{brand_filename}_dashboard_by_product_90d.csv"
+        # Remove any existing file to avoid confusing the stability check.
+        try:
+            if desired_path.exists():
+                desired_path.unlink()
+        except Exception:
+            pass
+
+        last_error = None
         for attempt in range(3):
             try:
-                with page.expect_download(timeout=60000) as download_info:
-                    # Strategy 1: Playwright click
+                since_ts = time.time()
+
+                # Click the primary submit button (often labeled Download/Export)
+                clicked = False
+                for sel in [
+                    'button:has-text("Download")',
+                    'button[type="submit"]:has-text("Download")',
+                    'button[type="submit"]:has-text("Export")',
+                    'button:has-text("Export")',
+                    'button[type="submit"]',
+                ]:
                     try:
-                        page.click('button[type="submit"]:has-text("Download")', timeout=5000)
-                        logger.info(f"Clicked download button (Playwright, attempt {attempt + 1})")
+                        btn = page.locator(sel).first
+                        if btn.count() and btn.is_visible(timeout=1500):
+                            btn.click(timeout=8000)
+                            clicked = True
+                            break
+                    except Exception:
+                        continue
+                if not clicked:
+                    page.evaluate("""() => {
+                        const btn = document.querySelector('button[type="submit"], button');
+                        if (btn) btn.click();
+                    }""")
+
+                # Wait for "Downloading" modal and click "Email me when ready"
+                time.sleep(2)  # Give modal time to appear
+                
+                # Look for the modal
+                modal_appeared = False
+                try:
+                    modal = page.locator('text=/Your file is being prepared|Downloading/i').first
+                    if modal.is_visible(timeout=10000):
+                        modal_appeared = True
+                        logger.info("✓ 'Downloading' modal appeared")
+                except:
+                    pass
+                
+                if modal_appeared:
+                    # Click "Email me when ready"
+                    email_clicked = False
+                    for sel in ['button:has-text("Email me when ready")', 'button:has-text("Email me")']:
+                        try:
+                            btn = page.locator(sel).first
+                            if btn.is_visible(timeout=3000):
+                                btn.click(timeout=5000)
+                                email_clicked = True
+                                logger.info("✓ Clicked 'Email me when ready'")
+                                break
+                        except:
+                            continue
+                    
+                    if not email_clicked:
+                        logger.warning("Could not find 'Email me when ready' button, but proceeding...")
+                    
+                    # Close modal
+                    try:
+                        close_popups(page, aggressive=True)
                     except:
-                        # Strategy 2: JavaScript click
-                        page.evaluate("""() => {
-                            const btn = document.querySelector('button[type="submit"]');
-                            if (btn) btn.click();
-                        }""")
-                        logger.info(f"Clicked download button (JavaScript, attempt {attempt + 1})")
+                        pass
+                else:
+                    logger.info("No modal appeared (export may have been triggered directly)")
                 
-                download = download_info.value
-                break  # Success!
-                
+                take_screenshot(page, f"09_export_triggered_{brand_filename}")
+                logger.info(f"✓ Export triggered with email delivery for {brand_filename}")
+                return None  # Return None since we're not downloading
+
             except Exception as e:
-                logger.warning(f"Download attempt {attempt + 1} failed: {e}")
+                last_error = e
+                logger.warning(f"Export trigger attempt {attempt + 1} failed: {e}")
+                take_screenshot(page, f"error_export_trigger_attempt_{attempt + 1}_{brand_filename}")
                 if attempt < 2:
-                    take_screenshot(page, f"error_download_attempt_{attempt + 1}_{brand_filename}")
+                    time.sleep(2)
+                    continue
+
+                if attempt < 2:
                     time.sleep(3)
-                    # Re-verify button state
                     wait_for_angular(page)
                     if not verify_button_enabled(page):
                         logger.error("Button became disabled, cannot retry")
-                        raise
-                else:
-                    raise
-        
-        if not download:
-            raise Exception("Failed to capture download after 3 attempts")
-        
-        # Save the download
-        download.save_as(output_file)
-        
-        # Verify file
-        if output_file.stat().st_size < 1000:
-            raise Exception(f"Downloaded file too small: {output_file.stat().st_size} bytes")
-        
-        logger.info(f"✓ Downloaded: {output_file} ({output_file.stat().st_size} bytes)")
-        take_screenshot(page, f"09_download_complete_{brand_filename}")
-        
-        return output_file
+                        break
+                    continue
+                break
+
+        raise Exception(f"Failed to download export CSV. Last error: {last_error}")
         
     except Exception as e:
         logger.error(f"Export failed for {brand_filename}: {e}")
@@ -523,31 +839,54 @@ def main():
     logger.info(f"Dry run: {args.dry_run}")
     logger.info("=" * 60)
     
-    # Get credentials
-    try:
-        username, password = get_credentials()
-        logger.info(f"Retrieved credentials for: {username}")
-    except Exception as e:
-        logger.error("Failed to get credentials. Exiting.")
-        return 1
-    
     # Setup browser
     downloaded_files = []
+    triggered_brands = []
     failed_brands = []
-    
+
     with sync_playwright() as p:
         logger.info("Launching browser...")
-        browser = p.chromium.launch(headless=args.headless, slow_mo=500)
-        context = browser.new_context(
+
+        # Use a persistent context so we can force a stable downloads directory.
+        # This improves reliability if Playwright misses the download event.
+        context = p.chromium.launch_persistent_context(
+            user_data_dir=str(PROFILE_DIR),
+            headless=args.headless,
+            slow_mo=250,
             viewport={"width": 1920, "height": 1080},
-            accept_downloads=True
+            accept_downloads=True,
+            downloads_path=str(DOWNLOADS_DIR),
         )
-        page = context.new_page()
+
+        page = context.pages[0] if context.pages else context.new_page()
         
         try:
-            # Login
-            login(page, username, password)
-            
+            # Navigate to reports and only log in if Sellerboard shows the login form.
+            # This avoids hard-depending on an active 1Password CLI session when the
+            # persistent Chromium profile is already authenticated.
+            page.goto(REPORTS_URL, wait_until="domcontentloaded", timeout=30000)
+            page.wait_for_load_state("networkidle", timeout=15000)
+
+            needs_login = False
+            try:
+                page.wait_for_selector('input[type="password"]', timeout=5000)
+                needs_login = True
+            except Exception:
+                needs_login = False
+
+            if needs_login:
+                logger.info("Login required; fetching credentials from 1Password...")
+                try:
+                    username, password = get_credentials()
+                    logger.info(f"Retrieved credentials for: {username}")
+                except Exception:
+                    logger.error("Failed to get credentials from 1Password. Run `op signin` and retry.")
+                    return 1
+
+                login(page, username, password)
+            else:
+                logger.info("✓ Already logged in (reusing saved session)")
+
             # Filter brands if specified
             brands_to_export = {k: v for k, v in BRANDS.items() if v == args.brand} if args.brand else BRANDS
             
@@ -569,7 +908,10 @@ def main():
                     
                     if output_file:
                         downloaded_files.append(output_file)
-                        logger.info(f"✓ Successfully exported {brand_ui_name}")
+                        triggered_brands.append(brand_ui_name)
+                        logger.info(f"✓ Successfully exported {brand_ui_name} (downloaded file)")
+                    else:
+                        raise Exception("Export did not produce a downloaded file")
                     
                     # Brief pause between brands
                     time.sleep(3)
@@ -585,15 +927,21 @@ def main():
             return 1
         finally:
             logger.info("Closing browser...")
-            browser.close()
+            context.close()
     
     # Summary
     logger.info(f"\n{'=' * 60}")
     logger.info("EXPORT SUMMARY")
     logger.info(f"{'=' * 60}")
-    logger.info(f"Successful exports: {len(downloaded_files)}")
+    logger.info(f"Triggered exports: {len(triggered_brands)}")
+    logger.info(f"Downloaded files: {len(downloaded_files)}")
     logger.info(f"Failed exports: {len(failed_brands)}")
     
+    if triggered_brands:
+        logger.info("\nTriggered brands:")
+        for b in triggered_brands:
+            logger.info(f"  ✓ {b}")
+
     if downloaded_files:
         logger.info("\nDownloaded files:")
         for f in downloaded_files:
