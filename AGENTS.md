@@ -208,6 +208,74 @@ Think of it like a human reviewing their journal and updating their mental model
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 
+## 🔬 Multi-Agent Cross-Validation (MANDATORY)
+
+**Rule:** When multiple agents work on the same problem, they **MUST** validate with each other before reporting to Marco.
+
+### Financial Analysis Protocol (REQUIRED)
+
+**Any task involving numbers (revenue, profit, units, costs, inventory) MUST follow this process:**
+
+1. **All 5 agents analyze independently:**
+   - Main (Ellis, 🎴): Orchestrate, sanity check
+   - Code (Codex, 🔧): Data extraction, calculations
+   - Analysis (Opus, 📊): Financial validation, verify math
+   - Creative (Vibe, 🎨): Alternate interpretation (if relevant)
+   - Strategic (Atlas, 🧭): Long-term implications
+
+2. **Agents compare results:**
+   - If numbers match within 5% → report consensus
+   - If discrepancy >5% → **investigate immediately**
+
+3. **Resolve discrepancies:**
+   - Identify which data source each agent used
+   - Determine which is most current/accurate
+   - Re-run with agreed-upon data
+   - Document why there was a discrepancy
+
+4. **Only then report to Marco:**
+   - Present the validated number
+   - Show that 2+ agents verified it
+   - Explain any assumptions or limitations
+   - If agents still disagree: explain both sides clearly
+
+### Example (Good):
+```
+"10,006 units (verified by Codex + Opus)
+- Data source: reorder_report.json (Feb 4, 3:00 AM)
+- Cross-checked: Both agents got same result
+- Confidence: HIGH"
+```
+
+### Example (Bad):
+```
+"Codex says 137, Opus says 10,006. Which do you think is right?"
+```
+❌ **Never** make Marco choose between conflicting numbers. That's YOUR job.
+
+### Validation Checkpoints
+
+**Before reporting any financial data:**
+- [ ] At least 2 agents calculated independently
+- [ ] Results match OR discrepancy explained
+- [ ] Data source identified and validated
+- [ ] Math double-checked
+- [ ] Assumptions documented
+
+**Marco's Standard:**
+> "If the numbers don't match, you haven't finished your work yet. Come back when they do, or tell me clearly why they can't."
+
+### When Agents Disagree
+
+If after investigation, agents still can't agree:
+
+1. **Document both positions clearly**
+2. **Explain the uncertainty** (data quality, methodology, assumptions)
+3. **Recommend which to use** and why
+4. **Suggest how to get better data** if needed
+
+But this should be **rare**. Most discrepancies are data source issues (wrong file, outdated, incomplete) — those can be resolved.
+
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.

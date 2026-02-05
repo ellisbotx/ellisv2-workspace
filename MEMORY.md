@@ -86,8 +86,13 @@
 - Use LLM for interpretation/reporting, not for iteration logic
 - Example: ASIN checker v1 (LLM) checked 7/186 and hallucinated 3. v2 (Python) checked all 166 correctly.
 
-**Communication Setup (Jan 31, 2026):**
-- Single main Telegram DM for all conversation
+**Communication Setup (Jan 31, 2026 → Feb 4, 2026):**
+- Started with Telegram DM, migrated to Discord (Feb 4)
+- Discord server with dedicated channels for different topics
+- #general for main conversation
+- #alerts for urgent notifications (ASIN suppressions, stockouts, critical issues)
+- #reports for daily automation summaries (ASIN checks, performance reports)
+- #system for meta updates (memory consolidation, new skills, agent evolution)
 - Spawn sub-agents for heavy/long-running work (reports, analysis, research)
 - Keep main chat responsive — don't block on complex tasks
 - Sub-agents report back when done
@@ -105,6 +110,17 @@
 - Weekly consolidation cron (Sun 8 PM) reviews last 7 days, suggests MEMORY.md updates
 - Memory manager script: `/workspace/scripts/memory_manager.py` (report, search, consolidate, cleanup)
 - Best practices: `/workspace/memory/README.md`
+- **Memory updates post to #system channel** for transparency into my learning
+
+**Discord Channel Routing (Feb 4, 2026):**
+- All automation results route to dedicated channels
+- Configuration: `/workspace/config/discord_channels.json`
+- Helper module: `/workspace/scripts/discord_utils.py`
+- Documentation: `/workspace/docs/discord_routing.md`
+- Daily ASIN check → #reports (summary) + #alerts (if suppressions)
+- Memory/skill updates → #system
+- Etsy→MCF automation → #orders (when implemented)
+- Reorder recommendations → #inventory (when implemented)
 
 **Multi-Agent System (Feb 2, 2026):**
 - **Main Agent (Ellis, 🎴):** Claude Sonnet 4.5 — General business operations, daily check-ins, orchestration
@@ -115,10 +131,14 @@
 - All agents share the same workspace (`/Users/ellisbot/.openclaw/workspace`)
 - Cross-agent messaging enabled for collaboration
 - Main agent coordinates complex tasks across specialized agents
-- Marco can message any agent directly (via Telegram routing) or let Main orchestrate
+- Marco can message any agent directly (via Discord) or let Main orchestrate
 
-**Agent Collaboration Standard (Feb 2, 2026):**
-- Before presenting numbers/solutions to Marco, agents cross-validate with each other
-- "Board meeting" approach for complex problems (multiple agents propose solutions, compare, pick best)
-- Numbers must be verified by at least 2 agents before presenting
-- Lesson learned: Revenue overcounting ($897K vs actual $405K) - would have been caught with cross-validation
+**Agent Cross-Validation Protocol (Feb 4, 2026 - MANDATORY):**
+- **All financial analyses MUST be validated by multiple agents before reporting to Marco**
+- Independent analysis: Each agent works separately, saves results to own file
+- Cross-validation meeting: Agents compare results, resolve discrepancies >5%
+- Only validated numbers get reported (or clear explanation if agents can't agree)
+- **Marco's standard:** "If the numbers don't match, you haven't finished your work yet"
+- Formal protocol: `/workspace/docs/financial_validation_protocol.md`
+- Updated AGENTS.md with mandatory validation rules
+- Lesson learned (Feb 4): Codex (137 units) vs Opus (10,006 units) - caught data source issue before reporting final numbers

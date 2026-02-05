@@ -1,0 +1,94 @@
+{
+  "guildId": "1468683175826952265",
+  "channels": {
+    "general": {
+      "id": "1468684352199065875",
+      "name": "general💬",
+      "purpose": "Main conversation, default chat"
+    },
+    "dashboard": {
+      "id": "1468683743035392225",
+      "name": "dashboard📊",
+      "purpose": "Trifecta updates, high-level metrics, daily business snapshot"
+    },
+    "inventory": {
+      "id": "1468683790443352223",
+      "name": "inventory📦",
+      "purpose": "Reorder recommendations, stock levels, FBA storage alerts"
+    },
+    "products": {
+      "id": "1468684178613866731",
+      "name": "products🎴",
+      "purpose": "SKU performance reviews, kill/keep decisions, listing optimization"
+    },
+    "automation": {
+      "id": "1468684221810868326",
+      "name": "automation⚙️",
+      "purpose": "Script execution logs, cron results, integration status"
+    },
+    "analytics": {
+      "id": "1468684272511746149",
+      "name": "analytics📈",
+      "purpose": "Deep-dive analysis, trend reports, competitor insights"
+    },
+    "reports": {
+      "id": "1468703227829551264",
+      "name": "reports📊",
+      "purpose": "Daily ASIN checks, weekly summaries, monthly P&L, velocity reports"
+    },
+    "orders": {
+      "id": "1468703293583785994",
+      "name": "orders📦",
+      "purpose": "Etsy→MCF automation, PO confirmations, shipment tracking"
+    },
+    "suppliers": {
+      "id": "1468703367059607769",
+      "name": "suppliers🏭",
+      "purpose": "Vendor communications, quotes, quality issues"
+    },
+    "creative": {
+      "id": "1468703644634583151",
+      "name": "creative🎨",
+      "purpose": "New game concepts, title brainstorming, design feedback"
+    },
+    "finance": {
+      "id": "1468703779338588303",
+      "name": "finance💰",
+      "purpose": "P&L analysis, cash flow, profitability reviews"
+    },
+    "alerts": {
+      "id": "1468702879672959157",
+      "name": "alerts🚨",
+      "purpose": "ASIN suppressions, stockouts, ad overspend, critical errors"
+    },
+    "done": {
+      "id": "1468703858355208384",
+      "name": "done✅",
+      "purpose": "Completed projects, decision logs, archives"
+    },
+    "system": {
+      "id": "1468708512539349155",
+      "name": "system🧠",
+      "purpose": "Memory updates, new skills, agent evolution, OpenClaw updates, meta-learning"
+    }
+  },
+  "routing": {
+    "asin_checker": "reports",
+    "asin_alerts": "alerts",
+    "reorder_recommendations": "inventory",
+    "etsy_mcf_logs": "orders",
+    "automation_status": "automation",
+    "trifecta_updates": "dashboard",
+    "sku_performance": "products",
+    "deep_analysis": "analytics",
+    "supplier_comms": "suppliers",
+    "product_ideas": "creative",
+    "financial_reports": "finance",
+    "task_completions": "done",
+    "memory_updates": "system",
+    "skill_updates": "system",
+    "agent_config": "system",
+    "openclaw_updates": "system",
+    "general_chat": "general"
+  }
+}

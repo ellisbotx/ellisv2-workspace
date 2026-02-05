@@ -289,6 +289,45 @@ def update_dashboard(results):
     print(f"Dashboard updated: {DASHBOARD}")
 
 
+def post_to_discord(results, summary):
+    """Post results to Discord #reports and #alerts channels."""
+    try:
+        # Import the discord utilities
+        sys.path.insert(0, str(WORKSPACE / "scripts"))
+        from discord_utils import post_report, post_alert
+        
+        # Post summary to #reports
+        summary_msg = f"""📊 **Daily ASIN Check Complete**
+
+✅ Active: **{summary['active']}**
+🚨 Suppressed: **{summary['suppressed']}**
+❌ Errors: **{summary['errors']}**
+📦 Total: **{summary['total']}**
+
+Dashboard: <https://ellisbot.local/trifecta/>"""
+        
+        if post_report(summary_msg, silent=True):
+            print("Posted summary to #reports")
+        
+        # Post alerts if suppressions found
+        if summary['suppressed'] > 0:
+            suppressed_list = [r for r in results if r["status"] == "Suppressed"]
+            
+            alert_msg = f"""🚨 **{summary['suppressed']} ASIN Suppression{'s' if summary['suppressed'] != 1 else ''} Detected**
+
+"""
+            for r in suppressed_list:
+                alert_msg += f"• **{r['name']}** ({r['brand']})\n  ASIN: `{r['asin']}`\n  {r['notes']}\n\n"
+            
+            alert_msg += "Check <https://ellisbot.local/trifecta/> for details."
+            
+            if post_alert(alert_msg):
+                print("Posted alert to #alerts")
+    
+    except Exception as e:
+        print(f"Failed to post to Discord: {e}")
+
+
 def print_summary(results):
     """Print summary."""
     total = len(results)
@@ -348,7 +387,8 @@ def main():
     
     save_results(results)
     update_dashboard(results)
-    print_summary(results)
+    summary = print_summary(results)
+    post_to_discord(results, summary)
 
 
 if __name__ == "__main__":
