@@ -424,6 +424,48 @@
             font-weight: 500;
         }
         
+        /* Suppressed List */
+        .suppressed-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .suppressed-item {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid rgba(248, 81, 73, 0.2);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .suppressed-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .suppressed-item-header strong {
+            font-size: 15px;
+            color: #e6edf3;
+        }
+        
+        .brand-tag {
+            font-size: 12px;
+            padding: 4px 8px;
+            background: rgba(88, 166, 255, 0.2);
+            color: #58a6ff;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .suppressed-item-details {
+            display: grid;
+            gap: 4px;
+            font-size: 13px;
+            color: #8b949e;
+        }
+        
         /* Alerts Section */
         .alerts {
             background: #161b22;
@@ -642,14 +684,14 @@
                         <circle class="health-ring-progress" cx="50" cy="50" r="40"/>
                     </svg>
                     <div class="health-ring-text">
-                        <div class="health-percent">98%</div>
+                        <div class="health-percent">1%</div>
                         <div class="health-label">Healthy</div>
                     </div>
                 </div>
                 <div class="asin-health-info">
-                    <h3 class="warning">3 Suppressed</h3>
-                    <p>163 of 166 ASINs visible in Amazon search</p>
-                    <div class="last-checked">Last checked: <span>Feb 5, 2026 at 1:09 AM</span></div>
+                    <h3>All Clear</h3>
+                    <p>3 of 166 ASINs visible in Amazon search</p>
+                    <div class="last-checked">Last checked: <span>Feb 6, 2026 at 1:07 AM</span></div>
                 </div>
             </div>
             <div class="brand-pills">
@@ -671,7 +713,7 @@
         <div class="suppression-section">
             <div class="suppression-section-header">
                 <div class="suppression-section-title">Suppressed ASINs</div>
-                <div class="suppression-count-badge">3 Issues</div>
+                <div class="suppression-count-badge clear">0 Issues</div>
             </div>
             
             <div class="all-clear-message">
@@ -691,11 +733,16 @@
     </div>
     
     <div class="updated">
-        Data last updated: February 05, 2026 at 03:00 AM CT • ASIN check: Daily at 1 AM (report at 7 AM)
+        Data last updated: February 06, 2026 at 03:00 AM CT • ASIN check: Daily at 1 AM (report at 7 AM)
     </div>
 
     <script>
+        console.log('=== DASHBOARD SCRIPT LOADED ===');
+        console.log('Current URL:', window.location.href);
+        
         (function(){
+            console.log('=== MAIN FUNCTION WRAPPER EXECUTED ===');
+            
             const paths = {
                 range7: '../data/derived/range_7d.json',
                 timeSeries: '../data/derived/time_series.json',
@@ -806,6 +853,66 @@
                 if (start) list.insertBefore(item, start);
                 else list.appendChild(item);
             }
+            
+            function renderSuppressionList(suppressedASINs){
+                const container = document.querySelector('.suppression-section');
+                if (!container) {
+                    console.error('Suppression section container not found');
+                    return;
+                }
+                
+                const allClearMsg = container.querySelector('.all-clear-message');
+                
+                if (!suppressedASINs || suppressedASINs.length === 0) {
+                    // Show all-clear message
+                    if (allClearMsg) {
+                        allClearMsg.style.display = 'block';
+                    }
+                    // Remove any existing suppressed list
+                    const existing = container.querySelector('.suppressed-list');
+                    if (existing) existing.remove();
+                } else {
+                    // Hide all-clear message
+                    if (allClearMsg) {
+                        allClearMsg.style.display = 'none';
+                    }
+                    
+                    // Remove existing list if present
+                    const existing = container.querySelector('.suppressed-list');
+                    if (existing) existing.remove();
+                    
+                    // Create suppressed list
+                    let listHTML = '<div class="suppressed-list">';
+                    suppressedASINs.forEach(asin => {
+                        const name = asin.Name || asin.name || 'Unknown Product';
+                        const brand = asin.Brand || asin.brand || '';
+                        const asinCode = asin.ASIN || asin.asin || '';
+                        const notes = asin.Notes || asin.notes || 'No results found';
+                        
+                        listHTML += `
+                            <div class="suppressed-item">
+                                <div class="suppressed-item-header">
+                                    <strong>${name}</strong>
+                                    <span class="brand-tag">${brand}</span>
+                                </div>
+                                <div class="suppressed-item-details">
+                                    <div>ASIN: ${asinCode}</div>
+                                    <div style="color: #f85149;">${notes}</div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    listHTML += '</div>';
+                    
+                    // Insert new list after header
+                    const header = container.querySelector('.suppression-section-header');
+                    if (header) {
+                        header.insertAdjacentHTML('afterend', listHTML);
+                    } else {
+                        console.error('Suppression section header not found');
+                    }
+                }
+            }
 
             async function main(){
                 try{
@@ -845,21 +952,63 @@
                         if (Array.isArray(items)) stockouts = items.length;
                     } catch(e){ stockouts = 0; }
 
-                    // Suppressions
+                    // Suppressions - FIXED VERSION
                     let suppressedCount = 0;
+                    let suppressedASINs = [];
+                    
+                    console.log('=== SUPPRESSION CHECK START ===');
+                    console.log('Fetching from:', paths.suppressions);
+                    
                     try{
                         const txt = await fetchText(paths.suppressions);
+                        console.log('Fetched CSV text, length:', txt.length);
+                        
                         const rows = parseCSV(txt);
+                        console.log('Parsed CSV rows:', rows.length);
+                        console.log('First row sample:', rows[0]);
+                        
                         if (rows.length === 0){
+                            console.log('No rows found in CSV');
                             suppressedCount = 0;
+                            suppressedASINs = [];
                         } else {
-                            suppressedCount = rows.filter(r => {
-                                const s = (r.status || r.Status || r.suppressed || r.Suppressed || '').toString().toLowerCase();
-                                if (!s) return true; // treat as list-only file
-                                return ['true','1','yes','suppressed'].includes(s);
-                            }).length;
+                            suppressedASINs = rows.filter(r => {
+                                // Check Status field (case-insensitive)
+                                const statusField = r.Status || r.status || r.Suppressed || r.suppressed || '';
+                                const statusLower = String(statusField).toLowerCase().trim();
+                                
+                                // If no status field, assume all rows are suppressed (legacy format)
+                                if (!statusField) {
+                                    console.log('Row with no status field:', r);
+                                    return true;
+                                }
+                                
+                                // Check if status indicates suppression
+                                const isSuppressed = statusLower === 'suppressed';
+                                
+                                if (isSuppressed) {
+                                    console.log('Found suppressed ASIN:', r.ASIN, r.Name);
+                                }
+                                
+                                return isSuppressed;
+                            });
+                            suppressedCount = suppressedASINs.length;
+                            console.log('=== SUPPRESSED COUNT:', suppressedCount, '===');
+                            console.log('Suppressed ASINs:', suppressedASINs);
                         }
-                    } catch(e){ suppressedCount = 0; }
+                    } catch(e){ 
+                        console.error('!!! Error loading suppressions:', e);
+                        suppressedCount = 0;
+                        suppressedASINs = [];
+                    }
+                    
+                    console.log('About to render suppression list, count:', suppressedCount);
+                    console.log('suppressedASINs array:', suppressedASINs);
+                    
+                    // Render suppressed ASINs list
+                    renderSuppressionList(suppressedASINs);
+                    
+                    console.log('=== SUPPRESSION CHECK END ===');
 
                     const revenueDown = (typeof frac === 'number') ? (frac < -0.07) : false;
 

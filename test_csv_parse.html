@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSV Parse Test</title>
+</head>
+<body>
+    <h1>CSV Parse Test</h1>
+    <div id="output"></div>
+    
+    <script>
+        function parseCSV(text){
+            const lines = (text || '').split(/\r?\n/).filter(l => l.trim().length);
+            if (!lines.length) return [];
+            const headers = lines[0].split(',').map(h => h.trim());
+            return lines.slice(1).map(line => {
+                const cols = [];
+                let cur = '', inQ = false;
+                for (let i=0;i<line.length;i++){
+                    const ch = line[i];
+                    if (ch === '"') { inQ = !inQ; continue; }
+                    if (ch === ',' && !inQ) { cols.push(cur); cur=''; continue; }
+                    cur += ch;
+                }
+                cols.push(cur);
+                const row = {};
+                headers.forEach((h, idx) => row[h] = (cols[idx] || '').trim());
+                return row;
+            });
+        }
+        
+        async function test() {
+            const response = await fetch('../data/suppression_tracker.csv');
+            const text = await response.text();
+            const rows = parseCSV(text);
+            
+            console.log('Total rows:', rows.length);
+            console.log('Headers:', Object.keys(rows[0] || {}));
+            console.log('First row:', rows[0]);
+            
+            const suppressed = rows.filter(r => {
+                const statusField = r.Status || r.status || '';
+                const statusLower = String(statusField).toLowerCase().trim();
+                return statusLower === 'suppressed';
+            });
+            
+            console.log('Suppressed count:', suppressed.length);
+            console.log('Suppressed items:', suppressed);
+            
+            document.getElementById('output').innerHTML = `
+                <p>Total rows: ${rows.length}</p>
+                <p>Suppressed: ${suppressed.length}</p>
+                <pre>${JSON.stringify(suppressed, null, 2)}</pre>
+            `;
+        }
+        
+        test();
+    </script>
+</body>
+</html>

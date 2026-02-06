@@ -1,6 +1,6 @@
 # MEMORY.md - Long-Term Memory
 
-*Last updated: 2026-02-02*
+*Last updated: 2026-02-05*
 
 ---
 
@@ -142,3 +142,15 @@
 - Formal protocol: `/workspace/docs/financial_validation_protocol.md`
 - Updated AGENTS.md with mandatory validation rules
 - Lesson learned (Feb 4): Codex (137 units) vs Opus (10,006 units) - caught data source issue before reporting final numbers
+
+**Scheduled Tasks Protocol (Feb 5, 2026):**
+- **SCHEDULED_TASKS.md** tracks all scheduled tasks, completions, and overdue items
+- Every heartbeat: review SCHEDULED_TASKS.md for overdue tasks
+- If anything overdue: run it immediately or explain why it didn't run
+- Log all task completions with timestamp and outcome
+- Tasks considered overdue after 2x expected frequency (daily=48h, weekly=14d, hourly=2h)
+- Current scheduled tasks:
+  - Daily ASIN check (1 AM CST via cron)
+  - Weekly memory consolidation (Sun 8 PM CST via cron)
+  - Hourly heartbeat proactive checks
+- Ensures no tasks slip through the cracks due to cron failures or other issues
