@@ -25,6 +25,19 @@
 - **Next run:** Sunday, Feb 9, 2026 @ 8:00 PM CST
 - **Last completed:** See log below
 
+### Daily Inventory Check
+- **Frequency:** Daily at 5:30 AM CST
+- **Mechanism:** Cron job (`b6e326c6-e4bb-41f4-bb1c-ef2a0d096db9`)
+- **Scripts:** Runs 5 scripts in order:
+  1. inventory_tracker.py (pulls inventory from all 3 brands)
+  2. reorder_tracker.py (analyzes reorder needs)
+  3. update_overview.py (updates 30-day sales overview)
+  4. generate_dashboard.py (generates inventory dashboard)
+  5. generate_products_page.py (generates products page)
+- **Reporting:** Silent update (no notifications)
+- **Next run:** Tomorrow, Feb 7, 2026 @ 5:30 AM CST
+- **Last completed:** See log below
+
 ### Heartbeat Proactive Checks
 - **Frequency:** Hourly (main agent only)
 - **Mechanism:** OpenClaw heartbeat system
@@ -44,6 +57,7 @@ YYYY-MM-DD HH:MM CST | [TASK NAME] | Status | Outcome
 
 ### Recent Completions
 
+2026-02-06 05:30 CST | Daily Inventory Check | SUCCESS | All 5 scripts completed: 277 SKUs tracked, 0 reorders needed, 108 slow sellers identified, dashboards updated
 2026-02-06 01:07 CST | Daily ASIN Suppression Check | FAILED | 163/166 errors (503 Service Unavailable from Amazon API) - only 3 ASINs checked successfully
 2026-02-05 16:26 CST | OpenClaw Update (Ad-hoc) | SUCCESS | Updated from 2026.2.2-3 to 2026.2.3-1, gateway restarted cleanly
 2026-02-05 01:09 CST | Daily ASIN Suppression Check | SUCCESS | Checked 166 ASINs, results saved to suppression_tracker.csv

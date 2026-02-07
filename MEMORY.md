@@ -10,7 +10,9 @@
 - 3 brands: Black Owned, Card Plug, Kinfolk
 - ~160 SKUs, 20-30 meaningful revenue drivers
 - Primary channel: Amazon FBA (3 separate Seller Central accounts)
-- Goal: Scalable catalog, automated ops, multi-million trajectory without Marco as bottleneck
+- **Goal: $5M combined sales by end of 2028 (stretch: 2027)**
+- Strategy: "Shots on goal" — launch more SKUs, let 80/20 rule identify winners
+- Scalable catalog, automated ops, multi-million trajectory without Marco as bottleneck
 
 **Tool Stack:**
 - Seller Central (truth) → Sellerboard (profit) → Helium 10 (SEO) → Jungle Scout (demand)
@@ -39,6 +41,12 @@
 - Wants me to ask questions relentlessly (until he says "stop")
 - Take initiative — don't wait for perfect instructions
 - Judgment is currently gut-based; help codify into rules
+
+**Strategic Approach to $5M Goal (Feb 6, 2026):**
+- Old method: simple average (total sales ÷ SKU count) × target = SKUs needed
+- New method: account for 80/20 rule, model hit rate, strategic portfolio planning
+- Philosophy: "Shots on goal" — more SKUs = more chances at winners
+- Need to identify current top 20%, project trajectories, calculate new SKUs needed
 
 ---
 
