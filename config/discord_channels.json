@@ -70,6 +70,26 @@
       "id": "1468708512539349155",
       "name": "system🧠",
       "purpose": "Memory updates, new skills, agent evolution, OpenClaw updates, meta-learning"
+    },
+    "taxes": {
+      "id": "1470205780081905777",
+      "name": "taxes🧾",
+      "purpose": "Accountable plan reimbursements, tax documents, quarterly estimates, tax-related tasks"
+    },
+    "tasks": {
+      "id": "1470181819067531500",
+      "name": "tasks✅",
+      "purpose": "Task management. Marco dumps tasks, Ellis categorizes, assigns, reminds, and completes what he can."
+    },
+    "growth": {
+      "id": "1470178653932355798",
+      "name": "growth🚀",
+      "purpose": "Business growth strategies, opportunities, listing optimization, competitor intel, promotions, expansion ideas"
+    },
+    "braindump": {
+      "id": "1470095205205283022",
+      "name": "braindump🧠",
+      "purpose": "Marco's second brain. Walking ideas, random thoughts, business opportunities. Ellis captures, connects, and follows up."
     }
   },
   "routing": {

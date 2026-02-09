@@ -53,6 +53,20 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When in doubt, ask.
 - **Read `SECURITY.md`** for prompt injection defense guidelines.
 
+## ⚠️ #tasks Channel — MANDATORY, NO EXCEPTIONS
+
+**When Marco gives a task, the VERY FIRST action is posting to #tasks (1470181819067531500).**
+
+Order of operations:
+1. **POST TO #TASKS** — before anything else
+2. Then do the work (save files, write docs, set up cron, etc.)
+3. Reply to Marco confirming
+
+If work is completed without a #tasks post, the work is considered NOT DONE.
+This is non-negotiable. If you forget, the entire task system is worthless.
+
+**Lesson learned (Feb 8, 2026):** Set up entire Augusta Rule automation without posting to #tasks first. Marco had to remind me. Never again.
+
 ## External vs Internal
 
 **Safe to do freely:**

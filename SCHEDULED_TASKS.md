@@ -38,6 +38,33 @@
 - **Next run:** Today, Feb 7, 2026 @ 5:30 AM CST (in ~4 hours)
 - **Last completed:** See log below
 
+### Weekly OpenClaw Update Check
+- **Frequency:** Sundays at 10:00 AM CST
+- **Mechanism:** LaunchAgent (`com.openclaw.update-checker`) — zero tokens
+- **Script:** `/Users/ellisbot/.openclaw/workspace/scripts/update_checker.sh`
+- **Action:** Checks npm for newer OpenClaw version
+- **Reporting:** Posts to #system ONLY if update available (silent if current)
+- **Note:** Does NOT auto-apply — waits for Marco's approval
+- **Log:** `/Users/ellisbot/.openclaw/workspace/logs/update_checker.log`
+
+### Cron Health Monitor
+- **Frequency:** Every 6 hours (runs on load + every 21600s)
+- **Mechanism:** LaunchAgent (`com.openclaw.cron-health`) — zero tokens
+- **Script:** `/Users/ellisbot/.openclaw/workspace/scripts/cron_health_monitor.py`
+- **Action:** Verifies all cron jobs are producing expected output files on schedule
+- **Reporting:** Alerts #alerts if any job fails 2+ times consecutively. Notifies #system on recovery.
+- **State file:** `/Users/ellisbot/.openclaw/workspace/data/cron_health_state.json`
+- **Log:** `/Users/ellisbot/.openclaw/workspace/logs/cron_health_stdout.log`
+
+### Gateway Watchdog
+- **Frequency:** Every 60 seconds
+- **Mechanism:** macOS LaunchAgent (`com.openclaw.watchdog`)
+- **Script:** `/Users/ellisbot/.openclaw/workspace/scripts/gateway_watchdog.sh`
+- **Action:** Pings gateway health endpoint, auto-restarts if down, notifies #alerts
+- **Log:** `/Users/ellisbot/.openclaw/workspace/logs/watchdog.log`
+- **Recovery:** Double-checks after 5s (avoids false positives during normal restarts)
+- **Notifications:** Posts to #alerts on restart or failure
+
 ### Heartbeat Proactive Checks
 - **Frequency:** Hourly (main agent only)
 - **Mechanism:** OpenClaw heartbeat system
@@ -57,6 +84,7 @@ YYYY-MM-DD HH:MM CST | [TASK NAME] | Status | Outcome
 
 ### Recent Completions
 
+2026-02-08 05:30 CST | Daily Inventory Check | SUCCESS | All 5 scripts completed: 277 SKUs tracked (107 out of stock, 18 low stock), 0 reorders needed, 111 slow sellers identified, dashboards updated
 2026-02-07 05:46 CST | OpenClaw Update (Ad-hoc) | SUCCESS | Updated from 2026.2.3-1 to 2026.2.6-3, gateway restarted cleanly
 2026-02-07 05:43 CST | Manual Discord Post | SUCCESS | Posted today's ASIN results to #reports + #alerts (after fixing browser script)
 2026-02-07 01:10 CST | Daily ASIN Suppression Check | PARTIAL | Checked 166 ASINs (157 active, 3 suppressed, 6 timeouts) - Discord posting FAILED (function missing in browser script)
