@@ -1,6 +1,6 @@
 # MEMORY.md - Long-Term Memory
 
-*Last updated: 2026-02-05*
+*Last updated: 2026-02-09*
 
 ---
 
@@ -10,9 +10,11 @@
 - 3 brands: Black Owned, Card Plug, Kinfolk
 - ~160 SKUs, 20-30 meaningful revenue drivers
 - Primary channel: Amazon FBA (3 separate Seller Central accounts)
+- **2024 revenue: $1.3M+ | 2025 revenue: $800K+** (decline needs investigation)
 - **Goal: $5M combined sales by end of 2028 (stretch: 2027)**
 - Strategy: "Shots on goal" — launch more SKUs, let 80/20 rule identify winners
 - Scalable catalog, automated ops, multi-million trajectory without Marco as bottleneck
+- **Emoji: 💰** (changed from 🎴 on Feb 9)
 
 **Tool Stack:**
 - Seller Central (truth) → Sellerboard (profit) → Helium 10 (SEO) → Jungle Scout (demand)
@@ -41,6 +43,14 @@
 - Wants me to ask questions relentlessly (until he says "stop")
 - Take initiative — don't wait for perfect instructions
 - Judgment is currently gut-based; help codify into rules
+
+**Marco's philosophy (Feb 9, 2026):** "It is your job to earn your team and make yourself more valuable each and every day."
+
+**Auto-fix rule (Feb 9, 2026):** If something we've already agreed upon breaks, FIX IT. Don't check in, don't ask permission, don't wait. Diagnose, fix, verify, and report what happened after. Only escalate if the fix requires something new or outside my access.
+
+**Weekly Soul Review:** Sundays 10 AM CST — I review the week and propose SOUL.md changes. Marco approves before any edits. Added to operating rules: "Evolve the team" — recommend new agents/automations when patterns emerge.
+
+**Wife's Setup:** Ellie runs on separate Discord server with isolated workspace. Marco now understands multi-agent architecture (one engine, many brains).
 
 **Strategic Approach to $5M Goal (Feb 6, 2026):**
 - Old method: simple average (total sales ÷ SKU count) × target = SKUs needed
@@ -166,11 +176,11 @@ general, dashboard, inventory, products, automation, analytics, reports, orders,
 - Etsy→MCF automation → #orders (when implemented)
 - Reorder recommendations → #inventory (when implemented)
 
-**Multi-Agent System (Feb 2, 2026):**
-- **Main Agent (Ellis, 🎴):** Claude Sonnet 4.5 — General business operations, daily check-ins, orchestration
-- **Code Agent (Codex, 🔧):** OpenAI gpt-5.2 — Technical implementation, scripts, automation, debugging
-- **Analysis Agent (Opus, 📊):** Claude Opus 4.5 — Deep analysis, research, number validation, strategic reports
-- **Creative Agent (Vibe, 🎨):** OpenAI GPT-4o — Product ideation, game concepts, catchy titles, visual/trend analysis
+**Multi-Agent System (Feb 2, 2026 — updated Feb 8):**
+- **Main Agent (Ellis, 💰):** Claude Opus 4.6 — General business operations, daily check-ins, orchestration
+- **Code Agent (Codex, 🔧):** OpenAI GPT-5.3 Codex — Technical implementation, scripts, automation, debugging
+- **Analysis Agent (Opus, 📊):** Claude Opus 4.6 — Deep analysis, research, number validation, strategic reports
+- **Creative Agent (Vibe, 🎨):** Claude Sonnet 4.5 — Product ideation, game concepts, catchy titles, visual/trend analysis
 - **Strategic Agent (Atlas, 🧭):** OpenAI o1 — Extended reasoning, long-term planning, portfolio strategy, complex decisions
 - All agents share the same workspace (`/Users/ellisbot/.openclaw/workspace`)
 - Cross-agent messaging enabled for collaboration
@@ -198,3 +208,18 @@ general, dashboard, inventory, products, automation, analytics, reports, orders,
   - Weekly memory consolidation (Sun 8 PM CST via cron)
   - Hourly heartbeat proactive checks
 - Ensures no tasks slip through the cracks due to cron failures or other issues
+
+**System Reliability Infrastructure (Feb 8, 2026):**
+- **Gateway Watchdog** — LaunchAgent, every 60s, auto-restarts gateway if down, notifies #alerts. Zero tokens.
+- **Cron Health Monitor** — LaunchAgent, every 6h, checks output file freshness, alerts on 2+ consecutive failures. Zero tokens.
+- **Update Checker** — LaunchAgent, Sundays 10 AM, checks npm for new OpenClaw versions, notifies #system. Zero tokens.
+- All pure scripts — Marco specifically asked these NOT use AI tokens.
+- Lesson: Default to token-free scripts for monitoring. Only use agent turns when AI reasoning is actually needed.
+
+**SOUL.md Rewrite (Feb 9, 2026):**
+- Complete rewrite from generic template to Ellis-specific identity
+- Marco provided business stances via PDF, merged with my operational rules
+- Added: interrupt list, team roster, business defaults (product/pricing/marketing/ops)
+- Added: "Evolve the team" operating rule
+- Removed: "How I Answer" (Marco didn't want rigid answer formatting)
+- Weekly Soul Review cron added: Sundays 10 AM, propose changes, Marco approves
