@@ -12,7 +12,7 @@
 | 1 | Audit top 10 SKU listings vs category leaders | Feb 8 | Feb 12 | 🔄 Queued |
 | 2 | Read all 1-3 star reviews, categorize complaints | Feb 8 | Feb 12 | 🔄 Queued |
 | 3 | Build 2026 seasonal promotion calendar | Feb 8 | Feb 14 | 🔄 Queued |
-| 4 | Start weekly competitor monitoring | Feb 8 | Feb 10 | 🔄 Queued |
+| 4 | Weekly competitor monitoring | Feb 8 | Weekly | 🔄 Recurring — first report done Feb 10 |
 
 ---
 
@@ -21,9 +21,9 @@
 
 | # | Task | Added | Due | Status | Notes |
 |---|------|-------|-----|--------|-------|
-| 1 | Move ALL liquidation inventory from AWD → FBA, then liquidate | Feb 8 | — | ⏳ Pending | 65 SKUs across 3 brands. Step 1: Move AWD → FBA. Step 2: Liquidate once at fulfillment center. All 65 ASINs listed in /workspace/data/liquidation_asins.txt |
-| 4 | Get a new PO Box for Kinfolk LLC | Feb 8 | — | ⏳ Pending | |
-| 5 | ⚠️ CPC + Testing Reports — SayLess (B0CPLF7PT8) | Feb 8 | URGENT | 🔴 HIGH PRIORITY | Children's Product Certification needed |
+| 1 | Move ALL liquidation inventory from AWD → FBA, then liquidate | Feb 8 | — | 🔄 In Progress | 65 SKUs across 3 brands. Recheck Feb 11. All 65 ASINs listed in /workspace/data/liquidation_asins.txt |
+| 2 | Fix Kinfolk Account Health — "At Risk" | Feb 10 | ASAP | 🔄 In Progress | Verifying information requested by Amazon |
+| 3 | ⚠️ CPC + Testing Reports — SayLess (B0CPLF7PT8) | Feb 8 | URGENT | 🔴 HIGH PRIORITY | Children's Product Certification needed |
 | 6 | ⚠️ CPC + Testing Reports — SayLess 2 (B0D4GXVCRW) | Feb 8 | URGENT | 🔴 HIGH PRIORITY | Children's Product Certification needed |
 | 7 | CPC + Testing Reports — Family Tree (B0F677914S) | Feb 8 | — | ⏳ Pending | Children's Product Certification needed |
 | 8 | CPC + Testing Reports — Hood To Hollywood (B0CPKQ6QD1) | Feb 8 | — | ⏳ Pending | Children's Product Certification needed |
@@ -38,9 +38,8 @@
 
 | # | Task | Added | Blocker |
 |---|------|-------|---------|
-| 1 | Ad campaign optimization | Feb 8 | Needs Ad Console access |
-| 2 | A+ Content setup | Feb 8 | Need to confirm Brand Registry status |
-| 3 | Supplier management automation | Feb 8 | Needs supplier contacts/pricing |
+| 1 | A+ Content setup | Feb 8 | Brand Registry confirmed ✅ — Ellis can start research/drafts |
+| 2 | Supplier management automation | Feb 8 | Needs supplier contacts/pricing |
 
 ---
 

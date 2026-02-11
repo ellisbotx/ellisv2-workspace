@@ -1,0 +1,51 @@
+Date	Amazon Order Id	Merchant SKU	ASIN	FNSKU	Title	Quantity	FC	Disposition	Customer Return Reason	Status
+February 9, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	PGA1	Sellable		Unit returned to inventory
+February 8, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	FAR1	Sellable		Unit returned to inventory
+February 8, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	EWR7	Sellable		Unit returned to inventory
+February 7, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	MEM3	Sellable		Unit returned to inventory
+February 6, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	EWR7	Sellable		Unit returned to inventory
+February 6, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	MSP1	Sellable	The item never arrived	Unit returned to inventory
+February 6, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	HOU3	Sellable		Unit returned to inventory
+February 6, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	PHX6	Sellable		Unit returned to inventory
+February 5, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	LEX1	Sellable		Unit returned to inventory
+February 5, 2026		YJ-VUU8-BA8J	B0FX5M2G3D	B0FX5M2G3D	ORALE Latino Charades	1	PHX6	Customer Damaged	I found better prices elsewhere	Immediate liquidation
+February 5, 2026		HS-G24N-YLTU	B0DS7PZVXR	B0DS7PZVXR	Drunk Charades 3	1	CAE1	Sellable	Unknown Reason	Unit returned to inventory
+February 5, 2026		GU-GREK-EZ60	B0G3TDFKPW	B0G3TDFKPW	Vacay Cruise	1	PHX6	Sellable		Unit returned to inventory
+February 5, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	CHA1	Sellable		Unit returned to inventory
+February 5, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	EWR7	Sellable		Unit returned to inventory
+February 4, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	LEX1	Sellable		Unit returned to inventory
+February 4, 2026		YJ-VUU8-BA8J	B0FX5M2G3D	B0FX5M2G3D	ORALE Latino Charades	1	IND8	Sellable	I accidentally ordered the wrong item	Unit returned to inventory
+February 4, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	LEX2	Customer Damaged	Unwanted item	Immediate liquidation
+February 4, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	CHA1	Sellable		Unit returned to inventory
+February 4, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	CHA1	Customer Damaged	The product performance/quality is not up to my expectations	Immediate liquidation
+February 3, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	CHA1	Sellable		Unit returned to inventory
+February 3, 2026		A0-F7TE-B2Q7	B0DSCD4Z8M	B0DSCD4Z8M	Amen Bible Trivia	1	IND8	Defective		Immediate liquidation
+February 3, 2026		2U-XLW7-1UR4	B0DSCCMPXL	B0DSCCMPXL	Finish This Lyric Hip-Hop	1	IND8	Sellable		Unit returned to inventory
+February 1, 2026		YJ-VUU8-BA8J	B0FX5M2G3D	B0FX5M2G3D	ORALE Latino Charades	1	PHX6	Sellable		Unit returned to inventory
+February 1, 2026		HF-1LJG-9V04	B0FCN1V23Z	B0FCN1V23Z	HoodFued 3	1	IND8	Sellable		Unit returned to inventory
+February 1, 2026		GU-GREK-EZ60	B0G3TDFKPW	B0G3TDFKPW	Vacay Cruise	1	IND8	Sellable		Unit returned to inventory
+February 1, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	LAS2	Sellable		Unit returned to inventory
+February 1, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	LAS2	Sellable		Unit returned to inventory
+February 1, 2026		HS-G24N-YLTU	B0DS7PZVXR	B0DS7PZVXR	Drunk Charades 3	1	LAS2	Sellable		Unit returned to inventory
+January 31, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	LEX2	Sellable		Unit returned to inventory
+January 31, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	FTW6	Sellable	Unknown Reason	Unit returned to inventory
+January 31, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	IAH1	Customer Damaged	Product damaged or defective prior to shipping	Immediate liquidation
+January 31, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	LEX1	Sellable		Unit returned to inventory
+January 30, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	HOU3	Sellable		Unit returned to inventory
+January 30, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	PGA1	Sellable		Unit returned to inventory
+January 29, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	LEX2	Customer Damaged	Unwanted item	Immediate liquidation
+January 29, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	HOU3	Sellable		Unit returned to inventory
+January 29, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	IND8	Sellable		Unit returned to inventory
+January 29, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	LEX1	Sellable		Unit returned to inventory
+January 28, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	MKE1	Sellable	Unknown Reason	Unit returned to inventory
+January 28, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	IND8	Sellable	Unwanted item	Unit returned to inventory
+January 28, 2026		OK-VH7S-C4J4	B0DDQG3TFY	B0DDQG3TFY	Soul Cinema	1	CHA1	Sellable		Unit returned to inventory
+January 28, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	CHA1	Sellable		Unit returned to inventory
+January 27, 2026		HF-1LJG-9V04	B0FCN1V23Z	B0FCN1V23Z	HoodFued 3	1	IND8	Sellable		Unit returned to inventory
+January 27, 2026		5V-4CH5-NNWY	B0CZ4M5QT3	B0CZ4M5QT3	Soul Trivia	1	IAH1	Sellable		Unit returned to inventory
+January 27, 2026		YJ-VUU8-BA8J	B0FX5M2G3D	B0FX5M2G3D	ORALE Latino Charades	1	LAS2	Sellable		Unit returned to inventory
+January 27, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	IND8	Sellable		Unit returned to inventory
+January 27, 2026		R6-HVWV-5C89	B0CZ4L451Y	B0CZ4L451Y	HoodFued OG	1	FAR1	Sellable		Unit returned to inventory
+January 26, 2026		TK-ZC1Y-CPTP	B0FCN3NLK2	B0FCN3NLK2	HoodFued Music	1	CHA1	Sellable		Unit returned to inventory
+January 26, 2026		BN-RFHY-U2GJ	B0DSCCFVSC	B0DSCCFVSC	HoodFued 2	1	SAT2	Sellable	Unknown Reason	Unit returned to inventory
+January 24, 2026		YJ-VUU8-BA8J	B0FX5M2G3D	B0FX5M2G3D	ORALE Latino Charades	1	FAR1	Sellable		Unit returned to inventory
