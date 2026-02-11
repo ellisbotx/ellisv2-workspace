@@ -6,6 +6,17 @@
    - If anything is overdue: run it or explain why it didn't run
    - Log all task completions with timestamp and outcome
 2. **#tasks integrity check** - Did any recent work happen without a #tasks post? If so, post it NOW.
+3. **#tasks pin check** - Has any task been added, removed, or changed status since the last pinned task board? If yes:
+   - Post updated task board to #tasks (keep it under 2000 chars so it fits in ONE message)
+   - Unpin ALL old task board messages
+   - Pin the new one
+   - Update the channel topic bar too
+4. **Task Integrity Check (every 2 hours)**
+   - Read last 50 messages from each active channel
+   - Look for task-related phrases ("add to task," "put on task list," "is done," "remind me," "take off," etc.)
+   - Compare mentions against task_tracker.md
+   - If gaps found: fix immediately, update pin, alert #system
+   - Save report to data/integrity_reports/
 
 ## Proactive Business Improvement (Rotate Through These)
 

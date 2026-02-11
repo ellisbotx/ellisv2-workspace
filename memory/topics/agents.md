@@ -50,3 +50,16 @@
 - Spawn sub-agents for heavy/long-running work (reports, analysis, research)
 - Keep main chat responsive — don't block on complex tasks
 - Sub-agents report back when done
+
+### FACT - Codex: 137 units, $3,259 revenue... (2026-02-11)
+- Codex: 137 units, $3,259 revenue (used `sku_velocity.json`)
+Tags: codex
+
+### FACT - Opus: 10,006 units, $220,031 revenue... (2026-02-11)
+- Opus: 10,006 units, $220,031 revenue (used `reorder_report.json`)
+Tags: opus
+
+### FACT OK, I think we got a... (2026-02-11)
+OK, I think we got a lot of good work done. I think I'm today. I think I'm done for the evening on my briefings. I don't know if they are saying it but I need to know all the automated things that have been done in the morning briefings so if git hub have been performed I need to know. I really need to know all the work that you and the other agents are doing so even if it's repetitive that's fine. I wanna know or somewhere that it has been done but not just to say it has been done. It actually needs to have been completed to be on that morning brief so don't forget those things. [from: LewisG (1467288867697590426)]
+Tags: general
+Supersedes: prior decision on same topic

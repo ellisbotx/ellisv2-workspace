@@ -83,9 +83,32 @@ general, dashboard, inventory, products, automation, analytics, reports, orders,
 - Etsy→MCF automation → #orders (when implemented)
 - Reorder recommendations → #inventory (when implemented)
 
-## LLM Configuration (Feb 2, 2026)
+## LLM Configuration (Updated Feb 11, 2026)
 
-- Default model: Claude Sonnet 4.5 (Anthropic subscription auth via setup-token)
+- **Ellis (main): GPT-5.3 Codex (OpenAI)** — changed from Claude Opus 4.6 per Marco's request
+- Analysis agent (Opus): Claude Opus 4.6 — kept for cross-validation diversity
+- Creative agent (Vibe): Claude Sonnet 4.5
+- Strategic agent (Atlas): OpenAI o1
 - OpenAI Codex (gpt-5.2) available but not default
 - No fallbacks configured (cleaner error messages)
 - Cron jobs updated to use Claude Sonnet 4.5 for all scheduled tasks
+
+### FACT System: [2026-02-10 19:38:38 CST] Exec completed... (2026-02-11)
+System: [2026-02-10 19:38:38 CST] Exec completed (kind-cor, code 0) :: Score: 38% @@ -44,4 @@ (43 before, 95 after) - Black Owned: 56 SKUs, 15,175 units, $361,125 revenue - Card Plug: 72 SKUs, 14,151 units, $269,187 revenue - Kinfolk: 46 SKUs, 13,421 units, $267,472 revenue qmd://memory-dir/2026-02-04.md #ce9b17 Title: 2026-02-04 Score: 33% @@ -1,3 @@ (0 before, 87 after) # 2026-02-04 ## 20:44 CST — Multi-Agent CSV Validation Complete (Subagent Coordinator)
+Tags: kinfolk, card plug, black owned
+
+### FACT System: [2026-02-11 06:37:38 CST] Exec completed... (2026-02-11)
+System: [2026-02-11 06:37:38 CST] Exec completed (lucky-ro, code 0) :: CSV Validation Complete (Subagent Coordinator) qmd://memory-dir/2026-02-08.md:33 #d81fbc Title: 2026-02-08 Score: 76% @@ -32,4 @@ (31 before, 76 after) - Daily 9 AM cron posts updated board to #tasks - **RULE:** Every task gets written to file AND posted to #tasks. Discord notification = confirmation it's saved. - Marco can tell me tasks ANYWHERE — I add them to tracker regardless of channel
+Tags: marco
+
+### FACT yes, please do this. Let's let's... (2026-02-11)
+yes, please do this. Let's let's build as many systems to make this the very best overall system possible let's stop fucking playing if that's gonna get the job done build that shit. This is what I keep telling you if if it's gonna make my life easier and make you more efficient build it. We have a Mac mini here full of all types of space build whatever you need to build to help me get to $5 million. If you can't even tell me what task I asked you to add to the task list then I cannot fucking trust you when you say stop running adsthis shit is getting fucking ridiculous. I'm asking you to take time out and look at ways to improve yourself I have said this look at ways to improve processes. Look at ways to stop fucking forgetting shit this is why I've spent all types of time in the systems channel saying hey how could we make the memory better? How can we make it better constantly work on it. How could we make it better? I've said this over and over and over and over and then you keep saying oh yeah it's working great now it's doing this is doing that same thing but if I ask you to do something, don't forget it write it down get another system do what you said you're gonna do build a validation check that runs every heartbeat. Do what needs to be done to make this to premiere system you can do it. I believe you you got the agents you got the LLM's to do it this shit is ridiculous. Let's fucking do it and give me a clear understanding of what you're doing and what you need to do and what I need to do to help you do it. [from: LewisG (1467288867697590426)]
+Tags: ads
+
+### FACT - $50K capital freed + $24-30K/year... (2026-02-11)
+- $50K capital freed + $24-30K/year savings = **$74-80K first-year benefit**
+Tags: general
+
+### FACT ✅ **Recommendation:** Save 5-6 SKUs, liquidate... (2026-02-11)
+✅ **Recommendation:** Save 5-6 SKUs, liquidate 59-60, redeploy $50K capital
+Tags: general

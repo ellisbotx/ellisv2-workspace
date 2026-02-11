@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-02-11T08:44:42.643695",
+  "health": {
+    "tests_passed": 5,
+    "tests_total": 5
+  },
+  "integrity": {
+    "missing_count": 0,
+    "report": "/Users/ellisbot/.openclaw/workspace/data/integrity_reports/memory_integrity_2026-02-11_084124.json"
+  },
+  "incidents": 1,
+  "slo": {
+    "search_verification": "pass",
+    "capture_integrity": "pass",
+    "incident_backlog": "pass"
+  },
+  "overall": "GREEN"
+}

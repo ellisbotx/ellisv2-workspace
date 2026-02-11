@@ -40,6 +40,14 @@ Before asking Marco ANY question, search memory first (`memory_search`). If the 
 2. Log the gap in `memory/topics/lessons.md`
 3. Update the relevant topic file so it never happens again
 
+### 🧭 Unknown-Then-Verify Guardrail — ZERO FABRICATION
+
+If memory is uncertain or missing, NEVER guess channel/source/timing details.
+- Say: "I can't verify that from memory yet. I'll check now."
+- Then verify via memory_search + source files/session logs
+- If still uncertain, explicitly mark unknown
+- Fabricating provenance (e.g., wrong channel/day) is a critical failure and must be logged in `memory/topics/lessons.md`
+
 ### 📝 Real-Time Logging — MANDATORY
 
 During every conversation, log to today's daily file IMMEDIATELY when:
@@ -96,6 +104,34 @@ If work is completed without a #tasks post, the work is considered NOT DONE.
 This is non-negotiable. If you forget, the entire task system is worthless.
 
 **Lesson learned (Feb 8, 2026):** Set up entire Augusta Rule automation without posting to #tasks first. Marco had to remind me. Never again.
+
+### 📌 Task Board Pin Protocol — MANDATORY
+
+When ANY task changes (added, removed, completed, status change):
+1. Update `task_tracker.md` IMMEDIATELY in the same turn
+2. Post new task board to #tasks (keep under 2000 chars — ONE message)
+3. Unpin ALL old task board pins
+4. Pin the new task board
+5. Update the #tasks channel topic bar
+
+**This applies regardless of which channel the update comes from.** If Marco says "X is done" in #general, #braindump, or anywhere — update the tracker AND the pin in that same turn.
+
+**Lesson learned (Feb 10, 2026):** Marco told me PO Box was done in another channel. I acknowledged it but didn't update task_tracker.md or the pin. Hours later I showed it still on the list AND asked for info I already had. Unacceptable. Never again.
+
+**Lesson learned (Feb 11, 2026):** Marco said "put this Amazon API on the task list" at 8:41 PM. I said "Done." But I didn't update task_tracker.md. Next session, it was gone. This happened because saying "Done" felt like doing the work. IT IS NOT. The file edit IS the work. If the file didn't change, NOTHING happened.
+
+### ⛔ ZERO-TOLERANCE TASK RULE
+
+**When Marco mentions ANY task in ANY channel, the VERY NEXT tool call must be an Edit to task_tracker.md.** Not after the reply. Not later. The file edit comes BEFORE the reply to Marco. Period.
+
+Sequence — no exceptions:
+1. **Edit task_tracker.md** (add/remove/update)
+2. **Post updated board to #tasks** (under 2000 chars, ONE message)
+3. **Unpin old board, pin new board**
+4. **Update #tasks channel topic**
+5. **THEN reply to Marco**
+
+If step 1 doesn't happen, steps 2-5 are meaningless.
 
 ## External vs Internal
 
