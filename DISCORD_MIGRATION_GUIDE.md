@@ -72,7 +72,7 @@ Right-click on **"TEXT CHANNELS"** section → **Create Channel** for each:
 1. Click **"Bot"** in left sidebar
 2. Click **"Reset Token"** (or "Add Bot" if it's your first time)
 3. **IMPORTANT:** Copy the bot token that appears
-   - It looks like: `YOUR_BOT_TOKEN_HERE`
+   - It looks like: `YOUR_BOT_TOKEN_HERE` (a long alphanumeric string with dots)
    - **Save this somewhere safe** - you'll need it in Part 4
    - You can only see it once! If you lose it, you'll need to reset it again
 
