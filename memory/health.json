@@ -1,50 +1,58 @@
 {
-  "timestamp": "2026-02-11T08:34:34.047041",
-  "reindex_ok": true,
-  "tests_passed": 5,
-  "tests_total": 5,
-  "all_pass": true,
-  "details": [
-    {
-      "query": "Card Plug margin",
-      "expected": [
-        "40%"
-      ],
-      "passed": true
-    },
-    {
-      "query": "brevity direct",
-      "expected": [
-        "direct",
-        "brevity"
-      ],
-      "passed": true
-    },
-    {
-      "query": "Codex Opus",
-      "expected": [
-        "Codex",
-        "Opus"
-      ],
-      "passed": true
-    },
-    {
-      "query": "ROAS breakeven",
-      "expected": [
-        "3.0",
-        "ROAS"
-      ],
-      "passed": true
-    },
-    {
-      "query": "FIX IMMEDIATELY memory broken",
-      "expected": [
-        "FIX",
-        "fix",
-        "IMMEDIATELY",
-        "immediately"
-      ],
-      "passed": true
+  "timestamp": "2026-02-11T19:02:17.599929",
+  "checks": {
+    "index": true,
+    "topic_files": true,
+    "topic_issues": [],
+    "daily_log": true,
+    "search_tests": {
+      "passed": 5,
+      "total": 5,
+      "details": [
+        {
+          "query": "Card Plug margin",
+          "expected": [
+            "40%"
+          ],
+          "passed": true
+        },
+        {
+          "query": "brevity direct",
+          "expected": [
+            "direct",
+            "brevity"
+          ],
+          "passed": true
+        },
+        {
+          "query": "Codex Opus",
+          "expected": [
+            "Codex",
+            "Opus"
+          ],
+          "passed": true
+        },
+        {
+          "query": "ROAS breakeven",
+          "expected": [
+            "3.0",
+            "ROAS"
+          ],
+          "passed": true
+        },
+        {
+          "query": "FIX IMMEDIATELY memory broken",
+          "expected": [
+            "FIX",
+            "fix",
+            "IMMEDIATELY",
+            "immediately"
+          ],
+          "passed": true
+        }
+      ]
     }
-  ]
+  },
+  "all_pass": true,
+  "critical": false
 }

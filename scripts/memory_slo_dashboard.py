@@ -48,8 +48,15 @@ def miss_incident_count():
 
 
 def evaluate_slo(health, integrity, incidents):
+    # Support both health.json schemas:
+    # A) {tests_passed, tests_total, all_pass}
+    # B) {checks: {search_tests: {passed,total}}, all_pass}
     tests_passed = int(health.get("tests_passed", 0))
     tests_total = int(health.get("tests_total", 0))
+    if tests_total == 0:
+        search = (health.get("checks") or {}).get("search_tests") or {}
+        tests_passed = int(search.get("passed", 0))
+        tests_total = int(search.get("total", 0))
     all_pass = bool(health.get("all_pass", False))
     missing_count = int((integrity or {}).get("missing_count", 9999)) if integrity else 9999
 

@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-02-11T08:44:42.643695",
+  "timestamp": "2026-02-11T19:02:37.717251",
   "health": {
     "tests_passed": 5,
     "tests_total": 5
   },
   "integrity": {
     "missing_count": 0,
-    "report": "/Users/ellisbot/.openclaw/workspace/data/integrity_reports/memory_integrity_2026-02-11_084124.json"
+    "report": "/Users/ellisbot/.openclaw/workspace/data/integrity_reports/memory_integrity_2026-02-11_180154.json"
   },
   "incidents": 1,
   "slo": {

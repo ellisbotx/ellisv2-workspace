@@ -209,3 +209,15 @@ Tags: amazon
 ### RULE I need you to make a... (2026-02-11)
 I need you to make a detailed list of the things I need to do to fix the errors that you have found and put those in the task list of course with the most critical acting like such and then you said liquidate all 74 I'm trying to figure out what those 74 ver what I already had on my liquidation list so you need to put a report somewhere maybe in reports of the 74 kill list that you suggest but overall at this information, please remember it taken into a account so we can make it better overall three companies. [from: LewisG (1467288867697590426)]
 Tags: general
+
+### RULE So now that we have resetting... (2026-02-11)
+So now that we have resetting your brain Ellis to a different llm wants you to verify that all of the automated upgrade systems all of the automated checking everything that should be running on its own. It's still going to be functioning properly and the reason why I say this is because when I switched your brain from another lll of the past, it broke a lot of the systems. So I'm saying that to say I need you to be proactive and change whatever needs to be changed so all systems run correctly [from: LewisG (1467288867697590426)]
+Tags: ellis
+
+### FACT System: [2026-02-11 09:20:29 CST] Exec completed... (2026-02-11)
+System: [2026-02-11 09:20:29 CST] Exec completed (good-cov, code 0) :: gpt-5.3-codex │ 71k/272k (26%) │ └──────────────────────────────────────────────────────────────┴────────┴─────────┴─────────────────┴─────────────────┘ FAQ: https://docs.openclaw.ai/faq Troubleshooting: https://docs.openclaw.ai/troubleshooting Next steps: Need to share? openclaw status --all Need to debug live? openclaw logs --follow Need to test channels? openclaw status --deep
+Tags: codex
+
+### RULE Yes I want you to do... (2026-02-11)
+Yes I want you to do this for one side note in 2014. I'm sorry in 2004 no I'm sorry once again. In 2024 we did over 1.3 million 2025 we did over $800,000 so that number of 400k is wrong. I don't know where you got that from but yes, the goal of 5 million in sales is correct [from: LewisG (1467288867697590426)]
+Tags: general

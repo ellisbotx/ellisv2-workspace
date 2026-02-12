@@ -82,6 +82,8 @@ general, dashboard, inventory, products, automation, analytics, reports, orders,
 - Memory/skill updates → #system
 - Etsy→MCF automation → #orders (when implemented)
 - Reorder recommendations → #inventory (when implemented)
+- Product discussion moved to channel <#1470178653932355798> (as of Feb 11, 2026)
+- Automation updates moved from #automation (<#1468684221810868326>) to <#1468708512539349155> (as of Feb 11, 2026)
 
 ## LLM Configuration (Updated Feb 11, 2026)
 
@@ -112,3 +114,7 @@ Tags: general
 ### FACT ✅ **Recommendation:** Save 5-6 SKUs, liquidate... (2026-02-11)
 ✅ **Recommendation:** Save 5-6 SKUs, liquidate 59-60, redeploy $50K capital
 Tags: general
+
+### FACT a little earlier in this chat,... (2026-02-11)
+a little earlier in this chat, you said one of the biggest things that we can do is to get you Amazon SPAPI access for all three of the account so right now I have the black owned account up and open. Tell me where do I need to go to look at this because if I can remember correctly, there was some type of problem but where do I go to set this up? [from: LewisG (1467288867697590426)]
+Tags: black owned, amazon
