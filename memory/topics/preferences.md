@@ -517,3 +517,47 @@ Tags: general
 ### RULE it never happened in products that... (2026-02-11)
 it never happened in products that conversation happened in finance so if we have done all of these memory updates that are in the system channel and you're talking about how I don't need anything else and you can build this in that and everything is built and you can search everything why when I go on a whole Nother channel you don't remember what we talked about. Why when I post a screenshot all of a sudden you remember it but then you make stuff up and say that conversation happened in products yesterday no it didn't. We didn't even have any conversations in products until I start testing here in products to to test the memory so now my questioning is, can you remember or not? Don't fill me up with BS what is the 6 o'clock memory health check about if you're not remembering what I ask you specifically to remember in the finance channel I asked for this stuff to be remembered you stated it will be remembered but nothing at all is being remembered. This is a total letdo? [from: LewisG (1467288867697590426)]
 Tags: general
+
+### RULE now just recap what is gonna... (2026-02-12)
+now just recap what is gonna be done continuously checks that the checks and balances for the memory to make sure it is working at tiptop shape layout your detailed plan on how to continuously do that as well as continuously improve it. Please earn your keep as the top LLM and help open claw be better. [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE so do you feel confident as... (2026-02-12)
+so do you feel confident as the new Ellis that this plan will help us to be the very best that we can be I want you to stamp your name on it and if you don't believe so say no. I have put below some alternatives or some add-ons that others have built for open claw and say that they help the memory better. I want you to analyze these see if it's better be very objective for me to just pay for one of these or add on one of these or if you can build this yourself and it run the same if not better or let me know if what you've already done is better or comparable to these please give me a full breakdown. Don't hold nothing back again. Memory is the most important thing about this whole system. If it's not working, then I am wasting my time. Your job is to tell me what I need to do so I am not wasting my time. https://supermemory.ai/docs/intro and https://github.com/clawdbrunner/openclaw-graphiti-memory [from: LewisG (1467288867697590426)]
+Tags: ellis
+
+### RULE is self reflection that you're talking... (2026-02-12)
+is self reflection that you're talking about the same as this skill here now I don't want to apply the skill. I just wanna know if it's the same as this skill so I want you to read through the files. See what it does and then see if we need to implement this.https://clawhub.ai/autogame-17/capability-evolver [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE ALWAYS post something. Silent success is... (2026-02-12)
+ALWAYS post something. Silent success is not acceptable for this check.
+Tags: general
+
+### RULE so what is our check and... (2026-02-12)
+so what is our check and improvement plan for memory? I need this system to be growing with me at all times give me a detailed plan on how you're gonna ensure that you are learning you are growing and you have access to searchable memory did you and this is very important take a look at before even responding to me to make sure you have full context understanding and everything you need to help me. [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE so I'm gonna ask you again... (2026-02-12)
+so I'm gonna ask you again everything is fully operational with the memory. It is working at tiptop shape. That's question number one then number two. What is the plan going forward to always daily maybe even two times a day be checking to make sure everything and memory is working flawlessly. It is the most important part of this whole ecosystem and someone needs to be working on it. Continuously are watching it continuously. [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE I want you to take a... (2026-02-12)
+I want you to take a look at this github this is supposed to be something to improve the memory. I want you to be very transparent analyze it thoroughly no rush and tell me will this help our memory again I continue to tell you memory is the most important part of this whole system so with this help it at all if so, is this something we should add or can you build this exact model out yourself before you do anything, give me a nice detailed brief of each option https://github.com/momo-personal-assistant/openclaw-plugin [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE if option B is gonna make... (2026-02-12)
+if option B is gonna make it better and you're gonna continue memory health checks and have a backup for a backup to make sure everything is running as I've told you before if you know how to make it better don't ask me just make it better [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE no give this to a opus... (2026-02-12)
+no give this to a opus 4.6 sub agent because you haven't been able to do it now what is it that needs to be done? I don't even know what's going on. We need to get this done and get it done now. You have never taken this long to accomplish anything. [from: LewisG (1467288867697590426)]
+Tags: opus
+
+### RULE today we had a real problem... (2026-02-12)
+today we had a real problem when you were having issues with whatever you were trying to do what to do is and it took hours upon hours over three hours for me to finally tell you to give it to a sub agent from a different LLM for them to give it a try. What can we implement that is a check in balance where this will never ever happen again and I will not waste that much time now again if it takes time, I deeply understand but when you transferred the job over to a sub agent, they got it done within 10 minutes so it tells me it 100% did not have to take three hours or longe so before you implement anything, let's talk through this [from: LewisG (1467288867697590426)]
+Tags: general
+
+### RULE now also do you complete the... (2026-02-12)
+now also do you complete the task the ones that are specified for you and Todoist the reason why is because all my Todoist app you have Todoist integration and set up that set up an integration already done so do you not control this yourself also my to do as you have to do is sync cadence that's done but also I do not see them here in discord so I don't know if things are sinking up properly please take a look up their old look at this and then make sure you're also completing your task [from: LewisG (1467288867697590426)]
+Tags: general

@@ -4024,3 +4024,101 @@ Tags: general
 ### FACT - Detected "Don't forget to check... (2026-02-11)
 - Detected "Don't forget to check on CPC certs" as a gap (the phrase "check on" isn't specifically in tracker)
 Tags: general
+
+### FACT All 5 returning "No results found."... (2026-02-12)
+All 5 returning "No results found." The other 161 products are active. Card Plug catalog is 100% clean.
+Tags: card plug
+
+### COMMITMENT System: [2026-02-10 19:50:05 CST] Discord reaction... (2026-02-12)
+System: [2026-02-10 19:50:05 CST] Discord reaction added: 👍 by 1467288867697590426 on 1468683175826952265 #system msg 1470959899683852502 from Ellis#7683
+Tags: ellis
+
+### DECISION - **Autocapture dry-run**: ✅ Extracted all... (2026-02-12)
+- **Autocapture dry-run**: ✅ Extracted all 4 items correctly (RULE for reports, FACT for $45K revenue, DECISION to kill Black Love, DIRECTION to focus on Kinfolk). Tags and filing targets are correct.
+Tags: kinfolk, black love
+
+### FACT Okay, going to follow your recommendation... (2026-02-12)
+Okay, going to follow your recommendation but remember what my goals are [from: LewisG (1467288867697590426)]
+Tags: general
+
+### DECISION Do you do self reflection or... (2026-02-12)
+Do you do self reflection or know what that skill is [from: LewisG (1467288867697590426)]
+Tags: general
+
+### COMMITMENT tell me how they are tell... (2026-02-12)
+tell me how they are tell me how todoist would work since I guess you will have a PI access when I would it work through the app or through here or together just kind of explain it on the fifth grade level for me [from: LewisG (1467288867697590426)]
+Tags: general
+
+### DECISION say less say less two and... (2026-02-12)
+say less say less two and hood to Hollywood are all clear and no longer need the CPC so please remove this off the task list [from: LewisG (1467288867697590426)]
+Tags: general
+Supersedes: prior decision on same topic
+
+### FACT [cron:7f120ae2-313e-4e84-83bb-4b9d703da442 Daily Sales Anomaly Detection] Run... (2026-02-12)
+[cron:7f120ae2-313e-4e84-83bb-4b9d703da442 Daily Sales Anomaly Detection] Run the sales anomaly detection script: python3 /Users/ellisbot/.openclaw/workspace/scripts/sales_anomaly.py — Post results to #alerts if anomalies found, #reports if all normal. Do NOT message Marco unless there's a major anomaly (>60% drop in a top-10 SKU).
+Tags: marco, ellis
+
+### FACT • Card Plug: 7,821 units /... (2026-02-12)
+• Card Plug: 7,821 units / $148.6K
+Tags: card plug
+
+### FACT • Black Owned: 5,640 units /... (2026-02-12)
+• Black Owned: 5,640 units / $131.6K
+Tags: black owned
+
+### FACT • Kinfolk: 5,988 units / $118.6K (2026-02-12)
+• Kinfolk: 5,988 units / $118.6K
+Tags: kinfolk
+
+### COMMITMENT I just went through again sending... (2026-02-12)
+I just went through again sending liquidation products to liquidation going through checking them one by one and I've added a few more to the liquid liquidation list here it is below: [from: LewisG (1467288867697590426)]
+Tags: general
+
+### COMMITMENT - User is frustrated by long... (2026-02-12)
+- User is frustrated by long delays. Need immediate delivery.
+Tags: general
+
+### DECISION - If auth expires, use tmux... (2026-02-12)
+- If auth expires, use tmux flow per 1password skill and continue.
+Tags: general
+
+### COMMITMENT so on that stuff that has... (2026-02-12)
+so on that stuff that has deadlines like say for instance the tax the tax filed by is does it have some type of notification and then you have the monthly accountable plan reimbursement that's not on reoccurring that you're being in a reoccurring section also, I don't see the Augustus, which should be in the reoccurring also [from: LewisG (1467288867697590426)]
+Tags: general
+
+### COMMITMENT add a task for myself to... (2026-02-12)
+add a task for myself to do paperwork by February 13 test [from: LewisG (1467288867697590426)]
+Tags: general
+
+### COMMITMENT the task got added to Todoist... (2026-02-12)
+the task got added to Todoist still haven't synced into the task channel [from: LewisG (1467288867697590426)]
+Tags: general
+
+### DECISION - Remove reliance on fragile manual... (2026-02-12)
+- Remove reliance on fragile manual board-only flow.
+Tags: general
+
+### COMMITMENT **✅ Completed Today** — What got... (2026-02-12)
+**✅ Completed Today** — What got done (by Ellis and by Marco). Orders placed, tracking pasted, tasks finished.
+Tags: marco, ellis
+
+### COMMITMENT **🔮 Tomorrow Preview** — Scheduled tasks,... (2026-02-12)
+**🔮 Tomorrow Preview** — Scheduled tasks, deadlines, things to prep for.
+Tags: general
+
+### FACT I don't remember what is the... (2026-02-12)
+I don't remember what is the purpose of the every two hour memory capture integrity check overnight why is it done overnight and not in the daytime? I'm not saying to stop it, but please give me an explanation on what's really going on there [from: LewisG (1467288867697590426)]
+Tags: general
+
+### DECISION Approved [from: LewisG (1467288867697590426)] (2026-02-12)
+Approved [from: LewisG (1467288867697590426)]
+Tags: general
+
+### COMMITMENT What happens if I don’t take... (2026-02-12)
+What happens if I don’t take the requested action? If you do not update your credentials before 2026-08-11T15:35:23.917Z, your application will be blocked from making calls to the Amazon Services API. This may directly impact your business and any customers that previously authorized your application. Loss of access may restrict critical business functions including orders, ship confirmations, shipping labels, and invoices. If your application is blocked due to failure to rotate LWA credentials by the deadline, initiating LWA credential rotation will result in your application becoming unblocked automatically. You will still need to begin using the new credentials as the old secret expires after seven days. Can my LWA credentials be rotated programmatically? Yes. We have launched the Application Management API, which allows you to programmatically rotate the client secret on registered applications. More information on the Application Management API: https://developer-docs.amazon.com/sp-api/docs/application-management-api-v2023-11-30-use-case-guide#tutorial-rotate-your-applications-client-secret [from: LewisG (1467288867697590426)]
+Tags: amazon
+
+### DECISION the last message does not appear... (2026-02-12)
+the last message does not appear to be the new set up that you said you were gonna switch to [from: LewisG (1467288867697590426)]
+Tags: general
+Supersedes: prior decision on same topic

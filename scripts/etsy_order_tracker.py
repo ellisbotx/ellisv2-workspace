@@ -1373,15 +1373,23 @@ def main():
                         # detect these as "new" and send the full notification
                         log(f"🌙 Quiet mode: {len(new_orders)} new, {len(tracking_updates)} tracking captured silently")
                     else:
-                        # Detect what changed and prepend full details to report
+                        # Detect what changed and only notify for actionable deltas
+                        # (new orders or newly available tracking numbers).
                         changes = detect_changes(tracker)
-                        changes_section = format_changes_section(changes)
-                        report_with_changes = changes_section + report if changes_section else report
-                        
-                        # Post to Discord #orders in real-time
-                        post_to_discord(DISCORD_ORDERS_CHANNEL, report_with_changes)
-                        log(f"📬 Report posted to Discord (changed)")
-                        
+                        actionable_changes = [c for c in changes if c[0] in ("new", "tracking")]
+
+                        if actionable_changes:
+                            changes_section = format_changes_section(actionable_changes)
+                            report_with_changes = changes_section + report if changes_section else report
+
+                            # Post to Discord #orders in real-time
+                            post_to_discord(DISCORD_ORDERS_CHANNEL, report_with_changes)
+                            log(f"📬 Report posted to Discord (new/tracking changes)")
+                        else:
+                            log("📭 Hash changed from non-actionable updates only (e.g., auto-archive) — no Discord post")
+
+                        # Always advance hash/snapshot in non-quiet mode so archived-only
+                        # churn doesn't repeatedly appear as a change.
                         save_last_report_hash(current_hash)
                         save_snapshot(tracker)
                 else:

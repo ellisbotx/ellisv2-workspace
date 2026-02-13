@@ -58,6 +58,15 @@ To stay responsive while executing heavy work:
 
 Default rule: if a task may block chat responsiveness, spawn a worker immediately.
 
+### ⏱️ Execution Escalation Protocol (Mandatory)
+
+- **T+10 min no real progress:** spawn specialist sub-agent.
+- **T+20 min unresolved:** spawn second model in parallel.
+- **T+30 min unresolved:** stop solo attempts; switch to orchestrator mode and post blocker + fallback + hard ETA.
+- **Progress updates:** every 5 minutes, facts only: either (a) done + proof or (b) blocker + fallback + ETA.
+- **Missed update kill switch:** one missed checkpoint triggers immediate escalation.
+- Full protocol: `docs/execution_escalation_protocol.md`
+
 ### 📝 Real-Time Logging — MANDATORY
 
 During every conversation, log to today's daily file IMMEDIATELY when:
@@ -73,6 +82,13 @@ Don't wait until end of session. Write it down NOW.
 - **Weekly (Sunday 8 PM):** Consolidation — distill daily logs into topic files.
 - **Monthly (1st):** Deep audit — growth tracking, search testing, gap analysis. Report to #system.
 - **AUTO-FIX RULE:** If memory is broken, FIX IT IMMEDIATELY. Don't wait. Don't ask. Re-index, rebuild, repair — then report what you did. Memory is the most critical system. 100% uptime, no exceptions.
+
+### 🪞 Self-Reflection Protocol (Mandatory)
+
+- **Daily mini-review (8:15 PM):** Quick review of memory health, SLO, incidents, and one improvement for tomorrow.
+- **Weekly deep review (Sunday 7:30 PM):** Root-cause trend analysis + preventive fixes.
+- Rules: no excuses, no vague status; identify failure → fix → verify → log lesson.
+- Protocol doc: `docs/self_reflection_protocol.md`
 
 ### 🧠 MEMORY.md - Your Long-Term Memory
 

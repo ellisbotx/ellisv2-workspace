@@ -2,7 +2,7 @@
   "orders": [
     {
       "email_id": "290",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "Maggi Vacha",
       "shipping_address": "Maggi Vacha\n2515 Sharon Dr\nOMAHA, NE 68112-2829",
@@ -25,11 +25,11 @@
       "city": "OMAHA",
       "state": "NE",
       "zip_code": "68112-2829",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "304",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "Damita  Jones",
       "shipping_address": "Damita  Jones\n17 Devonshire Terrace\nWEST ORANGE, NJ 07052",
@@ -52,11 +52,11 @@
       "city": "WEST ORANGE",
       "state": "NJ",
       "zip_code": "07052",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "309",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "Brenda McCann",
       "shipping_address": "Brenda McCann\n218 S Monroe St\nRAYMORE, MO 64083",
@@ -79,11 +79,11 @@
       "city": "RAYMORE",
       "state": "MO",
       "zip_code": "64083",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "336",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "JACQUELYN DUCKETT",
       "shipping_address": "JACQUELYN DUCKETT\n15790 Lasselle St\nApt D14\nMORENO VALLEY, CA 92551-6327",
@@ -106,11 +106,11 @@
       "city": "MORENO VALLEY",
       "state": "CA",
       "zip_code": "92551-6327",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "488",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "Leslia Lowe",
       "shipping_address": "Leslia Lowe\n2633 Torch Ave\nN LAS VEGAS, NV 89081",
@@ -133,11 +133,11 @@
       "city": "N LAS VEGAS",
       "state": "NV",
       "zip_code": "89081",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "507",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "Cortlynn",
       "shipping_address": "Cortlynn\n15011 Chambery Drive\nLITTLE ROCK, AR 72211",
@@ -160,11 +160,11 @@
       "city": "LITTLE ROCK",
       "state": "AR",
       "zip_code": "72211",
-      "archived_at": null
+      "archived_at": "2026-02-12T09:01:18.394695"
     },
     {
       "email_id": "563",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "Jacquelyn Evans",
       "shipping_address": "Jacquelyn Evans\n1713 Stoneybrook Dr\nHIGH POINT, NC 27265-2450",
@@ -187,11 +187,11 @@
       "city": "HIGH POINT",
       "state": "NC",
       "zip_code": "27265-2450",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "574",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "Allison  Thomas",
       "shipping_address": "Allison  Thomas\n710 East Street\nCAMDEN, DE 19934",
@@ -214,11 +214,11 @@
       "city": "CAMDEN",
       "state": "DE",
       "zip_code": "19934",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "578",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "Clarence Harris Jr",
       "shipping_address": "Clarence Harris Jr\n271 Cottage Road\nVALLEY COTTAGE, NY 10989",
@@ -241,11 +241,11 @@
       "city": "VALLEY COTTAGE",
       "state": "NY",
       "zip_code": "10989",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "587",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Card Plug",
       "customer_name": "Zepora Richardson",
       "shipping_address": "Zepora Richardson\n3406 Suncrest Dr\n# 6\nFLINT, MI 48504-8425",
@@ -268,11 +268,11 @@
       "city": "FLINT",
       "state": "MI",
       "zip_code": "48504-8425",
-      "archived_at": null
+      "archived_at": "2026-02-12T14:00:14.162721"
     },
     {
       "email_id": "647",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "MEAN GREENE",
       "shipping_address": "MEAN GREENE\n3425 Padua Ave\nBaby Alum\nCLAREMONT, CA 91711",
@@ -295,11 +295,11 @@
       "city": "CLAREMONT",
       "state": "CA",
       "zip_code": "91711",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "667",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "Lisa Moore",
       "shipping_address": "Lisa Moore\n300 E Capitola Ave\nKINSTON, NC 28501-3920",
@@ -322,11 +322,11 @@
       "city": "KINSTON",
       "state": "NC",
       "zip_code": "28501-3920",
-      "archived_at": null
+      "archived_at": "2026-02-12T17:00:11.445155"
     },
     {
       "email_id": "669",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "Jeremy Dorsey",
       "shipping_address": "Jeremy Dorsey\n9830 Dale Ave\nApt 54\nSPRING VALLEY, CA 91977",
@@ -349,7 +349,7 @@
       "city": "SPRING VALLEY",
       "state": "CA",
       "zip_code": "91977",
-      "archived_at": null
+      "archived_at": "2026-02-12T08:30:13.749963"
     },
     {
       "email_id": "813",
@@ -408,7 +408,7 @@
     {
       "email_id": "887",
       "source": "shopify",
-      "status": "SHIPPED",
+      "status": "ARCHIVED",
       "brand": "Kinfolk",
       "customer_name": "Tawanda Thomas",
       "street_address": "1047 Craftswood Road",
@@ -447,7 +447,7 @@
       "placed_at": null,
       "shipped_at": "2026-02-09T20:30:10.411633",
       "completed_at": null,
-      "archived_at": null,
+      "archived_at": "2026-02-12T20:30:13.218847",
       "created_at": "2026-02-09T13:47:36.141468"
     },
     {
@@ -681,7 +681,7 @@
       "created_at": "2026-02-11T15:00:06.375262"
     }
   ],
-  "last_check_etsy": "2026-02-12T06:00:05.614256",
-  "last_check_amazon": "2026-02-12T06:00:12.551796",
-  "last_check_shopify": "2026-02-12T06:00:06.055189"
+  "last_check_etsy": "2026-02-13T03:00:06.432047",
+  "last_check_amazon": "2026-02-13T03:00:13.138166",
+  "last_check_shopify": "2026-02-13T03:00:06.888438"
 }
