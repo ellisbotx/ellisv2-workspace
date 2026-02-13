@@ -20,6 +20,7 @@
 | 7 | Rebuild #tasks channel for Todoist-first operations (event-driven + clean summaries) | Feb 12 | Feb 12 | 🟡 In Progress | Marco approved ground-up rebuild request in #system. |
 | 8 | Implement Execution Escalation Protocol (timeboxes, auto-handoff, proof updates, failure kill switch) | Feb 12 | Feb 12 | 🟡 In Progress | Marco approved in #system. Implementing now. |
 | 9 | Upgrade memory health tests to dynamic+rotating suite (not fixed-only) | Feb 12 | Feb 12 | 🟡 In Progress | Marco requested stronger real memory health validation in #system. |
+| 10 | OpenClaw daily update check + apply at 8 AM | Feb 13 | Daily 8:00 AM | 🟡 In Progress | Corrected order per Marco: if update exists, run GitHub backup first, then apply update, then post success. |
 | 5 | Full memory system audit (indexing, capture, recall accuracy, self-heal, model behavior) | Feb 11 | Feb 11 | ✅ Complete | Diagnostic delivered with root-cause attribution |
 | 6 | Wire auto-capture into guaranteed conversation ingestion hook | Feb 11 | Feb 11 | ✅ Complete | Added `memory_ingest_from_sessions.py` + cron every 15 min |
 | 7 | Add capture-integrity check (conversation vs memory entries) | Feb 11 | Feb 11 | ✅ Complete | Added `memory_capture_integrity.py` + 2-hour cron + report output |

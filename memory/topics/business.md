@@ -4122,3 +4122,7 @@ Tags: amazon
 the last message does not appear to be the new set up that you said you were gonna switch to [from: LewisG (1467288867697590426)]
 Tags: general
 Supersedes: prior decision on same topic
+
+### COMMITMENT **📦 Most Recent Orders** — Show... (2026-02-13)
+**📦 Most Recent Orders** — Show ALL orders from tracker.json sorted by date (newest first). Include order date/time, customer name, product, source, status. This must reflect CURRENT data from the 5:55 AM refresh, NOT last night's 9 PM snapshot.
+Tags: general
